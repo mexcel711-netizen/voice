@@ -76,7 +76,6 @@ export async function runLiveChat(
   }
 
   try {
-    const ai = createGeminiClient(env.GEMINI_API_KEY);
     const historyParts = (body.history ?? []).slice(-12).map((h) => ({
       role: h.role === 'assistant' ? 'model' : 'user',
       parts: [{ text: h.text }],
@@ -145,6 +144,7 @@ export async function runLiveChat(
       };
     }
 
+    const ai = createGeminiClient(env.GEMINI_API_KEY!);
     const response = await ai.models.generateContent({
       model: env.GEMINI_CHAT_MODEL || 'gemini-3.8-flash',
       contents: [
