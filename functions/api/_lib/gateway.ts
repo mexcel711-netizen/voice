@@ -88,9 +88,9 @@ export async function runLiveChat(
       'Return JSON with replyText (primary natural response in requested language script), replyRoman (Roman Urdu transliteration), replyEn (concise English meaning), emotion (one of happy,sad,angry,surprised,shy,laughing,caring,teasing), intensity (0-100 integer), and optional toolCalls array. Tool-call names are laptop_command, browser_command, report_emotion, save_memory, create_reminder, get_schedule. Each item must be {name,argsJson}, where argsJson is a JSON-encoded object. Use browser_command for Chrome tabs, searching, navigating, reading the current page, and scrolling. Never claim a browser action succeeded before the tool result is returned. For browser actions use only the allowlisted action names: list_tabs, open_tab, search, read_page, switch_tab, close_tab, scroll_page.',
     ];
     if (body.toolResults?.length) {
-      sys.push('The client has already executed the requested tools. Do not call any more tools. Use these actual tool results to answer truthfully; never claim an action succeeded if ok=false. Tool results:\\n' + JSON.stringify(body.toolResults).slice(0, 10000));
+      sys.push('The client has already executed the requested tools. Do not call any more tools. Use these actual tool results to answer truthfully; never claim an action succeeded if ok=false. Tool results:\n' + JSON.stringify(body.toolResults).slice(0, 10000));
     }
-    const systemText = sys.join('\\n');
+    const systemText = sys.join('\n');
 
     if (!env.GEMINI_API_KEY && env.AI) {
       const workerResponse = await env.AI.run(
