@@ -26,6 +26,7 @@ async function startServer() {
     SUPABASE_URL?: string;
     SUPABASE_ANON_KEY?: string;
     OWNER_EMAIL?: string;
+    ALLOW_UNAUTHENTICATED_LOCAL?: boolean;
   } = {
     GEMINI_API_KEY: process.env.GEMINI_API_KEY,
     ELEVENLABS_API_KEY: process.env.ELEVENLABS_API_KEY,
@@ -34,6 +35,7 @@ async function startServer() {
     SUPABASE_URL: process.env.SUPABASE_URL,
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
     OWNER_EMAIL: process.env.OWNER_EMAIL,
+    ALLOW_UNAUTHENTICATED_LOCAL: process.env.NODE_ENV !== 'production',
   };
 
   app.get('/api/health', (_req, res) => {
