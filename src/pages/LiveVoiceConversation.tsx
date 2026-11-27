@@ -7,7 +7,8 @@ import { ZaraLiveAdapter, type LiveVoiceState } from '../services/live.service';
 import { buildZaraSystemInstruction } from '../lib/prompt';
 import { containsUrduScript } from '../lib/rtl';
 import { useToast } from '../context/ToastContext';
-import type { CommandType, EmotionName, MemoryCategory, MemoryType } from '../types/db';
+import type { CommandType, EmotionName, MemoryCategory, MemoryType, VoiceProfile } from '../types/db';
+import { chromeBrowserService, type ChromeBrowserCommand } from '../services/chrome.service';
 
 export default function LiveVoiceConversation() {
   const {
@@ -26,6 +27,7 @@ export default function LiveVoiceConversation() {
     logEmotion,
     addMemory,
     createReminder,
+    voices,
   } = useZara();
   const { showToast } = useToast();
   const navigate = useNavigate();
@@ -42,6 +44,8 @@ export default function LiveVoiceConversation() {
   const [muted, setMuted] = useState(false);
   const [activeModelLabel, setActiveModelLabel] = useState('Gemini 3.8 Live');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [chromeConnected, setChromeConnected] = useState(false);
+  const selectedVoice = useMemo(() => voices.find((voice) => voice.is_selected) ?? voices[0], [voices]);
 
   const messages = useMemo(
     () => (activeSessionId ? messagesBySession[activeSessionId] ?? [] : []),
@@ -61,6 +65,8 @@ export default function LiveVoiceConversation() {
     adapterRef.current = adapter;
 
     const unsubState = adapter.onStateChange((st) => setVoiceState(st));
+    void chromeBrowserService.ping().then(setChromeConnected).catch(() => setChromeConnected(false));
+
     const unsubErr = adapter.onError((msg) => {
       setErrorMsg(msg);
       showToast(msg, 'warning');
@@ -115,6 +121,17 @@ export default function LiveVoiceConversation() {
           source: 'conversation',
           source_session_id: activeSessionId,
         });
+      } else if (call.name === 'browser_command') {
+        void chromeBrowserService.execute(call.args as unknown as ChromeBrowserCommand)
+          .then((result) => {
+            setChromeConnected(true);
+            const detail = result.message || 'Chrome action completed.';
+            showToast(detail, 'success');
+          })
+          .catch((error: unknown) => {
+            setChromeConnected(false);
+            showToast(error instanceof Error ? error.message : 'Chrome extension is not connected.', 'warning');
+          });
       } else if (call.name === 'create_reminder') {
         void createReminder({
           kind: (call.args.kind as 'reminder' | 'timer' | 'alarm') || 'reminder',
@@ -178,6 +195,13 @@ export default function LiveVoiceConversation() {
         language: settings.language_mode,
         micDeviceId: settings.mic_device_id,
         continueSummary,
+        voiceProfile: selectedVoice ? {
+          provider: selectedVoice.provider,
+          provider_voice_id: selectedVoice.provider_voice_id,
+          speed: selectedVoice.speed,
+          warmth: selectedVoice.warmth,
+          expressiveness: selectedVoice.expressiveness,
+        } : undefined,
       });
       if (info?.model) setActiveModelLabel(info.model);
       showToast('Voice session connected.', 'success');
@@ -256,6 +280,9 @@ export default function LiveVoiceConversation() {
           </div>
 
           <div className="flex items-center gap-2">
+            <span className={`px-3 py-1.5 rounded-full text-xs font-medium ${chromeConnected ? 'bg-emerald-500/15 text-emerald-300' : 'bg-surface-container-high/70 text-on-surface-variant'}`}>
+              Chrome {chromeConnected ? 'Connected' : 'Extension not connected'}
+            </span>
             <span className="px-3 py-1.5 rounded-full bg-surface-container-high/70 text-xs text-secondary font-medium">
               {activeModelLabel}
             </span>
