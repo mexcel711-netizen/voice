@@ -1,6 +1,6 @@
 # Zara — Personal AI Voice Assistant
 
-Single-owner bilingual (**Urdu + Roman Urdu + English**) AI voice companion with live Gemini multimodal voice/chat proxy, Memory Vault, Emotion & Personality Studios, Reminders & Adhan Prayer Times (`adhan`), Safety Guardrails, and Supabase Realtime command dispatch for Zara Local Agent.
+Single-owner bilingual (**Urdu + Roman Urdu + English**) AI voice companion with a Cloudflare Workers AI chat fallback, optional Gemini/ElevenLabs TTS, Memory Vault, Emotion & Personality Studios, Reminders & Adhan Prayer Times (`adhan`), Safety Guardrails, and Supabase Realtime command dispatch for the Zara Local Agent.
 
 ## Local Development
 
@@ -20,7 +20,7 @@ Copy `.env.example` and configure as needed (never commit secrets):
 - `VITE_SUPABASE_URL` & `VITE_SUPABASE_ANON_KEY`: Optional Supabase project URL & anon key
 - `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `OWNER_EMAIL`: Server-side JWT & owner verification for `/api/*`
 
-When Supabase env vars are omitted, the workspace runs cleanly in local mode with explicit `"Supabase configure nahi hai"` notices and empty user data lists.
+Production requests fail closed when Supabase server authentication variables are missing. Local development may use the explicit local auth bypass; never enable it in production.
 
 ## Cloudflare Pages Deployment
 
@@ -40,7 +40,7 @@ See [chrome-extension/README.md](chrome-extension/README.md). The MV3 extension 
 
 ## Cloudflare and Supabase
 
-Cloudflare Pages uses `wrangler.toml` for the Workers AI binding and builds from `dist`. Configure these server secrets in Cloudflare Pages:
+Cloudflare Pages builds with `npm run build` into `dist`. The connected Pages project has the `AI` Workers AI binding and the preview/production variables configured directly in the Pages project settings. Configure these server secrets:
 
 - `GEMINI_API_KEY` — optional when Workers AI is available; Gemini fallback and Gemini TTS.
 - `ELEVENLABS_API_KEY` — required to use the selected ElevenLabs voice.
@@ -49,12 +49,12 @@ Cloudflare Pages uses `wrangler.toml` for the Workers AI binding and builds from
 
 Frontend build variables: `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (use only the Supabase publishable/anon key). Never put a service-role key in frontend variables, source control, or this repository.
 
-The Supabase migration is required before the app can persist data. Create the first owner in Supabase Auth and set the immutable `app_metadata.role` claim to `owner`; user-editable metadata is not an authorization source.
+The connected Supabase project has the Zara schema, RLS policies, storage buckets, realtime publication, PIN RPCs and command-classification triggers installed. Create the first owner in Supabase Auth and set the immutable `app_metadata.role` claim to `owner`; user-editable metadata is not an authorization source. The app calls `bootstrap_owner` after the first valid owner sign-in. The database baseline is currently represented by `public/assets/aistudio/05_Backend_Schema__8__5897d711.md` and its installed migration history; the follow-up security hardening migration is tracked in `supabase/migrations/`.
 
 ## Verification
 
 ```bash
 npm run lint
 npm run build
-npx tsx --test src/lib/*.test.ts
+npx tsx --test src/lib/*.test.ts src/services/*.test.ts
 ```
