@@ -42,6 +42,7 @@ type Emotion = (typeof VALID_EMOTIONS)[number];
 export function createGeminiClient(apiKey: string) {
   return new GoogleGenAI({
     apiKey,
+    apiVersion: 'v1beta',
     httpOptions: {
       headers: {
         'User-Agent': 'aistudio-build',
@@ -57,6 +58,7 @@ export async function runLiveChat(
     history?: Array<{ role: 'user' | 'assistant'; text: string }>;
     systemInstruction?: string;
     language?: string;
+    toolResults?: Array<{ name: string; ok: boolean; message: string; data?: unknown }>;
   }
 ) {
   const message = typeof body.message === 'string' ? body.message.trim() : '';
@@ -85,14 +87,18 @@ export async function runLiveChat(
         'You are Zara, Boss’s warm, caring bilingual Urdu + English personal voice companion.',
       `Language mode preference: ${body.language || 'urdu_english'}.`,
       'Return JSON with replyText (primary natural response in requested language script), replyRoman (Roman Urdu transliteration), replyEn (concise English meaning), emotion (one of happy,sad,angry,surprised,shy,laughing,caring,teasing), intensity (0-100 integer), and optional toolCalls array. Tool-call names are laptop_command, browser_command, report_emotion, save_memory, create_reminder, get_schedule. Each item must be {name,argsJson}, where argsJson is a JSON-encoded object. Use browser_command for Chrome tabs, searching, navigating, reading the current page, and scrolling. Never claim a browser action succeeded before the tool result is returned. For browser actions use only the allowlisted action names: list_tabs, open_tab, search, read_page, switch_tab, close_tab, scroll_page.',
-    ].join('\n');
+    ];
+    if (body.toolResults?.length) {
+      sys.push('The client has already executed the requested tools. Do not call any more tools. Use these actual tool results to answer truthfully; never claim an action succeeded if ok=false. Tool results:\\n' + JSON.stringify(body.toolResults).slice(0, 10000));
+    }
+    const systemText = sys.join('\\n');
 
     if (!env.GEMINI_API_KEY && env.AI) {
       const workerResponse = await env.AI.run(
         env.CLOUDFLARE_MODEL || '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
         {
           messages: [
-            { role: 'system', content: sys },
+            { role: 'system', content: systemText },
             ...(body.history ?? []).slice(-12).map((h) => ({
               role: h.role,
               content: h.text,
@@ -146,7 +152,7 @@ export async function runLiveChat(
         { role: 'user', parts: [{ text: message }] },
       ],
       config: {
-        systemInstruction: sys,
+        systemInstruction: systemText,
         responseMimeType: 'application/json',
         responseSchema: {
           type: Type.OBJECT,
@@ -524,7 +530,7 @@ export async function runProviderTest(
 
 export async function runLiveSession(env: GatewayEnv) {
   const model = env.GEMINI_LIVE_MODEL || 'gemini-3.8-live';
-  if (!env.GEMINI_API_KEY) {
+  if (!env.GEMINI_API_KEY && !env.AI) {
     return {
       status: 200,
       body: {
@@ -533,7 +539,7 @@ export async function runLiveSession(env: GatewayEnv) {
         model,
         systemInstruction: '',
         gatewayUrl: null,
-        error: 'GEMINI_API_KEY is not configured on server.',
+        error: 'Neither Gemini API key nor Cloudflare Workers AI binding is configured on the server.',
       },
     };
   }
@@ -543,7 +549,7 @@ export async function runLiveSession(env: GatewayEnv) {
     body: {
       ok: true,
       mode: 'server_chat_relay',
-      model,
+      model: env.GEMINI_API_KEY ? model : (env.CLOUDFLARE_MODEL || '@cf/meta/llama-3.3-70b-instruct-fp8-fast'),
       systemInstruction: '',
       gatewayUrl: env.GEMINI_LIVE_GATEWAY_URL || null,
     },
