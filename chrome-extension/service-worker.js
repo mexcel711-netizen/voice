@@ -1,9 +1,4 @@
-const APP_HOSTS = [
-  'localhost',
-  '127.0.0.1',
-  'pages.dev',
-  'workers.dev'
-];
+const APP_HOSTS = ['localhost', '127.0.0.1', 'voice-8ts.pages.dev'];
 
 function isApprovedAssistantOrigin(sender) {
   if (!sender.tab?.id || !sender.url) return false;
