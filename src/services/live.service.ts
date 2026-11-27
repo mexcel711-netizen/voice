@@ -24,6 +24,11 @@ export interface LiveToolCallEvent {
   args: Record<string, unknown>;
 }
 
+export interface LiveToolResultEvent {
+  ok: boolean;
+  message: string;
+}
+
 export interface LiveVoiceAdapter {
   connect(opts: {
     sessionId: string;
@@ -75,7 +80,7 @@ interface SpeechRecognitionLike {
 export class ZaraLiveAdapter implements LiveVoiceAdapter {
   private stateListeners = new Set<(s: LiveVoiceState) => void>();
   private transcriptListeners = new Set<(e: LiveTranscriptEvent) => void>();
-  private toolListeners = new Set<(e: LiveToolCallEvent) => void>();
+  private toolListeners = new Set<(e: LiveToolCallEvent) => Promise<LiveToolResultEvent | void> | LiveToolResultEvent | void>();
   private errorListeners = new Set<(err: string) => void>();
 
   private mediaStream: MediaStream | null = null;
@@ -240,17 +245,32 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
         return;
       }
 
-      if (reply.toolCalls && reply.toolCalls.length > 0) {
-        for (const call of reply.toolCalls) {
-          this.toolListeners.forEach((cb) => cb(call));
-        }
-      }
+      const toolResults = await Promise.all(
+        (reply.toolCalls ?? []).map(async (call) => {
+          const results = await Promise.all(
+            [...this.toolListeners].map(async (listener) => {
+              try { return await listener(call); }
+              catch (error) {
+                return {
+                  ok: false,
+                  message: error instanceof Error ? error.message : 'Tool execution failed.',
+                };
+              }
+            })
+          );
+          return results.filter((result): result is LiveToolResultEvent => Boolean(result));
+        })
+      );
+      const failedToolResults = toolResults.flat().filter((result) => !result.ok);
+      const finalReplyText = failedToolResults.length
+        ? `${reply.replyText}\n\nI could not complete that action: ${failedToolResults.map((result) => result.message).join('; ')}`
+        : reply.replyText;
 
       this.setState('speaking');
       this.transcriptListeners.forEach((cb) =>
         cb({
           role: 'assistant',
-          text: reply.replyText,
+          text: finalReplyText,
           roman: reply.replyRoman,
           english: reply.replyEn,
           emotion: reply.emotion,
@@ -259,11 +279,13 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
       );
 
       // Synthesize audio via TTS endpoint or SpeechSynthesis fallback
-      const spokenText = this.language === 'urdu'
-        ? reply.replyText
-        : this.language === 'english'
-          ? (reply.replyEn || reply.replyText)
-          : (reply.replyRoman || reply.replyText);
+      const spokenText = failedToolResults.length
+        ? finalReplyText
+        : this.language === 'urdu'
+          ? finalReplyText
+          : this.language === 'english'
+            ? (reply.replyEn || finalReplyText)
+            : (reply.replyRoman || finalReplyText);
       await this.playAssistantVoice(spokenText);
 
       this.setState(this.muted ? 'muted' : 'listening');
