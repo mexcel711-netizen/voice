@@ -7,7 +7,7 @@ import { ZaraLiveAdapter, type LiveVoiceState } from '../services/live.service';
 import { buildZaraSystemInstruction } from '../lib/prompt';
 import { containsUrduScript } from '../lib/rtl';
 import { useToast } from '../context/ToastContext';
-import type { CommandType, EmotionName, MemoryCategory, MemoryType, VoiceProfile } from '../types/db';
+import type { CommandType, EmotionName, MemoryCategory, MemoryType } from '../types/db';
 import { chromeBrowserService, type ChromeBrowserCommand } from '../services/chrome.service';
 
 export default function LiveVoiceConversation() {
