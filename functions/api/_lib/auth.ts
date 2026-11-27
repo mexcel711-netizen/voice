@@ -2,6 +2,7 @@ export interface AuthEnv {
   SUPABASE_URL?: string;
   SUPABASE_ANON_KEY?: string;
   OWNER_EMAIL?: string;
+  ALLOW_UNAUTHENTICATED_LOCAL?: boolean;
 }
 
 export interface AuthResult {
@@ -14,14 +15,16 @@ export interface AuthResult {
 
 /**
  * Verifies Supabase JWT & single-owner access when SUPABASE_URL + SUPABASE_ANON_KEY are configured.
- * If Supabase is not yet configured on the server, permits local preview sessions cleanly.
+ * Missing Supabase credentials fail closed in deployed runtimes. Local bypass must be explicit.
  */
 export async function verifyOwnerRequest(
   authHeader: string | null | undefined,
   env: AuthEnv
 ): Promise<AuthResult> {
   if (!env.SUPABASE_URL || !env.SUPABASE_ANON_KEY) {
-    return { ok: true, userId: 'local-owner' };
+    return env.ALLOW_UNAUTHENTICATED_LOCAL
+      ? { ok: true, userId: 'local-owner' }
+      : { ok: false, status: 503, error: 'Supabase owner authentication is not configured on the server.' };
   }
 
   const token = authHeader?.replace(/^Bearer\s+/i, '').trim();

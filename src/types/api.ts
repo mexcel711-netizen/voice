@@ -23,6 +23,7 @@ export interface LiveChatRequest {
   systemInstruction?: string;
   language?: LanguageMode;
   sandboxPersona?: boolean;
+  toolResults?: Array<{ name: string; ok: boolean; message: string; data?: unknown }>;
 }
 
 export interface LiveChatResponse {
@@ -47,6 +48,7 @@ export interface TtsRequest {
   pitchSemitones?: number;
   warmth?: number;
   expressiveness?: number;
+  qualityPreset?: 'realtime' | 'studio';
 }
 
 export interface TtsResponse {
@@ -57,6 +59,9 @@ export interface TtsResponse {
   romanPreview?: string;
   englishSense?: string;
   error?: string;
+  warning?: string;
+  modelUsed?: string;
+  voiceId?: string;
 }
 
 export interface ProviderTestRequest {

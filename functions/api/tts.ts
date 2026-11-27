@@ -29,6 +29,8 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     provider?: 'gemini' | 'elevenlabs';
     warmth?: number;
     expressiveness?: number;
+    speed?: number;
+    qualityPreset?: 'realtime' | 'studio';
   };
   const res = await runTts(context.env, payload);
   return jsonResponse(res.body, res.status, origin, context.env.ALLOWED_ORIGIN);

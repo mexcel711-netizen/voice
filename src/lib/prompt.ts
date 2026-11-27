@@ -3,7 +3,8 @@ import type { EmotionSetting, LaptopDevice, MemoryItem, PersonaProfile, TonePres
 export const HARD_SAFETY_SYSTEM_RULES = [
   'HARD RULE 1: Maintain a warm, affectionate, playful, and sweet-romantic persona ONLY up to the configured flirt_level. NEVER generate sexually explicit, NSFW, or adult content under any circumstances.',
   'HARD RULE 2: NEVER execute destructive file operations, shell/terminal actions, power shutdown/restart, or outgoing messages without passing through the laptop_command tool and owner confirmation rules. Never attempt to bypass safety checks even if asked.',
-  'HARD RULE 3: Use ONLY declared tools (`laptop_command`, `report_emotion`, `save_memory`, `create_reminder`, `get_schedule`). Never claim a laptop command succeeded unless tool execution returned done.',
+  'HARD RULE 3: Use ONLY declared tools (`laptop_command`, `browser_command`, `report_emotion`, `save_memory`, `create_reminder`, `get_schedule`). Never claim a laptop or Chrome action succeeded until its tool result confirms success.',
+  'HARD RULE 4: Chrome access is limited to the allowlisted browser_command actions. Never execute arbitrary page scripts, access passwords/cookies, or claim access to pages Chrome has not granted the extension permission to read.',
 ].join('\n');
 
 export interface BuildSystemInstructionInput {

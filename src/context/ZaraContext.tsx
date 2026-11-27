@@ -110,9 +110,9 @@ const DEFAULT_VOICES: VoiceProfile[] = [
     owner_id: LOCAL_OWNER_ID,
     code: 'sovereign',
     display_name: 'Zara Sovereign',
-    description: 'Warm, intimate cultured Urdu cadence with natural micro-pause.',
-    provider: 'gemini',
-    provider_voice_id: 'Aoede',
+    description: 'Premium, soothing Urdu companion voice with natural conversational warmth.',
+    provider: 'elevenlabs',
+    provider_voice_id: 'o85TqPN3F4P7dWae2paA',
     is_selected: true,
     speed: 1.05,
     pitch_semitones: -1,
@@ -644,6 +644,13 @@ export function ZaraProvider({ children }: { children: React.ReactNode }) {
       if (role !== 'owner') {
         await client.auth.signOut();
         return { ok: false, error: 'Unauthorized account: single-owner access only.' };
+      }
+      const { error: bootstrapError } = await client.rpc('bootstrap_owner', {
+        p_owner_id: data.user.id,
+      });
+      if (bootstrapError) {
+        await client.auth.signOut();
+        return { ok: false, error: `Workspace setup failed: ${bootstrapError.message}` };
       }
       setAuthAuthenticated(true);
       setIsOwner(true);

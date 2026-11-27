@@ -26,14 +26,22 @@ async function startServer() {
     SUPABASE_URL?: string;
     SUPABASE_ANON_KEY?: string;
     OWNER_EMAIL?: string;
+    ALLOW_UNAUTHENTICATED_LOCAL?: boolean;
   } = {
     GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+    GEMINI_CHAT_MODEL: process.env.GEMINI_CHAT_MODEL,
+    GEMINI_TTS_MODEL: process.env.GEMINI_TTS_MODEL,
     ELEVENLABS_API_KEY: process.env.ELEVENLABS_API_KEY,
+    ELEVENLABS_TTS_MODEL_ID: process.env.ELEVENLABS_TTS_MODEL_ID,
+    ELEVENLABS_QUALITY_MODEL_ID: process.env.ELEVENLABS_QUALITY_MODEL_ID,
+    ELEVENLABS_DEFAULT_VOICE_ID: process.env.ELEVENLABS_DEFAULT_VOICE_ID,
+    CLOUDFLARE_MODEL: process.env.CLOUDFLARE_MODEL,
     GEMINI_LIVE_GATEWAY_URL: process.env.GEMINI_LIVE_GATEWAY_URL,
     GEMINI_LIVE_MODEL: process.env.GEMINI_LIVE_MODEL,
     SUPABASE_URL: process.env.SUPABASE_URL,
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
     OWNER_EMAIL: process.env.OWNER_EMAIL,
+    ALLOW_UNAUTHENTICATED_LOCAL: process.env.NODE_ENV !== 'production',
   };
 
   app.get('/api/health', (_req, res) => {

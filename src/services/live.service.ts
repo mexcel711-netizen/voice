@@ -1,5 +1,5 @@
 import { apiService } from './api.service';
-import type { EmotionName, LanguageMode } from '../types/db';
+import type { EmotionName, LanguageMode, VoiceProfile } from '../types/db';
 
 export type LiveVoiceState =
   | 'idle'
@@ -24,6 +24,12 @@ export interface LiveToolCallEvent {
   args: Record<string, unknown>;
 }
 
+export interface LiveToolResultEvent {
+  ok: boolean;
+  message: string;
+  data?: unknown;
+}
+
 export interface LiveVoiceAdapter {
   connect(opts: {
     sessionId: string;
@@ -31,6 +37,7 @@ export interface LiveVoiceAdapter {
     language: LanguageMode;
     micDeviceId?: string | null;
     continueSummary?: string | null;
+    voiceProfile?: Pick<VoiceProfile, 'provider' | 'provider_voice_id' | 'speed' | 'warmth' | 'expressiveness'>;
   }): Promise<{ mode: string; model: string }>;
   sendText(
     message: string,
@@ -74,7 +81,7 @@ interface SpeechRecognitionLike {
 export class ZaraLiveAdapter implements LiveVoiceAdapter {
   private stateListeners = new Set<(s: LiveVoiceState) => void>();
   private transcriptListeners = new Set<(e: LiveTranscriptEvent) => void>();
-  private toolListeners = new Set<(e: LiveToolCallEvent) => void>();
+  private toolListeners = new Set<(e: LiveToolCallEvent) => Promise<LiveToolResultEvent | void> | LiveToolResultEvent | void>();
   private errorListeners = new Set<(err: string) => void>();
 
   private mediaStream: MediaStream | null = null;
@@ -86,6 +93,9 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
   private language: LanguageMode = 'urdu_english';
   private sessionId = '';
   private historyRef: Array<{ role: 'user' | 'assistant'; text: string }> = [];
+  private voiceProfile: Pick<VoiceProfile, 'provider' | 'provider_voice_id' | 'speed' | 'warmth' | 'expressiveness'> = {
+    provider: 'elevenlabs', provider_voice_id: 'o85TqPN3F4P7dWae2paA', speed: 1, warmth: 86, expressiveness: 84,
+  };
 
   private setState(next: LiveVoiceState) {
     this.state = next;
@@ -118,8 +128,10 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
     language: LanguageMode;
     micDeviceId?: string | null;
     continueSummary?: string | null;
+    voiceProfile?: Pick<VoiceProfile, 'provider' | 'provider_voice_id' | 'speed' | 'warmth' | 'expressiveness'>;
   }): Promise<{ mode: string; model: string }> {
     this.sessionId = opts.sessionId;
+    if (opts.voiceProfile) this.voiceProfile = opts.voiceProfile;
     this.systemInstruction = opts.systemInstruction;
     this.language = opts.language;
     this.setState('connecting');
@@ -234,26 +246,66 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
         return;
       }
 
-      if (reply.toolCalls && reply.toolCalls.length > 0) {
-        for (const call of reply.toolCalls) {
-          this.toolListeners.forEach((cb) => cb(call));
+      const toolResults = await Promise.all(
+        (reply.toolCalls ?? []).map(async (call) => {
+          const results = await Promise.all(
+            [...this.toolListeners].map(async (listener) => {
+              try { return await listener(call); }
+              catch (error) {
+                return {
+                  ok: false,
+                  message: error instanceof Error ? error.message : 'Tool execution failed.',
+                };
+              }
+            })
+          );
+          return results.filter((result): result is LiveToolResultEvent => Boolean(result));
+        })
+      );
+      const flatToolResults = toolResults.flat();
+      let finalReply = reply;
+      if (flatToolResults.length > 0) {
+        try {
+          const followUp = await apiService.sendLiveChat({
+            message: 'Give the user a concise final answer based only on the tool results below. Do not request or execute any more tools.',
+            history: [
+              ...history,
+              { role: 'user', text: trimmed },
+              { role: 'assistant', text: reply.replyText },
+            ],
+            sessionId: this.sessionId,
+            systemInstruction: this.systemInstruction,
+            language: this.language,
+            toolResults: flatToolResults,
+          });
+          if (followUp.ok) finalReply = followUp;
+        } catch {
+          // Keep the original model response, but never claim tool success without a result.
         }
       }
+      const finalReplyText = finalReply.replyText;
 
       this.setState('speaking');
       this.transcriptListeners.forEach((cb) =>
         cb({
           role: 'assistant',
-          text: reply.replyText,
-          roman: reply.replyRoman,
-          english: reply.replyEn,
-          emotion: reply.emotion,
-          intensity: reply.intensity,
+          text: finalReplyText,
+          roman: finalReply.replyRoman,
+          english: finalReply.replyEn,
+          emotion: finalReply.emotion,
+          intensity: finalReply.intensity,
         })
       );
 
       // Synthesize audio via TTS endpoint or SpeechSynthesis fallback
-      await this.playAssistantVoice(reply.replyRoman || reply.replyText);
+      const spokenText = failedToolResults.length
+        ? finalReplyText
+        : this.language === 'urdu'
+          ? finalReplyText
+          : this.language === 'english'
+            ? (finalReply.replyEn || finalReplyText)
+            : (finalReply.replyRoman || finalReplyText);
+      await this.playAssistantVoice(spokenText);
 
       this.setState(this.muted ? 'muted' : 'listening');
     } catch (err) {
@@ -267,8 +319,12 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
   private async playAssistantVoice(text: string) {
     try {
       const tts = await apiService.synthesizeSpeech({
-        text: text.slice(0, 500),
-        provider: 'gemini',
+        text: text.slice(0, 2000),
+        provider: this.voiceProfile.provider,
+        voiceId: this.voiceProfile.provider_voice_id || 'o85TqPN3F4P7dWae2paA',
+        speed: this.voiceProfile.speed,
+        warmth: this.voiceProfile.warmth,
+        expressiveness: this.voiceProfile.expressiveness,
       });
       if (tts.ok && tts.audioBase64 && tts.mimeType) {
         await new Promise<void>((resolve) => {

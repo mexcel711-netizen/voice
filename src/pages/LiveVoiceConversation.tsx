@@ -8,6 +8,7 @@ import { buildZaraSystemInstruction } from '../lib/prompt';
 import { containsUrduScript } from '../lib/rtl';
 import { useToast } from '../context/ToastContext';
 import type { CommandType, EmotionName, MemoryCategory, MemoryType } from '../types/db';
+import { chromeBrowserService, type ChromeBrowserCommand } from '../services/chrome.service';
 
 export default function LiveVoiceConversation() {
   const {
@@ -26,6 +27,7 @@ export default function LiveVoiceConversation() {
     logEmotion,
     addMemory,
     createReminder,
+    voices,
   } = useZara();
   const { showToast } = useToast();
   const navigate = useNavigate();
@@ -42,6 +44,8 @@ export default function LiveVoiceConversation() {
   const [muted, setMuted] = useState(false);
   const [activeModelLabel, setActiveModelLabel] = useState('Gemini 3.8 Live');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [chromeConnected, setChromeConnected] = useState(false);
+  const selectedVoice = useMemo(() => voices.find((voice) => voice.is_selected) ?? voices[0], [voices]);
 
   const messages = useMemo(
     () => (activeSessionId ? messagesBySession[activeSessionId] ?? [] : []),
@@ -61,6 +65,8 @@ export default function LiveVoiceConversation() {
     adapterRef.current = adapter;
 
     const unsubState = adapter.onStateChange((st) => setVoiceState(st));
+    void chromeBrowserService.ping().then(setChromeConnected).catch(() => setChromeConnected(false));
+
     const unsubErr = adapter.onError((msg) => {
       setErrorMsg(msg);
       showToast(msg, 'warning');
@@ -91,15 +97,19 @@ export default function LiveVoiceConversation() {
       });
     });
 
-    const unsubTools = adapter.onToolCall((call) => {
+    const unsubTools = adapter.onToolCall(async (call) => {
       if (call.name === 'laptop_command') {
         const cmdType = call.args.command_type as CommandType;
         const params = (call.args.params as Record<string, unknown>) || {};
-        void dispatchCommand(cmdType, params, 'voice', activeSessionId);
+        const command = await dispatchCommand(cmdType, params, 'voice', activeSessionId);
+        if (!command) return { ok: false, message: 'The laptop command could not be queued.' };
+        if (command.status === 'done') return { ok: true, message: 'Laptop command completed.', data: command };
+        if (command.status === 'awaiting_confirmation') return { ok: false, message: 'The laptop command is waiting for your confirmation.', data: command };
+        return { ok: false, message: command.blocked_reason || `Laptop command status: ${command.status}.`, data: command };
       } else if (call.name === 'report_emotion') {
         const zEm = (call.args.zara_emotion as EmotionName) || 'caring';
         setCurrentEmotion(zEm);
-        void logEmotion({
+        await logEmotion({
           session_id: activeSessionId,
           detected_user_mood: (call.args.user_mood as EmotionName) ?? 'neutral',
           zara_emotion: zEm,
@@ -107,7 +117,7 @@ export default function LiveVoiceConversation() {
           note: null,
         });
       } else if (call.name === 'save_memory' && settings.auto_learn_enabled) {
-        void addMemory({
+        await addMemory({
           content: String(call.args.content || ''),
           category: (call.args.category as MemoryCategory) || 'personal',
           memory_type: (call.args.memory_type as MemoryType) || 'semantic',
@@ -115,8 +125,21 @@ export default function LiveVoiceConversation() {
           source: 'conversation',
           source_session_id: activeSessionId,
         });
+      } else if (call.name === 'browser_command') {
+        try {
+          const result = await chromeBrowserService.execute(call.args as unknown as ChromeBrowserCommand);
+          setChromeConnected(true);
+          const detail = result.message || 'Chrome action completed.';
+          showToast(detail, 'success');
+          return { ok: true, message: detail, data: result.data };
+        } catch (error) {
+          setChromeConnected(false);
+          const message = error instanceof Error ? error.message : 'Chrome extension is not connected.';
+          showToast(message, 'warning');
+          return { ok: false, message };
+        }
       } else if (call.name === 'create_reminder') {
-        void createReminder({
+        await createReminder({
           kind: (call.args.kind as 'reminder' | 'timer' | 'alarm') || 'reminder',
           title: String(call.args.title || 'Voice Reminder'),
           notes: '',
@@ -128,7 +151,9 @@ export default function LiveVoiceConversation() {
           notify_mode: 'both',
           voice_created: true,
         });
+        return { ok: true, message: 'Reminder saved.' };
       }
+      return;
     });
 
     return () => {
@@ -178,6 +203,13 @@ export default function LiveVoiceConversation() {
         language: settings.language_mode,
         micDeviceId: settings.mic_device_id,
         continueSummary,
+        voiceProfile: selectedVoice ? {
+          provider: selectedVoice.provider,
+          provider_voice_id: selectedVoice.provider_voice_id,
+          speed: selectedVoice.speed,
+          warmth: selectedVoice.warmth,
+          expressiveness: selectedVoice.expressiveness,
+        } : undefined,
       });
       if (info?.model) setActiveModelLabel(info.model);
       showToast('Voice session connected.', 'success');
@@ -256,6 +288,9 @@ export default function LiveVoiceConversation() {
           </div>
 
           <div className="flex items-center gap-2">
+            <span className={`px-3 py-1.5 rounded-full text-xs font-medium ${chromeConnected ? 'bg-emerald-500/15 text-emerald-300' : 'bg-surface-container-high/70 text-on-surface-variant'}`}>
+              Chrome {chromeConnected ? 'Connected' : 'Extension not connected'}
+            </span>
             <span className="px-3 py-1.5 rounded-full bg-surface-container-high/70 text-xs text-secondary font-medium">
               {activeModelLabel}
             </span>

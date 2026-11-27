@@ -22,6 +22,22 @@ export const ZARA_FUNCTION_DECLARATIONS = [
     },
   },
   {
+    name: 'browser_command',
+    description: 'Control the owner-approved Chrome browser through the installed Zara Browser Bridge extension. Only use these fixed actions; never run arbitrary JavaScript.',
+    parameters: {
+      type: 'OBJECT',
+      properties: {
+        action: { type: 'STRING', enum: ['list_tabs', 'open_tab', 'search', 'read_page', 'switch_tab', 'close_tab', 'scroll_page'] },
+        url: { type: 'STRING' },
+        query: { type: 'STRING' },
+        tabId: { type: 'INTEGER' },
+        direction: { type: 'STRING', enum: ['up', 'down'] },
+        pixels: { type: 'INTEGER' },
+      },
+      required: ['action'],
+    },
+  },
+  {
     name: 'report_emotion',
     description:
       'Report the detected mood of the user and Zara current emotional expression so UI mood chip & wave update in realtime.',
