@@ -254,12 +254,15 @@ async function synthesizeWithElevenLabs(
 ) {
   if (!env.ELEVENLABS_API_KEY) throw new Error('ELEVENLABS_API_KEY is not configured on the server.');
   const voiceId = body.voiceId || env.ELEVENLABS_DEFAULT_VOICE_ID || 'o85TqPN3F4P7dWae2paA';
+
+  // This app uses the standard HTTP TTS endpoint, so choose Eleven v4.
+  // Eleven v4 Turbo is a Text-to-Dialogue WebSocket model and must not be
+  // sent to /text-to-speech/{voice_id}.
   const modelId = body.qualityPreset === 'studio'
     ? env.ELEVENLABS_QUALITY_MODEL_ID || 'eleven_v4'
-    : env.ELEVENLABS_TTS_MODEL_ID || 'eleven_v4_turbo';
+    : env.ELEVENLABS_TTS_MODEL_ID || 'eleven_v4';
   const expressiveness = Math.max(0, Math.min(100, body.expressiveness ?? 84)) / 100;
-  const warmth = Math.max(0, Math.min(100, body.warmth ?? 86)) / 100;
-  const speed = Math.max(0.75, Math.min(1.5, body.speed ?? 1));
+
   const response = await fetch(
     `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`,
     {
@@ -273,11 +276,9 @@ async function synthesizeWithElevenLabs(
         model_id: modelId,
         language_code: 'ur',
         voice_settings: {
-          stability: Math.max(0.25, Math.min(0.8, 0.7 - expressiveness * 0.35)),
+          // v4 exposes stability and similarity; style/speed are not used by this model.
+          stability: Math.max(0.3, Math.min(0.75, 0.68 - expressiveness * 0.32)),
           similarity_boost: 0.85,
-          style: Math.max(0, Math.min(0.7, expressiveness * 0.65 + warmth * 0.05)),
-          use_speaker_boost: true,
-          speed,
         },
       }),
     }
@@ -360,7 +361,7 @@ export async function runTts(
           speed: body.speed,
           qualityPreset: body.qualityPreset || 'realtime',
         });
-        return { status: 200, body: { ...audio, fallbackWarning: requestedProvider !== 'elevenlabs' ? undefined : undefined } };
+        return { status: 200, body: audio };
       }
 
       if (!env.GEMINI_API_KEY) {

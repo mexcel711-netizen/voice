@@ -30,9 +30,9 @@ Production requests fail closed when Supabase server authentication variables ar
 
 ## Premium Urdu voice
 
-The app defaults to the connected ElevenLabs Reva Urdu companion voice (voice ID `o85TqPN3F4P7dWae2paA`) using `eleven_v4_turbo` for lower-latency conversation. Voice Studio can select another stored voice profile. Set `ELEVENLABS_API_KEY` as a Cloudflare Pages secret; the browser never receives the provider key. If ElevenLabs is unavailable, the server attempts Gemini TTS when `GEMINI_API_KEY` is configured.
+The app defaults to the connected ElevenLabs Reva Urdu companion voice (voice ID `o85TqPN3F4P7dWae2paA`) using `eleven_v4` for high-fidelity Urdu conversation. Voice Studio can select another stored voice profile. Set `ELEVENLABS_API_KEY` as a Cloudflare Pages secret; the browser never receives the provider key. If ElevenLabs is unavailable, the server attempts Gemini TTS when `GEMINI_API_KEY` is configured.
 
-Set `ELEVENLABS_TTS_MODEL_ID=eleven_v4_turbo` for conversation and `ELEVENLABS_QUALITY_MODEL_ID=eleven_v4` for studio-quality playback. The `qualityPreset` request option selects between them.
+`eleven_v4` is used by the HTTP Text-to-Speech endpoint. `eleven_v4_turbo` requires ElevenLabs' separate Text-to-Dialogue WebSocket transport, so it is intentionally not configured as an HTTP TTS model. The `qualityPreset` option currently keeps both conversational and studio speech on the Urdu-capable v4 model.
 
 ## Chrome browser control
 
