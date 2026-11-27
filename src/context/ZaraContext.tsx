@@ -645,6 +645,13 @@ export function ZaraProvider({ children }: { children: React.ReactNode }) {
         await client.auth.signOut();
         return { ok: false, error: 'Unauthorized account: single-owner access only.' };
       }
+      const { error: bootstrapError } = await client.rpc('bootstrap_owner', {
+        p_owner_id: data.user.id,
+      });
+      if (bootstrapError) {
+        await client.auth.signOut();
+        return { ok: false, error: `Workspace setup failed: ${bootstrapError.message}` };
+      }
       setAuthAuthenticated(true);
       setIsOwner(true);
       await loadSupabaseData();
