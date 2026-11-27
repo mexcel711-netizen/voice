@@ -1,7 +1,0 @@
-name = "zara-voice"
-compatibility_date = "2026-11-26"
-pages_build_output_dir = "./dist"
-compatibility_flags = ["nodejs_compat"]
-
-[ai]
-binding = "AI"
