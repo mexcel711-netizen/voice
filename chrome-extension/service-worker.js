@@ -42,6 +42,25 @@ async function requireHostPermission(tab) {
   }
 }
 
+async function resolveTargetTab(command, assistantTab) {
+  if (Number.isSafeInteger(command.tabId) && command.tabId > 0) {
+    const requested = await chrome.tabs.get(command.tabId).catch(() => null);
+    if (!requested) throw new Error('Chrome tab not found. Ask Zara to list tabs and try again.');
+    return requested;
+  }
+
+  const activeTabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+  const active = activeTabs.find((tab) => tab.id !== assistantTab.id);
+  if (active) return active;
+
+  const windowTabs = await chrome.tabs.query({ lastFocusedWindow: true });
+  const candidate = windowTabs
+    .filter((tab) => tab.id !== assistantTab.id)
+    .sort((a, b) => (b.lastAccessed || 0) - (a.lastAccessed || 0))[0];
+  if (candidate) return candidate;
+  throw new Error('No non-assistant Chrome tab is available to read or scroll.');
+}
+
 async function runBrowserCommand(command, assistantTab) {
   if (!command || typeof command.action !== 'string') throw new Error('Invalid browser command.');
   const action = command.action;
@@ -77,11 +96,9 @@ async function runBrowserCommand(command, assistantTab) {
     return { ok: true, message: 'Opened Google search results.', data: { tabId: tab.id, url } };
   }
 
-  const targetTabId = Number.isSafeInteger(command.tabId) && command.tabId > 0
-    ? command.tabId
-    : assistantTab.id;
-  const targetTab = await chrome.tabs.get(targetTabId).catch(() => null);
-  if (!targetTab) throw new Error('Chrome tab not found. Ask Zara to list tabs and try again.');
+  const targetTab = await resolveTargetTab(command, assistantTab);
+  const targetTabId = targetTab.id;
+  if (!targetTabId) throw new Error('Chrome did not return a valid tab identifier.');
 
   if (action === 'switch_tab') {
     await chrome.tabs.update(targetTabId, { active: true });
