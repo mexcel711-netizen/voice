@@ -1,7 +1,6 @@
 import { apiService } from './api.service';
 import type { EmotionName, LanguageMode, VoiceProfile } from '../types/db';
 
-
 export type LiveVoiceState =
   | 'idle'
   | 'connecting'
@@ -279,7 +278,7 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
   private async playAssistantVoice(text: string) {
     try {
       const tts = await apiService.synthesizeSpeech({
-        text: text.slice(0, 500),
+        text: text.slice(0, 2000),
         provider: this.voiceProfile.provider,
         voiceId: this.voiceProfile.provider_voice_id || 'o85TqPN3F4P7dWae2paA',
         speed: this.voiceProfile.speed,
