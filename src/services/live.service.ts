@@ -1,5 +1,6 @@
 import { apiService } from './api.service';
-import type { EmotionName, LanguageMode } from '../types/db';
+import type { EmotionName, LanguageMode, VoiceProfile } from '../types/db';
+
 
 export type LiveVoiceState =
   | 'idle'
@@ -31,6 +32,7 @@ export interface LiveVoiceAdapter {
     language: LanguageMode;
     micDeviceId?: string | null;
     continueSummary?: string | null;
+    voiceProfile?: Pick<VoiceProfile, 'provider' | 'provider_voice_id' | 'speed' | 'warmth' | 'expressiveness'>;
   }): Promise<{ mode: string; model: string }>;
   sendText(
     message: string,
@@ -86,6 +88,9 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
   private language: LanguageMode = 'urdu_english';
   private sessionId = '';
   private historyRef: Array<{ role: 'user' | 'assistant'; text: string }> = [];
+  private voiceProfile: Pick<VoiceProfile, 'provider' | 'provider_voice_id' | 'speed' | 'warmth' | 'expressiveness'> = {
+    provider: 'elevenlabs', provider_voice_id: 'o85TqPN3F4P7dWae2paA', speed: 1, warmth: 86, expressiveness: 84,
+  };
 
   private setState(next: LiveVoiceState) {
     this.state = next;
@@ -118,8 +123,10 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
     language: LanguageMode;
     micDeviceId?: string | null;
     continueSummary?: string | null;
+    voiceProfile?: Pick<VoiceProfile, 'provider' | 'provider_voice_id' | 'speed' | 'warmth' | 'expressiveness'>;
   }): Promise<{ mode: string; model: string }> {
     this.sessionId = opts.sessionId;
+    if (opts.voiceProfile) this.voiceProfile = opts.voiceProfile;
     this.systemInstruction = opts.systemInstruction;
     this.language = opts.language;
     this.setState('connecting');
@@ -253,7 +260,12 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
       );
 
       // Synthesize audio via TTS endpoint or SpeechSynthesis fallback
-      await this.playAssistantVoice(reply.replyRoman || reply.replyText);
+      const spokenText = this.language === 'urdu'
+        ? reply.replyText
+        : this.language === 'english'
+          ? (reply.replyEn || reply.replyText)
+          : (reply.replyRoman || reply.replyText);
+      await this.playAssistantVoice(spokenText);
 
       this.setState(this.muted ? 'muted' : 'listening');
     } catch (err) {
@@ -268,7 +280,11 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
     try {
       const tts = await apiService.synthesizeSpeech({
         text: text.slice(0, 500),
-        provider: 'gemini',
+        provider: this.voiceProfile.provider,
+        voiceId: this.voiceProfile.provider_voice_id || 'o85TqPN3F4P7dWae2paA',
+        speed: this.voiceProfile.speed,
+        warmth: this.voiceProfile.warmth,
+        expressiveness: this.voiceProfile.expressiveness,
       });
       if (tts.ok && tts.audioBase64 && tts.mimeType) {
         await new Promise<void>((resolve) => {
