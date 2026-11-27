@@ -28,6 +28,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     history?: Array<{ role: 'user' | 'assistant'; text: string }>;
     systemInstruction?: string;
     language?: string;
+    toolResults?: Array<{ name: string; ok: boolean; message: string; data?: unknown }>;
   };
   const res = await runLiveChat(context.env, payload);
   return jsonResponse(res.body, res.status, origin, context.env.ALLOWED_ORIGIN);
