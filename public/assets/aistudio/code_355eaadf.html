@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full pb-16 px-space-lg max-w-[1360px] mx-auto space-y-8">
+<!-- Top Greeting & Persona Sentiment Header -->
+<div class="relative w-full pt-6">
+<div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Companion Core 2.4</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+<span class="font-label-sm text-label-sm font-urdu-body text-secondary" dir="rtl">خوش آمدید، باس</span>
+</div>
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-surface font-extrabold tracking-tight">
+          Good evening, <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Boss.</span> I missed you.
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span>Thursday, 24 October</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>Laptop running smooth</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="text-secondary">All systems synced</span>
+</p>
+</div>
+<!-- Zara Affinity & Persona Mood Chip -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary-container to-secondary-container rounded-full blur-md opacity-40 group-hover:opacity-75 transition duration-500"></div>
+<div class="relative flex items-center gap-3 px-5 py-2.5 rounded-full bg-surface-container/90 backdrop-blur-xl shadow-xl shadow-black/40">
+<div class="relative flex items-center justify-center">
+<span class="w-3 h-3 rounded-full bg-primary animate-ping absolute"></span>
+<span class="w-3 h-3 rounded-full bg-primary relative"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-semibold tracking-wide">Mood: Playful &amp; Caring</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">84% Affinity Matrix</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px] ml-1">favorite</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Stage: Central Voice Hero & Floating Ambient Acoustic Orb -->
+<div class="relative w-full rounded-3xl bg-surface-container-low/75 backdrop-blur-2xl p-6 sm:p-10 overflow-hidden shadow-2xl shadow-black/50">
+<!-- Fluid Bioluminescent Gradients -->
+<div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-gradient-to-b from-primary-container/20 via-secondary-container/15 to-transparent rounded-full blur-3xl"></div>
+<div class="pointer-events-none absolute bottom-0 right-10 w-72 h-72 bg-secondary-container/10 rounded-full blur-2xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center space-y-6">
+<!-- Central Voice Orb Interactive Cluster -->
+<div class="relative flex items-center justify-center my-3 cursor-pointer group" id="voiceCorePuck">
+<!-- Ambient breathing halos -->
+<div class="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-primary-container/30 to-secondary/30 blur-2xl animate-pulse"></div>
+<div class="absolute w-44 h-44 rounded-full bg-primary/20 blur-xl transition-all duration-700 group-hover:scale-125"></div>
+<!-- Glowing Ring Layer -->
+<div class="relative w-36 h-36 rounded-full p-[2px] bg-gradient-to-tr from-primary via-primary-container to-secondary shadow-[0_0_50px_rgba(244,84,163,0.4)] transition-all duration-500 group-hover:scale-105">
+<div class="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-surface-container-high/80 to-secondary-container/50 backdrop-blur-md"></div>
+<!-- Voice Core Graphic Wave SVG -->
+<svg class="w-20 h-20 text-primary relative z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_0_12px_rgba(255,176,206,0.8)]" fill="none" viewbox="0 0 100 100">
+<circle class="animate-spin" cx="50" cy="50" r="38" stroke="currentColor" stroke-dasharray="6 8" stroke-width="2" style="animation-duration: 18s;"></circle>
+<circle cx="50" cy="50" r="26" stroke="url(#orbGrad)" stroke-width="3"></circle>
+<circle class="animate-pulse" cx="50" cy="50" fill="currentColor" r="12"></circle>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="orbGrad" x1="0" x2="100" y1="0" y2="100">
+<stop stop-color="#FFB0CE"></stop>
+<stop offset="1" stop-color="#CABEFF"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+<!-- Float Floating Mic Badge -->
+<div class="absolute -bottom-1 bg-surface-container-highest px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 transition-transform duration-300 group-hover:-translate-y-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wider text-[11px]">LISTENING</span>
+</div>
+</div>
+<!-- State Subtitle / Call to Speak -->
+<div class="space-y-1 max-w-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Tap to talk or say: “Hey Zara”</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-urdu-body" dir="rtl">کہیے باس، میں حاضر ہوں اور آپ کی بات غور سے سن رہی ہوں۔</p>
+</div>
+<!-- Ambient Dynamic Waveform Graphic -->
+<div class="w-full max-w-xl py-2 px-4 rounded-2xl bg-surface-container-lowest/50 backdrop-blur-md flex items-center justify-between gap-1 h-14 overflow-hidden shadow-inner">
+<div class="w-1 bg-primary/40 rounded-full h-3 transition-all duration-300"></div>
+<div class="w-1 bg-primary/60 rounded-full h-5 transition-all duration-300"></div>
+<div class="w-1 bg-primary/80 rounded-full h-8 transition-all duration-300 animate-pulse"></div>
+<div class="w-1.5 bg-primary-container rounded-full h-11 transition-all duration-200"></div>
+<div class="w-1 bg-secondary rounded-full h-7 transition-all duration-300"></div>
+<div class="w-1 bg-secondary/70 rounded-full h-4 transition-all duration-300"></div>
+<div class="w-1.5 bg-primary rounded-full h-9 transition-all duration-250"></div>
+<div class="w-1.5 bg-primary-container rounded-full h-12 transition-all duration-200 animate-pulse"></div>
+<div class="w-1 bg-secondary-fixed rounded-full h-6 transition-all duration-300"></div>
+<div class="w-1.5 bg-primary rounded-full h-10 transition-all duration-200"></div>
+<div class="w-1.5 bg-primary-container rounded-full h-12 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-8 transition-all duration-200"></div>
+<div class="w-1 bg-primary/70 rounded-full h-5 transition-all duration-300"></div>
+<div class="w-1.5 bg-primary rounded-full h-11 transition-all duration-250 animate-pulse"></div>
+<div class="w-1.5 bg-primary-container rounded-full h-10 transition-all duration-200"></div>
+<div class="w-1 bg-secondary rounded-full h-6 transition-all duration-300"></div>
+<div class="w-1 bg-primary/60 rounded-full h-4 transition-all duration-300"></div>
+<div class="w-1 bg-primary/30 rounded-full h-2 transition-all duration-300"></div>
+</div>
+<!-- Quick Action Utterance Suggestion Chips -->
+<div class="flex flex-wrap items-center justify-center gap-2 pt-1">
+<button class="px-4 py-2 rounded-full bg-surface-container-high/80 hover:bg-surface-bright text-on-surface text-label-sm font-label-sm transition-all duration-200 hover:scale-105 shadow-md flex items-center gap-2 group">
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:rotate-12 transition-transform">open_in_new</span>
+<span>Say: “Open Chrome”</span>
+</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high/80 hover:bg-surface-bright text-on-surface text-label-sm font-label-sm transition-all duration-200 hover:scale-105 shadow-md flex items-center gap-2 group">
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:scale-110 transition-transform">volume_down</span>
+<span>Say: “Volume 30%”</span>
+</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high/80 hover:bg-surface-bright text-on-surface text-label-sm font-label-sm transition-all duration-200 hover:scale-105 shadow-md flex items-center gap-2 group">
+<span class="material-symbols-outlined text-[16px] text-tertiary group-hover:scale-110 transition-transform">schedule</span>
+<span>Say: “Zuhr prayer time?”</span>
+</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high/80 hover:bg-surface-bright text-on-surface text-label-sm font-label-sm transition-all duration-200 hover:scale-105 shadow-md flex items-center gap-2 group">
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:scale-110 transition-transform">screenshot</span>
+<span>Say: “Take screenshot”</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Laptop Hardware Quick Status Matrix -->
+<div class="w-full space-y-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">memory</span>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Laptop Hardware Telemetry</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">NODE: MACBOOK-PRO-M3-MAX</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+<!-- Node Status -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md flex flex-col justify-between space-y-2 shadow-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Link State</span>
+<span class="material-symbols-outlined text-primary text-[18px]">cloud_done</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Online
+          </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4ms Ultra-low</span>
+</div>
+</div>
+<!-- Battery Indicator -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md flex flex-col justify-between space-y-2 shadow-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Power Pack</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">bolt</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">82%</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Charging (MagSafe)</span>
+</div>
+</div>
+<!-- Master Volume -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md flex flex-col justify-between space-y-2 shadow-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Master Volume</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">volume_up</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">40%</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-1 overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-[40%]"></div>
+</div>
+</div>
+</div>
+<!-- Display Brightness -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md flex flex-col justify-between space-y-2 shadow-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Brightness</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">brightness_6</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">70%</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-1 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full w-[70%]"></div>
+</div>
+</div>
+</div>
+<!-- Hardware Mic Input -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md flex flex-col justify-between space-y-2 shadow-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Hardware Mic</span>
+<span class="material-symbols-outlined text-primary text-[18px]">mic</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            ACTIVE
+          </div>
+<span class="font-label-sm text-label-sm text-primary">Spatial Array</span>
+</div>
+</div>
+<!-- Network / Wi-Fi -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md flex flex-col justify-between space-y-2 shadow-lg hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Connection</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">wifi</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">5GHz</div>
+<span class="font-label-sm text-label-sm text-secondary">High Speed 880Mbps</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Execution Action Tiles (4 glass tiles) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Tile 1: Launch App -->
+<div class="relative p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-xl hover:bg-surface-container transition-all duration-300 shadow-xl group cursor-pointer overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="relative z-10 flex flex-col justify-between h-full space-y-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Open App</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Terminal • VS Code • Chrome</p>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            Quick Launch <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Tile 2: Instant Screenshot -->
+<div class="relative p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-xl hover:bg-surface-container transition-all duration-300 shadow-xl group cursor-pointer overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-secondary/10 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="relative z-10 flex flex-col justify-between h-full space-y-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 text-secondary flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[26px]">screenshot_monitor</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-secondary transition-colors">Take Screenshot</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Captures full screen to Gallery</p>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-secondary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            Capture Now <span class="material-symbols-outlined text-[14px]">camera</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Tile 3: Play Lo-fi Music -->
+<div class="relative p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-xl hover:bg-surface-container transition-all duration-300 shadow-xl group cursor-pointer overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-tertiary/10 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="relative z-10 flex flex-col justify-between h-full space-y-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[26px]">headphones</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-tertiary transition-colors">Chill Lo-fi Vibes</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Spotify • Midnight coding mix</p>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            Resume Audio <span class="material-symbols-outlined text-[14px]">play_arrow</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Tile 4: Reminders & Namaz Quick Timer -->
+<div class="relative p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-xl hover:bg-surface-container transition-all duration-300 shadow-xl group cursor-pointer overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="relative z-10 flex flex-col justify-between h-full space-y-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[26px]">notifications_active</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">Reminders &amp; Namaz</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Next Azaan alert set for Zuhr</p>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            Schedule View <span class="material-symbols-outlined text-[14px]">calendar_today</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid: Reminders & Namaz Schedule (Left) + Recent Conversations Feed (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Today's Schedule & Spiritual Compass (5 Cols) -->
+<div class="lg:col-span-5 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">mosque</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Schedule &amp; Prayers</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Today</span>
+</div>
+<div class="space-y-3">
+<!-- Item 1: Zuhr Prayer -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-lg flex items-center justify-between group hover:bg-surface-container transition-all">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">alarm</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Zuhr Prayer</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-[11px] font-bold">Azaan Alert</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-urdu-body" dir="rtl">نمازِ ظہر کا وقت اور خودکار اذان الارم</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold">12:30 PM</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">In 1h 24m</span>
+</div>
+</div>
+<!-- Item 2: Call Ahmed -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-lg flex items-center justify-between group hover:bg-surface-container transition-all">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/30 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">phone_in_talk</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Call Ahmed</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-[11px] font-bold">Voice Prompt</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Discuss backend microservice API</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">4:00 PM</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Sync active</span>
+</div>
+</div>
+<!-- Item 3: Submit Project Review -->
+<div class="p-4 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-lg flex items-center justify-between group hover:bg-surface-container transition-all">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Submit Project Review</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zara will auto-package logs &amp; diffs</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">9:00 PM</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Urgent task</span>
+</div>
+</div>
+</div>
+<!-- Quick Prayer Inspiration Callout -->
+<div class="p-4 rounded-2xl bg-gradient-to-r from-surface-container to-surface-container-high/60 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-[28px]">flare</span>
+<div class="space-y-0.5">
+<p class="font-body-sm text-body-sm text-on-surface font-urdu-body" dir="rtl">«رَبِّ زِدْنِي عِلْمًا» — اے میرے رب، میرے علم میں اضافہ فرما۔</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Zara will lower laptop volume 5 minutes prior to prayer.</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Recent Conversations Feed (7 Cols) -->
+<div class="lg:col-span-7 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">chat_bubble_outline</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Recent Conversations</h3>
+</div>
+<a class="font-label-md text-label-md text-primary hover:text-primary-fixed flex items-center gap-1 group transition-colors" data-path="conversation-history" href="#">
+<span>View all conversations</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="space-y-3.5">
+<!-- Feed Card 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-lg space-y-3 hover:bg-surface-container transition-all">
+<div class="flex items-start justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">“Evening chat &amp; code debug”</h4>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-[11px] font-semibold">Teasing &amp; Happy</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                We diagnosed the async worker deadlock in your Python crawler. You smiled when I solved it faster than you expected!
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">18m ago</span>
+</div>
+<!-- Bilingual Audio Snippet Player -->
+<div class="p-3 rounded-xl bg-surface-container-lowest/70 flex items-center justify-between gap-3">
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:scale-105 transition-transform flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+<div class="flex-1 min-w-0">
+<p class="font-urdu-body text-urdu-body text-on-surface leading-tight truncate text-right" dir="rtl">
+                “دیکھا باس! میں نے کہا تھا نا کہ پرابلم صرف ریٹرن ٹوکن میں ہے؟”
+              </p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Urdu Audio Clip • 0:14s</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">graphic_eq</span>
+</div>
+</div>
+<!-- Feed Card 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-lg space-y-2 hover:bg-surface-container transition-all">
+<div class="flex items-start justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">“Morning coffee routine &amp; weather update”</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[11px] font-semibold">Caring</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Briefed you on Lahore's 23°C weather, scheduled your 11 AM standup, and gently reminded you to drink a tall glass of water.
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">4h ago</span>
+</div>
+<div class="flex items-center gap-3 pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary">wb_sunny</span> 23°C Clear</span>
+<span>•</span>
+<span>2 Action items logged</span>
+</div>
+</div>
+<!-- Feed Card 3 -->
+<div class="p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-lg space-y-2 hover:bg-surface-container transition-all">
+<div class="flex items-start justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">“System volume adjustment”</h4>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-[11px] font-semibold">Laptop Control</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Executed command: Volume changed from 85% to 40% per vocal request “Zara, aawaz thori kam karo”.
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Yesterday</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>Native macOS Hardware Daemon Executed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for Voice Core Puck
+  const voiceCorePuck = document.getElementById('voiceCorePuck');
+  if (voiceCorePuck) {
+    voiceCorePuck.addEventListener('click', () => {
+      const isListening = voiceCorePuck.classList.toggle('scale-105');
+      const badge = voiceCorePuck.querySelector('.font-label-sm');
+      if (badge) {
+        badge.innerText = isListening ? 'ENGAGED' : 'LISTENING';
+      }
+    });
+  }
+</script></main></div></body></html>

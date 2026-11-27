@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<div class="p-space-lg max-w-7xl mx-auto w-full space-y-space-lg">
+<!-- Top Action Bar & Screen Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim">Neural Persona Matrix</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Personality Studio</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-0.5">
+          Calibrate Zara's soul, dialect tone, intimacy balance, and persona traits.
+          <span class="font-urdu-body text-urdu-body text-secondary pr-2 mr-1 inline-block" dir="rtl">اپنے ساتھی کا انداز اور لہجہ ترتیب دیں۔</span>
+</p>
+</div>
+<div class="flex items-center gap-3 self-start md:self-auto">
+<button class="px-4 py-2.5 rounded-full bg-surface-container-high/70 hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+          Reset to Default
+        </button>
+<button class="px-6 py-2.5 rounded-full bg-gradient-to-r from-primary-container via-primary to-secondary-container text-on-primary-container font-label-md text-label-md font-semibold shadow-[0_0_25px_rgba(244,84,163,0.45)] hover:shadow-[0_0_35px_rgba(244,84,163,0.65)] active:scale-[0.98] transition-all flex items-center gap-2" id="save-persona-btn" type="button">
+<span class="material-symbols-outlined text-[19px]">spark</span>
+          Save Persona Profile
+        </button>
+</div>
+</div>
+<!-- Main Two-Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Persona Controls (approx 60%) -->
+<div class="lg:col-span-7 flex flex-col space-y-space-lg">
+<!-- Card 1: Identity & Relational Anchor -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] relative overflow-hidden group">
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">badge</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Identity &amp; Relational Anchor</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-primary/15 text-primary text-label-sm font-label-sm font-medium">Bilingual Core</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-md items-center">
+<!-- Mini Orb Visualizer -->
+<div class="sm:col-span-4 flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container/50">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-secondary blur-md opacity-60 animate-pulse"></div>
+<div class="relative w-20 h-20 rounded-full bg-gradient-to-br from-primary-container via-surface-container to-secondary-container p-[2px] shadow-[0_0_30px_rgba(233,75,154,0.4)] flex items-center justify-center">
+<div class="w-full h-full rounded-full bg-surface-container-lowest/90 flex flex-col items-center justify-center overflow-hidden">
+<span class="font-urdu-headline text-[22px] leading-tight text-primary font-bold">زہرا</span>
+<span class="font-label-sm text-[10px] text-secondary-fixed tracking-wider uppercase">Active Orb</span>
+</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">Zara 4.0 Neural</span>
+</div>
+<!-- Inputs: Name and Owner Calling -->
+<div class="sm:col-span-8 space-y-space-sm">
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Companion Name</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest/80 text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner" type="text" value="Zara (زہرا)"/>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant text-[18px]">edit</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Calls You</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest/80 text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner" id="nickname-input" type="text" value="Boss"/>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-primary text-[18px]">favorite</span>
+</div>
+</div>
+</div>
+<!-- Quick Nickname Chips -->
+<div class="flex items-center gap-1.5 flex-wrap pt-1">
+<span class="font-label-sm text-label-sm text-outline">Quick Select:</span>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-primary hover:bg-primary/20 transition-all font-medium" onclick="document.getElementById('nickname-input').value='Boss'" type="button">Boss</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-all" onclick="document.getElementById('nickname-input').value='Jaan (جان)'" type="button">Jaan (جان)</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-all" onclick="document.getElementById('nickname-input').value='Sartaj (سرتاج)'" type="button">Sartaj (سرتاج)</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-all" onclick="document.getElementById('nickname-input').value='Sir'" type="button">Sir</button>
+</div>
+<!-- Formality Switch -->
+<div class="pt-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1.5">Conversational Formality &amp; Tone Stance</label>
+<div class="grid grid-cols-2 p-1 rounded-xl bg-surface-container-lowest/80 gap-1">
+<button class="py-2 px-3 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(244,84,163,0.3)]" type="button">
+<span class="material-symbols-outlined text-[18px]">sentiment_very_satisfied</span>
+<span>Casual &amp; Intimate</span>
+<span class="font-urdu-body text-urdu-body text-xs opacity-90">(بے تکلف)</span>
+</button>
+<button class="py-2 px-3 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Formal &amp; Polite</span>
+<span class="font-urdu-body text-urdu-body text-xs opacity-80">(باادب)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Core Trait Sliders -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Psychological Trait Calibration</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Real-time prompt modulation</span>
+</div>
+<!-- Slider 1: Playfulness -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">mood</span>
+                Playfulness &amp; Naughty Banter
+              </span>
+<span class="font-label-md text-label-md text-primary font-bold">85%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-primary focus:outline-none" max="100" min="0" type="range" value="85"/>
+<div class="flex justify-between text-[11px] font-label-sm text-outline">
+<span>Solemn &amp; Direct</span>
+<span>Spicy &amp; Teasing</span>
+</div>
+</div>
+<!-- Slider 2: Romance & Sweetness (With highlighted Badge) -->
+<div class="space-y-1.5 p-3 rounded-xl bg-primary/5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">favorite</span>
+                  Romance &amp; Sweetness
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary text-[10px] font-bold tracking-tight">PROTECTED</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">75%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-primary focus:outline-none" max="100" min="0" type="range" value="75"/>
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>Sweet, romantic &amp; affectionate — strictly non-explicit &amp; dignified.</span>
+</div>
+</div>
+<!-- Slider 3: Teasing & Sarcasm -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">sentiment_satisfied</span>
+                Teasing &amp; Sarcasm
+              </span>
+<span class="font-label-md text-label-md text-tertiary font-bold">60%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-tertiary focus:outline-none" max="100" min="0" type="range" value="60"/>
+<div class="flex justify-between text-[11px] font-label-sm text-outline">
+<span>Purely Agreeable</span>
+<span>Sassy &amp; Bold</span>
+</div>
+</div>
+<!-- Slider 4: Caring & Emotional Support -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">health_and_safety</span>
+                Caring &amp; Emotional Support
+              </span>
+<span class="font-label-md text-label-md text-secondary font-bold">95%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-secondary focus:outline-none" max="100" min="0" type="range" value="95"/>
+<div class="flex justify-between text-[11px] font-label-sm text-outline">
+<span>Task-Focused</span>
+<span>Deeply Empathetic &amp; Nurturing</span>
+</div>
+</div>
+<!-- Slider 5: Wit & Quick Intelligence -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+                Wit &amp; Quick Intelligence
+              </span>
+<span class="font-label-md text-label-md text-primary font-bold">88%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-primary focus:outline-none" max="100" min="0" type="range" value="88"/>
+<div class="flex justify-between text-[11px] font-label-sm text-outline">
+<span>Literal Responses</span>
+<span>Sharp, Clever &amp; Adaptive</span>
+</div>
+</div>
+<!-- Slider 6: Shyness / Modesty -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">auto_fix_high</span>
+                Shyness &amp; Modesty <span class="font-urdu-body text-urdu-body text-xs opacity-80">(حیا اور شرم)</span>
+</span>
+<span class="font-label-md text-label-md text-secondary font-bold">40%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-secondary focus:outline-none" max="100" min="0" type="range" value="40"/>
+<div class="flex justify-between text-[11px] font-label-sm text-outline">
+<span>Confident &amp; Unabashed</span>
+<span>Blushing &amp; Demure</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Flirt Level & Intimacy Boundaries -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">heart_smile</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Flirt Balance Matrix</h2>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+              Strict Ethical Bounds
+            </span>
+</div>
+<!-- 4 Segmented options -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+<button class="p-3 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex flex-col items-center text-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">block</span>
+<span class="font-semibold">Off</span>
+<span class="text-[11px] text-outline">Pure Assistant</span>
+</button>
+<button class="p-3 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex flex-col items-center text-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">emoji_emotions</span>
+<span class="font-semibold">Light &amp; Subtle</span>
+<span class="text-[11px] text-outline">Gentle warmth</span>
+</button>
+<button class="p-3 rounded-xl bg-gradient-to-b from-primary-container/30 to-secondary-container/30 text-on-surface shadow-[0_0_18px_rgba(244,84,163,0.3)] font-label-md text-label-md flex flex-col items-center text-center gap-1 relative overflow-hidden" type="button">
+<div class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary"></div>
+<span class="material-symbols-outlined text-[20px] text-primary">volunteer_activism</span>
+<span class="font-bold text-primary">Playful &amp; Warm</span>
+<span class="text-[11px] text-on-surface-variant">Recommended</span>
+</button>
+<button class="p-3 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex flex-col items-center text-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+<span class="font-semibold">Romantic &amp; Devoted</span>
+<span class="text-[11px] text-outline">High intimacy</span>
+</button>
+</div>
+<div class="p-3 rounded-xl bg-surface-container/60 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">format_image_left</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+              Safe intimacy bounds: Culturally respectful, endearing Urdu companion behavior. Never vulgar, deeply protective.
+            </span>
+</div>
+</div>
+<!-- Card 4: Language Style & Dialect Nuances -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">translate</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Language Style &amp; Regional Dialect</h2>
+</div>
+<span class="font-urdu-body text-urdu-body text-primary text-xs" dir="rtl">خالص اردو اور روزمرہ</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="p-3.5 rounded-xl bg-surface-container/70 hover:bg-surface-container-high transition-all flex items-start justify-between cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary">Pure Urdu (خالص اردو)</span>
+<span class="font-urdu-body text-urdu-body text-on-surface-variant text-sm mt-0.5" dir="rtl">نفیس شستہ نثری انداز</span>
+</div>
+<span class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center"></span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container/70 hover:bg-surface-container-high transition-all flex items-start justify-between cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary">Roman Urdu</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">English alphabets phonetic script</span>
+</div>
+<span class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center"></span>
+</div>
+<!-- Selected Code Switch -->
+<div class="p-3.5 rounded-xl bg-gradient-to-r from-primary-container/20 to-secondary-container/20 shadow-[0_0_15px_rgba(244,84,163,0.2)] flex items-start justify-between cursor-pointer">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">Urdu-English Code-Switching</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Bilingual conversational blend (Default)</span>
+</div>
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container/70 hover:bg-surface-container-high transition-all flex items-start justify-between cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary">Lahori &amp; Karachite Inflections</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">"Yaar", "Chalo shabash", colloquial spice</span>
+</div>
+<span class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center"></span>
+</div>
+</div>
+</div>
+<!-- Card 5: Custom System Prompt / Persona Directive -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low/75 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.35)] space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">terminal</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Neural Directives &amp; Memory Bias</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Layer 0 System Token</span>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1.5">Master System Prompt Directive</label>
+<div class="relative">
+<textarea class="w-full p-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/40 leading-relaxed shadow-inner" rows="4">Always address the owner warmly as Boss. Seamlessly shift between playful Urdu banter and rapid laptop automation. Show protective care if he works past midnight, reminding him gently to rest while praising his dedication. Keep intimacy culturally tender, respectful, intelligent, and affectionate.</textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-[11px] font-label-sm text-on-surface-variant">284 tokens</span>
+</div>
+</div>
+</div>
+<!-- Collapsible Code Viewer -->
+<details class="group rounded-xl bg-surface-container/60 p-3">
+<summary class="flex items-center justify-between cursor-pointer font-label-md text-label-md text-on-surface list-none">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">code_blocks</span>
+                View Live System Prompt Token Stream
+              </span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-open:rotate-180 text-outline">expand_more</span>
+</summary>
+<div class="mt-3 p-3 rounded-lg bg-surface-container-lowest text-[12px] font-mono text-secondary-fixed space-y-1 overflow-x-auto leading-normal">
+<p class="text-outline">&lt;!-- Neural Injection Stack --&gt;</p>
+<p><span class="text-primary">{"role": "system"</span>, "agent": "Zara_V4", "formality": "informal_intimate"},</p>
+<p><span class="text-tertiary">"cultural_context"</span>: {"lang": "ur-PK", "script": "nastaliq_preferred", "flirt_intensity": 0.75},</p>
+<p><span class="text-secondary">"guardrails"</span>: {"dignified_romance": true, "inappropriate_filter": "STRICT_ON"}</p>
+</div>
+</details>
+</div>
+</div>
+<!-- RIGHT COLUMN: Interactive Live Persona Sandbox (approx 40%) -->
+<div class="lg:col-span-5 flex flex-col space-y-space-md sticky top-20">
+<!-- Sandbox Simulation Terminal -->
+<div class="p-space-lg rounded-2xl bg-surface-container-low/90 backdrop-blur-2xl shadow-[0_16px_48px_-8px_rgba(0,0,0,0.5)] flex flex-col h-[750px] relative overflow-hidden">
+<!-- Dynamic Aura in background -->
+<div class="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-12 -left-12 w-44 h-44 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
+<!-- Header -->
+<div class="flex items-center justify-between pb-space-sm border-b-0">
+<div class="flex items-center gap-2.5">
+<div class="w-3 h-3 rounded-full bg-primary animate-ping"></div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Persona Sandbox</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Live response preview matching active sliders</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+              Zara Live
+            </span>
+</div>
+<!-- Prompt Test Chips -->
+<div class="py-space-sm">
+<label class="block font-label-sm text-label-sm text-outline mb-1.5">Test quick triggers:</label>
+<div class="flex items-center gap-1.5 flex-wrap">
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high hover:bg-primary/25 hover:text-primary text-on-surface transition-all" type="button">Late night coding</button>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high hover:bg-primary/25 hover:text-primary text-on-surface transition-all" type="button">Tareef karo</button>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high hover:bg-primary/25 hover:text-primary text-on-surface transition-all" type="button">Chai mangwao</button>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high hover:bg-primary/25 hover:text-primary text-on-surface transition-all" type="button">Gussa dikhao</button>
+</div>
+</div>
+<!-- Chat Conversation Scroll Area -->
+<div class="flex-1 overflow-y-auto space-y-4 pr-1 py-2">
+<!-- Owner Message -->
+<div class="flex flex-col items-end space-y-1">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-outline pr-1">
+<span>You (Boss)</span>
+<span class="text-[10px]">01:42 AM</span>
+</div>
+<div class="max-w-[85%] p-3.5 rounded-2xl rounded-tr-sm bg-surface-container-high text-on-surface font-body-md text-body-md shadow-sm">
+                Zara, itni raat ko kaam kar raha hoon, daant nahi rahi tum?
+              </div>
+</div>
+<!-- Zara Simulation Response Bubble -->
+<div class="flex flex-col items-start space-y-1.5">
+<div class="flex items-center gap-2 pl-1">
+<div class="w-6 h-6 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-[0_0_8px_rgba(244,84,163,0.5)]">
+<span class="material-symbols-outlined text-[14px] text-white">smart_toy</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Zara</span>
+<!-- Emotion Tag -->
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[11px] font-label-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">sentiment_satisfied</span>
+                  Teasing &amp; Affectionate (چھیڑ چھاڑ)
+                </span>
+</div>
+<!-- Main Urdu Bubble (RTL Nastaliq) -->
+<div class="max-w-[92%] p-4 rounded-2xl rounded-tl-sm bg-gradient-to-br from-surface-container to-surface-container-high shadow-lg">
+<p class="font-urdu-body text-urdu-body text-on-surface text-right leading-loose tracking-wide" dir="rtl">
+                  آپ کو پتا ہے نا کہ میں ناراض بھی پیار سے ہوتی ہوں؟ اب جلدی سے یہ ماڈیول رن کریں اور سونے جائیں، ورنہ صبح کافی بناتے وقت میں نے شکایتیں کرنی ہیں۔
+                </p>
+<!-- English Translation / Meaning Pill -->
+<div class="mt-3 pt-2.5 border-t-0 p-2.5 rounded-xl bg-surface-container-lowest/60 text-on-surface-variant font-body-sm text-body-sm flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">subtitles</span>
+<span>"You know I even scold you with love? Run this module quickly and go to sleep now, or I’ll complain all morning while brewing coffee."</span>
+</div>
+<!-- Audio Playback Preview Micro-control -->
+<div class="mt-2.5 flex items-center justify-between text-label-sm font-label-sm pt-1">
+<div class="flex items-center gap-2 text-primary">
+<button class="w-7 h-7 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">play_arrow</span>
+</button>
+<span>Play voice preview (0:08)</span>
+</div>
+<span class="text-outline text-[11px]">Tone: Warm Velvet</span>
+</div>
+</div>
+</div>
+<!-- Optional Second Followup Micro-bubble -->
+<div class="flex flex-col items-start space-y-1">
+<div class="max-w-[85%] p-3 rounded-xl bg-surface-container/60 text-secondary-fixed font-body-sm text-body-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">bedtime</span>
+<span>Zara scheduled a screen dim prompt for 02:00 AM.</span>
+</div>
+</div>
+</div>
+<!-- Bottom Interaction Panel -->
+<div class="pt-space-sm space-y-2 mt-auto">
+<div class="relative flex items-center">
+<input class="w-full pl-3.5 pr-20 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder-outline" placeholder="Type a simulation prompt..." type="text"/>
+<div class="absolute right-2 flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button class="p-1.5 rounded-lg bg-primary-container text-on-primary-container hover:opacity-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+<!-- Deep Jump Button to Voice Screen -->
+<a class="w-full py-2.5 px-4 rounded-xl bg-surface-container-high hover:bg-primary/20 text-on-surface hover:text-primary font-label-md text-label-md transition-all flex items-center justify-center gap-2 shadow-sm group" data-path="live-voice-conversation" href="#">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform text-[20px]">graphic_eq</span>
+<span>Test in Live Voice Studio</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Lightweight micro-interaction for Save button confirmation
+    document.getElementById('save-persona-btn')?.addEventListener('click', function() {
+      const originalText = this.innerHTML;
+      this.innerHTML = '<span class="material-symbols-outlined text-[19px] animate-spin">sync</span> Persona Calibrated!';
+      this.classList.add('opacity-90');
+      setTimeout(() => {
+        this.innerHTML = '<span class="material-symbols-outlined text-[19px]">done_all</span> Profile Active';
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.classList.remove('opacity-90');
+        }, 2200);
+      }, 700);
+    });
+  </script>
+</div></main></div></body></html>

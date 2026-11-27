@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<div class="p-space-lg max-w-7xl mx-auto w-full space-y-space-xl">
+<!-- Top Action & Title Header (No duplication of shell logo/header) -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg bg-surface-container-low/70 backdrop-blur-2xl p-space-lg rounded-2xl shadow-xl relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="space-y-1.5 z-10 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Hardware &amp; Security Layer 0
+          </span>
+<span class="font-label-sm text-label-sm text-outline">v2.4-Sovereign</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          Safety, Permissions &amp; Activity Log
+          <span class="font-urdu-headline text-urdu-headline text-primary font-normal text-[22px] leading-relaxed">حفاظت، اجازت نامے اور لاگ بک</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Hardware isolation switches, biometric authorization guardrails, and cryptographic activity ledger.
+        </p>
+</div>
+<!-- Emergency Panic Kill Switch -->
+<div class="z-10 flex-shrink-0">
+<button class="group relative flex items-center gap-3 px-6 py-4 rounded-full bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all shadow-[0_0_24px_rgba(244,84,163,0.35)] active:scale-95" id="panic-kill-btn" type="button">
+<span class="relative flex h-3.5 w-3.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-error group-hover:bg-on-error"></span>
+</span>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md uppercase tracking-wider font-bold">Emergency Panic Kill-Switch</span>
+<span class="font-label-sm text-label-sm opacity-90">Cuts mic, OS daemon &amp; subprocesses</span>
+</div>
+<span class="material-symbols-outlined text-[24px] ml-1">power_settings_new</span>
+</button>
+</div>
+</div>
+<!-- Urdu Sovereign Banner -->
+<div class="px-space-lg py-3 rounded-xl bg-surface-container/60 backdrop-blur-md flex items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-[22px]">verified_user</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Sovereignty Guarantee</span>
+</div>
+<p class="font-urdu-body text-urdu-body text-primary text-right text-lg">
+        آپ کی پرائیویسی اور لیپ ٹاپ کا مکمل اختیار صرف آپ کے پاس ہے۔
+      </p>
+</div>
+<!-- Top Section: 3 Sovereign Master Switches -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Switch 1: Microphone -->
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg flex flex-col justify-between space-y-4 hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">mic</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm flex items-center gap-1.5 shadow-[0_0_12px_rgba(61,220,151,0.2)]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Hardware Live
+          </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Physical Microphone State</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Microsecond interruptible relay with cold-cut fallback.</p>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Capture Stream</span>
+<button class="w-12 h-6 rounded-full bg-primary-container p-0.5 flex items-center justify-end transition-all shadow-inner" type="button">
+<span class="w-5 h-5 rounded-full bg-on-primary-container shadow-md"></span>
+</button>
+</div>
+</div>
+<!-- Switch 2: Biometric Voiceprint -->
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg flex flex-col justify-between space-y-4 hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">fingerprint</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/50 text-secondary-fixed font-label-sm text-label-sm">
+            99.8% Match Floor
+          </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Voiceprint Biometrics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Ignores speech that deviates from Boss's acoustic harmonics.</p>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-medium">Strict Acoustic Shield</span>
+<button class="w-12 h-6 rounded-full bg-secondary-container p-0.5 flex items-center justify-end transition-all shadow-inner" type="button">
+<span class="w-5 h-5 rounded-full bg-secondary-fixed shadow-md"></span>
+</button>
+</div>
+</div>
+<!-- Switch 3: Execution Guardrail -->
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg flex flex-col justify-between space-y-4 hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">shield_with_heart</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-tertiary-container/40 text-tertiary-fixed font-label-sm text-label-sm">
+            Prompt On Risk
+          </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Execution Safety Protocol</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Tiered runtime sandboxing for file, shell, and network APIs.</p>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Intervention Level</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-lg bg-surface-container-highest text-tertiary font-semibold">Restricted</span>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Permissions & Guardrails (5 cols) -->
+<div class="lg:col-span-5 space-y-space-lg">
+<!-- System Permissions Tile -->
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">System Permissions</h2>
+<p class="font-urdu-body text-urdu-body text-on-surface-variant text-sm">سسٹم کے اختیارات</p>
+</div>
+<span class="material-symbols-outlined text-outline">tune</span>
+</div>
+<!-- Permission Items -->
+<div class="space-y-3 pt-2">
+<!-- Perm 1: Local File System -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">folder_managed</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Local File System Read/Write</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm">Medium Risk</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[210px]">~/Projects, ~/Documents</span>
+<span class="font-label-sm text-label-sm text-primary font-medium px-2 py-0.5 rounded bg-surface-container-highest">ACTIVE (ON)</span>
+</div>
+</div>
+<!-- Perm 2: Terminal Shell -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-error text-[20px]">terminal</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Terminal &amp; Shell Execution</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-error-container/40 text-error font-label-sm text-label-sm">High Risk</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Zsh build tools &amp; git hooks</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary-container/40 px-2 py-0.5 rounded font-medium">VOICE CONFIRM</span>
+</div>
+</div>
+<!-- Perm 3: Screen Observation -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">screenshot_monitor</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Screen Observation</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm">Medium Risk</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Context screenshot upon ask</span>
+<span class="font-label-sm text-label-sm text-primary font-medium px-2 py-0.5 rounded bg-surface-container-highest">ACTIVE (ON)</span>
+</div>
+</div>
+<!-- Perm 4: Browser Automation -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">travel_explore</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Browser Automation</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Low Risk</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Web Scraping &amp; Auto-fill</span>
+<span class="font-label-sm text-label-sm text-primary font-medium px-2 py-0.5 rounded bg-surface-container-highest">ACTIVE (ON)</span>
+</div>
+</div>
+<!-- Perm 5: System Power Control -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-error text-[20px]">restart_alt</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">System Power Control</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-error-container/60 text-error font-label-sm text-label-sm">Critical</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Reboot, sleep, shutdown</span>
+<span class="font-label-sm text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded font-medium">PIN REQUIRED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mandatory Guardrails List -->
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Mandatory 'Ask Before Doing' Rules</h3>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Enforced</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Zara suspends command dispatch until explicit acoustic or manual PIN ratification is supplied.
+          </p>
+<div class="space-y-2.5 pt-1">
+<label class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container/50 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="mt-0.5 w-5 h-5 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Deleting or relocating files larger than 10MB</span>
+</label>
+<label class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container/50 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="mt-0.5 w-5 h-5 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Dispatching outgoing emails, Slack or WhatsApp messages</span>
+</label>
+<label class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container/50 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="mt-0.5 w-5 h-5 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Terminal calls containing <code class="px-1.5 py-0.5 rounded bg-surface-container-highest text-error font-mono text-xs">sudo</code>, <code class="px-1.5 py-0.5 rounded bg-surface-container-highest text-error font-mono text-xs">rm -rf</code>, or <code class="px-1.5 py-0.5 rounded bg-surface-container-highest text-error font-mono text-xs">kill</code></span>
+</label>
+<label class="flex items-start gap-3 p-2.5 rounded-xl bg-surface-container/50 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="mt-0.5 w-5 h-5 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface">Inspecting private keys, passwords, or encrypted <code class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-mono text-xs">.env</code> vaults</span>
+</label>
+</div>
+</div>
+<!-- Visual Verification Telemetry Graph -->
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Continuous Trust Index</span>
+<span class="font-label-sm text-label-sm text-primary font-mono">99.4% Solid</span>
+</div>
+<!-- Inline Sparkline / Telemetry SVG -->
+<div class="w-full h-14 flex items-end">
+<svg class="w-full h-full text-primary" preserveaspectratio="none" viewbox="0 0 300 60">
+<defs>
+<lineargradient id="trustGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 45 Q 30 40, 60 48 T 120 30 T 180 32 T 240 18 T 300 20 L 300 60 L 0 60 Z" fill="url(#trustGrad)"></path>
+<path d="M0 45 Q 30 40, 60 48 T 120 30 T 180 32 T 240 18 T 300 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between text-xs text-outline">
+<span>24h Integrity Audit</span>
+<span>Zero Unsigned Invocations</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Cryptographic Activity Ledger (7 cols) -->
+<div class="lg:col-span-7 space-y-space-md">
+<div class="bg-surface-container-low/80 backdrop-blur-xl p-space-lg rounded-2xl shadow-lg space-y-space-md">
+<!-- Ledger Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Cryptographic Activity Ledger</h2>
+<p class="font-urdu-body text-urdu-body text-on-surface-variant text-sm">مکمل کارروائیوں کا لاگ</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright text-xs font-medium flex items-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                Filter Date
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-primary hover:bg-surface-bright text-xs font-medium flex items-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                Export CSV
+              </button>
+</div>
+</div>
+<!-- Ledger Filter Chips -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<button class="px-3.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm shadow-[0_0_12px_rgba(244,84,163,0.3)] font-semibold" type="button">
+              All Events (128)
+            </button>
+<button class="px-3.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" type="button">
+              Executed (112)
+            </button>
+<button class="px-3.5 py-1 rounded-full bg-surface-container-high text-error hover:bg-surface-bright font-label-sm text-label-sm flex items-center gap-1 transition-all" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              Blocked / Rejected (4)
+            </button>
+<button class="px-3.5 py-1 rounded-full bg-surface-container-high text-tertiary hover:bg-surface-bright font-label-sm text-label-sm flex items-center gap-1 transition-all" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Awaiting Confirmation (1)
+            </button>
+</div>
+<!-- Ledger Stream -->
+<div class="space-y-3 pt-2">
+<!-- Event 1 -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">music_note</span>
+<div class="min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<code class="font-mono text-xs text-on-surface font-semibold">Spotify.PlayTrack("Midnight Chai Lo-Fi")</code>
+<span class="px-2 py-0.2 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Voice Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Dispatched to desktop media pipeline via native IPC</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-3 flex-shrink-0">
+<span class="font-mono text-xs text-outline">11:42 PM</span>
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Done
+                </span>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">brightness_medium</span>
+<div class="min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<code class="font-mono text-xs text-on-surface font-semibold">System.Brightness(40%)</code>
+<span class="px-2 py-0.2 rounded-full bg-surface-container-highest text-secondary-fixed font-label-sm text-label-sm">Voice Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Night illumination adjustment calibrated to ambient light sensor</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-3 flex-shrink-0">
+<span class="font-mono text-xs text-outline">10:15 PM</span>
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Done
+                </span>
+</div>
+</div>
+<!-- Event 3: Blocked (Destructive command) -->
+<div class="p-3.5 rounded-xl bg-error-container/20 hover:bg-error-container/30 transition-all flex flex-col gap-2">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">block</span>
+<div class="min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<code class="font-mono text-xs text-error font-semibold">Zsh.Execute("rm -rf old_builds")</code>
+<span class="px-2 py-0.2 rounded-full bg-error-container text-error font-label-sm text-label-sm font-bold">Safeguard Triggered</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-3 flex-shrink-0">
+<span class="font-mono text-xs text-outline">08:30 PM</span>
+<span class="px-2.5 py-1 rounded-full bg-error text-on-error font-label-sm text-label-sm font-bold flex items-center gap-1">
+                    Blocked
+                  </span>
+</div>
+</div>
+<div class="pl-8 text-xs text-error/90 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>Blocked by Safety Guardrail: destructive terminal command requires master physical PIN or explicit vocal consent override.</span>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">description</span>
+<div class="min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<code class="font-mono text-xs text-on-surface font-semibold truncate max-w-[280px]">FileSystem.Read("~/Documents/Q1_Report.pdf")</code>
+<span class="px-2 py-0.2 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Voice Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">Read authorization verified via biometric signature match</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-3 flex-shrink-0">
+<span class="font-mono text-xs text-outline">06:12 PM</span>
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Done
+                </span>
+</div>
+</div>
+<!-- Event 5: Urdu Voice Synthesis -->
+<div class="p-3.5 rounded-xl bg-surface-container/60 hover:bg-surface-container transition-all flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<span class="material-symbols-outlined text-tertiary text-[20px] mt-0.5">record_voice_over</span>
+<div class="min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<code class="font-mono text-xs text-on-surface font-semibold">Zara.VoiceSynthesis()</code>
+<span class="font-urdu-body text-urdu-body text-primary text-sm font-medium leading-none px-2">"کلائنٹ کو میسج کر دیا ہے"</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-0.5">High-fidelity Urdu phoneme streaming to primary audio sink</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-3 flex-shrink-0">
+<span class="font-mono text-xs text-outline">04:05 PM</span>
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Done
+                </span>
+</div>
+</div>
+</div>
+<!-- Ledger Footer / Pagination Status -->
+<div class="pt-3 flex flex-col sm:flex-row items-center justify-between text-xs text-on-surface-variant gap-2">
+<span class="font-mono">Ledger Block #8,419 • SHA-256 Verified Immutable</span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all" type="button">Previous</button>
+<span class="px-2 text-outline">1 of 18</span>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all" type="button">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Logic for Panic Button and Visual Confirmation -->
+<script>
+    (function() {
+      const panicBtn = document.getElementById('panic-kill-btn');
+      if (panicBtn) {
+        panicBtn.addEventListener('click', function() {
+          const confirmed = confirm("EMERGENCY KILL-SWITCH INVOCATION:\n\nThis will immediately terminate Zara's microphone daemon, screen OCR subprocesses, and revoke all background access tokens. Proceed?");
+          if (confirmed) {
+            panicBtn.innerHTML = `
+              <span class="material-symbols-outlined text-[24px] animate-spin">sync</span>
+              <div class="flex flex-col text-left">
+                <span class="font-label-md text-label-md uppercase tracking-wider font-bold">SYSTEM ISOLATED</span>
+                <span class="font-label-sm text-label-sm opacity-90">Microphone & Daemons severed</span>
+              </div>
+            `;
+            panicBtn.classList.remove('bg-error-container', 'text-on-error-container');
+            panicBtn.classList.add('bg-error', 'text-on-error');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

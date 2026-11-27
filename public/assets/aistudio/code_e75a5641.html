@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<div class="p-space-lg max-w-7xl mx-auto w-full space-y-space-xl">
+<!-- Header Section with Bilingual Title & Sticky Save CTA -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container/30 text-secondary text-label-sm font-label-sm uppercase tracking-wider">Preferences</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SYS-CFG::HOST.LOCAL</span>
+</div>
+<div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">System Settings</h1>
+<span class="font-urdu-headline text-urdu-headline text-primary font-semibold leading-none drop-shadow-[0_0_16px_rgba(255,176,206,0.35)]" dir="rtl">سیٹنگز اور کنفیگریشن</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+          Configure AI provider endpoints, biometric owner authorization, neural speech engines, bespoke companion aesthetics, and encrypted offline memory stores.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm self-start md:self-auto shrink-0 pt-2 md:pt-0">
+<button class="px-4 py-2.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>Reset Defaults</span>
+</button>
+<button class="px-6 py-2.5 rounded-full font-label-md text-label-md text-on-primary font-semibold bg-gradient-to-r from-primary-container via-inverse-primary to-secondary-container shadow-[0_4px_24px_rgba(244,84,163,0.45)] hover:shadow-[0_6px_32px_rgba(202,190,255,0.4)] active:scale-95 transition-all flex items-center gap-2" id="save-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+<!-- Main Layout: Asymmetric Left Sticky Sub-Nav + Right Multi-Card Engine -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Sub-Navigation Pills (Sticky Sidebar) -->
+<div class="lg:col-span-3 sticky top-24 space-y-1.5 bg-surface-container-low/70 backdrop-blur-xl p-space-sm rounded-lg shadow-xl">
+<span class="px-3 py-1 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block font-semibold">Sections</span>
+<a class="group flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT bg-primary-container text-on-primary-container font-label-md text-label-md transition-all shadow-[0_0_20px_rgba(244,84,163,0.3)]" href="#section-ai-engine">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px]">neurology</span>
+<span>AI &amp; API Engines</span>
+</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+</a>
+<a class="group flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-all" href="#section-wake-speech">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">mic_double</span>
+<span>Speech &amp; Wake Word</span>
+</span>
+<span class="font-urdu-body text-[12px] text-tertiary">اردو</span>
+</a>
+<a class="group flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-all" href="#section-security">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">fingerprint</span>
+<span>Owner &amp; Biometrics</span>
+</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">shield</span>
+</a>
+<a class="group flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-all" href="#section-appearance">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">palette</span>
+<span>Persona &amp; Aesthetics</span>
+</span>
+</a>
+<a class="group flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-all" href="#section-data-backup">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] group-hover:text-primary transition-colors">database</span>
+<span>Data &amp; Local Storage</span>
+</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono">482 MB</span>
+</a>
+<a class="group flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-all" href="#section-session-lifecycle">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] group-hover:text-error transition-colors">lock_clock</span>
+<span>Session &amp; Lifecycle</span>
+</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.5 rounded bg-secondary-container/40 text-secondary font-mono">v2.4</span>
+</a>
+<!-- System Diagnostic Micro-Widget -->
+<div class="pt-space-md">
+<div class="p-3 rounded-DEFAULT bg-surface-container/80 space-y-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Neural Core Synced</span>
+<span class="text-primary font-mono font-semibold">99.8%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary h-full rounded-full w-[99.8%]"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-on-surface-variant font-mono">
+<span>RAM: 3.4GB</span>
+<span>Encrypted: AES-256</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Settings Cards Stack -->
+<div class="lg:col-span-9 space-y-space-lg">
+<!-- SECTION 1: AI Engine & Provider Credentials -->
+<section class="bg-surface-container-low/70 backdrop-blur-2xl rounded-lg p-space-lg shadow-xl relative overflow-hidden space-y-space-md" id="section-ai-engine">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shadow-[0_0_16px_rgba(244,84,163,0.3)]">
+<span class="material-symbols-outlined text-[22px]">cognition</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">AI Models &amp; API Connections</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage sovereign cloud intelligence gateways and on-device fallback engines.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm flex items-center gap-1.5 self-start">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+              Live Pipeline Active
+            </span>
+</div>
+<div class="space-y-space-md pt-2">
+<!-- Gemini 2.0 Flash -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-space-sm hover:bg-surface-container-high/60 transition-all">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Gemini 2.0 Flash</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/15 text-primary">Live Multimodal Stream</span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span class="font-mono">Connected (24ms Latency)</span>
+</div>
+</div>
+<!-- Masked API Key Input -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">key</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-mono text-body-sm pl-10 pr-24 py-2.5 rounded-DEFAULT focus:outline-none focus:ring-1 focus:ring-primary" readonly="" type="password" value="sk-gemini-883a9f0294b29c917f9a"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 px-2.5 py-1 text-label-sm font-label-sm text-primary hover:text-on-surface transition-colors" type="button">Show</button>
+</div>
+<button class="px-4 py-2.5 rounded-DEFAULT bg-surface-container-highest hover:bg-surface-bright text-on-surface text-label-md font-label-md flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">network_check</span>
+<span>Test Ping</span>
+</button>
+</div>
+<!-- Model Temperature Parameter Slider -->
+<div class="pt-2 space-y-1.5">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span>Sampling Temperature</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-help" title="Higher values produce more creative &amp; empathetic responses">help</span>
+</span>
+<span class="font-mono text-primary font-semibold">0.70 (Balanced Intimacy)</span>
+</div>
+<input class="w-full accent-primary bg-surface-container-highest h-2 rounded-lg cursor-pointer" max="1" min="0" step="0.05" type="range" value="0.70"/>
+</div>
+</div>
+<!-- ElevenLabs Neural Voice -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-space-sm hover:bg-surface-container-high/60 transition-all">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">ElevenLabs Voice Pipeline</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary/15 text-secondary">Neural Urdu-English Accent</span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+<span class="font-mono">Connected (48kHz Lossless)</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">key</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-mono text-body-sm pl-10 pr-24 py-2.5 rounded-DEFAULT focus:outline-none" readonly="" type="password" value="xi-948201fa88bcf04829b2c"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 px-2.5 py-1 text-label-sm font-label-sm text-secondary hover:text-on-surface transition-colors" type="button">Show</button>
+</div>
+<button class="px-4 py-2.5 rounded-DEFAULT bg-surface-container-highest hover:bg-surface-bright text-on-surface text-label-md font-label-md flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">play_arrow</span>
+<span>Test Voice Sample</span>
+</button>
+</div>
+</div>
+<!-- On-Device Fallback Whisper -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/40 flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[24px] text-tertiary">memory</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Local On-Device Whisper v3</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Autonomous zero-internet fallback running on local Neural Engine.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Standby Ready
+                </span>
+<button class="px-3.5 py-1.5 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm" type="button">Inspect Weights</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Wake Word & Speech Engine -->
+<section class="bg-surface-container-low/70 backdrop-blur-2xl rounded-lg p-space-lg shadow-xl space-y-space-md" id="section-wake-speech">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/25 flex items-center justify-center text-secondary shadow-[0_0_16px_rgba(72,22,203,0.3)]">
+<span class="material-symbols-outlined text-[22px]">hearing</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Speech, Wake Word &amp; Language</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acoustic activation patterns and bilingual real-time code-switching matrix.</p>
+</div>
+</div>
+<!-- Wake Word Selector Cards -->
+<div class="space-y-space-sm">
+<label class="font-label-md text-label-md text-on-surface font-semibold block">Acoustic Wake Activation Phrase</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<!-- Option 1: Hey Zara (Active) -->
+<label class="cursor-pointer relative p-space-md rounded-DEFAULT bg-primary-container/10 shadow-[0_0_16px_rgba(244,84,163,0.15)] flex flex-col justify-between h-28 transition-all hover:bg-primary-container/15">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-semibold">Primary</span>
+<input checked="" class="w-4 h-4 accent-primary" name="wake-word" type="radio"/>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">"Hey Zara"</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Recommended default</p>
+</div>
+</label>
+<!-- Option 2: Short Zara -->
+<label class="cursor-pointer relative p-space-md rounded-DEFAULT bg-surface-container/60 flex flex-col justify-between h-28 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">Swift</span>
+<input class="w-4 h-4 accent-primary" name="wake-word" type="radio"/>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">"Zara"</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ultra low latency</p>
+</div>
+</label>
+<!-- Option 3: Suno Zara (Native Urdu) -->
+<label class="cursor-pointer relative p-space-md rounded-DEFAULT bg-surface-container/60 flex flex-col justify-between h-28 transition-all hover:bg-surface-container-high">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-semibold">Native Urdu</span>
+<input class="w-4 h-4 accent-primary" name="wake-word" type="radio"/>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-urdu-headline text-[22px] leading-tight text-on-surface font-bold">سنو زہرا</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(Suno Zara)</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Mic Device & Language Mode Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">mic</span>
+<span>Microphone Input Device</span>
+</label>
+<div class="relative">
+<select class="w-full bg-surface-container text-on-surface font-body-sm py-2.5 px-3 rounded-DEFAULT appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary">
+<option selected="">MacBook Pro Microphone Array (16-core DSP Studio)</option>
+<option>External USB Shure MV7 Studio Condenser</option>
+<option>AirPods Pro (Spatial Ambient Mic)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">translate</span>
+<span>Language &amp; Code-Switching</span>
+</label>
+<div class="p-2.5 rounded-DEFAULT bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sync_alt</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Bilingual Urdu + English</span>
+<span class="font-urdu-body text-[13px] text-on-surface-variant leading-none" dir="rtl">اردو اور انگریزی کی بے عیب ہم آہنگی</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/20 text-primary">Active</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Owner Authentication & PIN -->
+<section class="bg-surface-container-low/70 backdrop-blur-2xl rounded-lg p-space-lg shadow-xl space-y-space-md" id="section-security">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/25 flex items-center justify-center text-tertiary shadow-[0_0_16px_rgba(241,190,104,0.3)]">
+<span class="material-symbols-outlined text-[22px]">shield_person</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Owner Authentication &amp; Biometrics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sovereign control gates guaranteeing Zara only takes privileged commands from Boss.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-2">
+<!-- 6-digit PIN Config -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-space-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Owner PIN</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">pin</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">6-digit cryptographic PIN used for privileged laptop shell automations.</p>
+<div class="flex items-center gap-2 mt-4 justify-center">
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,176,206,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,176,206,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,176,206,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,176,206,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,176,206,0.6)]"></span>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,176,206,0.6)]"></span>
+</div>
+</div>
+<button class="w-full mt-4 py-2 px-3 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all" type="button">Change Master PIN</button>
+</div>
+<!-- Biometric Unlock Card -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-space-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Touch ID / Hello</span>
+<span class="material-symbols-outlined text-primary text-[20px]">fingerprint</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instant biometric confirmation when initiating automated script executions.</p>
+<div class="mt-4 flex items-center justify-between p-2 rounded bg-surface-container-lowest">
+<span class="font-label-sm text-label-sm text-on-surface">Biometrics Enforced</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/20 text-primary font-bold">Enabled</span>
+</div>
+</div>
+<button class="w-full mt-4 py-2 px-3 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all" type="button">Configure Biometrics</button>
+</div>
+<!-- Voiceprint Calibration -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-space-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Acoustic Voiceprint</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">record_voice_over</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Re-calibrate acoustic vector model with Urdu phoneme samples for 99.9% accuracy.</p>
+<div class="mt-4 flex items-center gap-1.5 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Model Verified: 3 days ago</span>
+</div>
+</div>
+<button class="w-full mt-4 py-2 px-3 rounded-DEFAULT bg-tertiary-container/30 hover:bg-tertiary-container/50 text-tertiary font-label-md text-label-md transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+<span>Re-calibrate Voiceprint</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Appearance & Theming -->
+<section class="bg-surface-container-low/70 backdrop-blur-2xl rounded-lg p-space-lg shadow-xl space-y-space-md" id="section-appearance">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shadow-[0_0_16px_rgba(244,84,163,0.3)]">
+<span class="material-symbols-outlined text-[22px]">palette</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Appearance &amp; Companion Persona</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tailor the ethereal luminescent palette and bilingual typography rendering engine.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-2">
+<!-- Theme Mode -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Luminescent Base Mode</span>
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-surface-container-lowest">
+<span class="material-symbols-outlined text-secondary text-[20px]">nightlight</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block leading-tight">Companion Night</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">#0B0A14 Foundation</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+</div>
+</div>
+<!-- Accent Color Picker -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Primary Aura Tint</span>
+<div class="flex items-center gap-3 pt-1">
+<button class="w-8 h-8 rounded-full bg-[#E94B9A] shadow-[0_0_12px_rgba(233,75,154,0.7)] ring-2 ring-on-surface ring-offset-2 ring-offset-surface-container transition-transform hover:scale-110" title="Rose Magenta (Selected)" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#7C5CFF] shadow-[0_0_8px_rgba(124,92,255,0.4)] opacity-70 hover:opacity-100 transition-all hover:scale-110" title="Violet Nebula" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#F1BE68] shadow-[0_0_8px_rgba(241,190,104,0.4)] opacity-70 hover:opacity-100 transition-all hover:scale-110" title="Golden Dawn" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#20E3B2] shadow-[0_0_8px_rgba(32,227,178,0.4)] opacity-70 hover:opacity-100 transition-all hover:scale-110" title="Cyan Spark" type="button"></button>
+</div>
+</div>
+<!-- Urdu Typography -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Urdu Calligraphic Font</span>
+<div class="p-2 rounded-DEFAULT bg-surface-container-lowest flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Noto Nastaliq Urdu</span>
+<span class="font-urdu-body text-[14px] text-primary" dir="rtl">نستعلیق رسم الخط فعال ہے</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">auto_stories</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Data Management & Backup -->
+<section class="bg-surface-container-low/70 backdrop-blur-2xl rounded-lg p-space-lg shadow-xl space-y-space-md" id="section-data-backup">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/25 flex items-center justify-center text-secondary shadow-[0_0_16px_rgba(72,22,203,0.3)]">
+<span class="material-symbols-outlined text-[22px]">hard_drive</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-semibold">Data Storage &amp; Local Backup</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sovereign offline memory vault, conversational embeddings, and acoustic cache.</p>
+</div>
+</div>
+<!-- Storage Breakdown Visualizer -->
+<div class="p-space-md rounded-DEFAULT bg-surface-container/80 space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">482.4 MB Used</span>
+<span class="text-on-surface-variant font-body-sm"> of 20.0 GB Sovereign Allocation</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-mono">Encrypted SQLite + ChromaDB</span>
+</div>
+<!-- Progress Bar Stack -->
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 48%;" title="Conversation Logs (231 MB)"></div>
+<div class="bg-secondary h-full" style="width: 32%;" title="Vector Embeddings (154 MB)"></div>
+<div class="bg-tertiary h-full" style="width: 20%;" title="Voice Cache (97 MB)"></div>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-label-sm font-label-sm pt-1">
+<span class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span>Dialogues: 231 MB</span>
+</span>
+<span class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Vector Vault: 154 MB</span>
+</span>
+<span class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span>Acoustic Cache: 97 MB</span>
+</span>
+</div>
+</div>
+<!-- Backup Operations Bar -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm">
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Create Encrypted Backup (.zara)</span>
+</button>
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">upload</span>
+<span>Restore from Backup</span>
+</button>
+<button class="w-full sm:w-auto sm:ml-auto px-4 py-2.5 rounded-DEFAULT text-on-surface-variant hover:text-error hover:bg-error-container/20 font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span>Clear Cache &amp; Audio Clips (1.2 GB Freed)</span>
+</button>
+</div>
+</section>
+<!-- SECTION 6: Session & App Lifecycle -->
+<section class="bg-surface-container-low/70 backdrop-blur-2xl rounded-lg p-space-lg shadow-xl space-y-space-md" id="section-session-lifecycle">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Zara AI Sovereign Desktop</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary text-label-sm font-label-sm font-mono font-semibold">v2.4.2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-mono">Build 8902-STABLE • Darwin x86_64 / arm64 Universal Binary</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1.5 rounded-full bg-surface-container text-tertiary font-label-sm text-label-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                Up to date
+              </span>
+<button class="px-3.5 py-1.5 rounded-DEFAULT bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm" type="button">Check Updates</button>
+</div>
+</div>
+<!-- Lock Suite Card -->
+<div class="p-space-md rounded-DEFAULT bg-gradient-to-r from-error-container/20 via-surface-container to-secondary-container/15 flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">power_settings_new</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold block">Terminate Active Session</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Locks cryptographic vault, wipes ephemeral context RAM, and returns to biometric login.</span>
+</div>
+</div>
+<button class="shrink-0 px-5 py-2.5 rounded-full bg-error/15 hover:bg-error text-error hover:text-on-error font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_16px_rgba(255,180,171,0.2)]" type="button">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Lock Session</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initSettingsInteractions() {
+    const saveBtn = document.getElementById('save-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        const originalContent = saveBtn.innerHTML;
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span>
+          <span>Saving...</span>
+        `;
+        setTimeout(() => {
+          saveBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[18px] text-on-primary">check</span>
+            <span>Saved!</span>
+          `;
+          setTimeout(() => {
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = originalContent;
+          }, 2000);
+        }, 800);
+      });
+    }
+  })();
+</script></main></div></body></html>

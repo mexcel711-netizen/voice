@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<div class="w-full px-6 py-8 max-w-7xl mx-auto space-y-10">
+<!-- Top Studio Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-2">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-surface-container-high text-primary shadow-[0_0_24px_rgba(244,84,163,0.3)]">
+<span class="material-symbols-outlined text-[24px]">graphic_eq</span>
+</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Acoustic Architecture</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">صوتیاتی سٹوڈیو</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Voice Studio</h1>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Bespoke neural voice synthesis, acoustic cadence, accent tuning, and wake word calibration for real-time companionship.
+        </p>
+</div>
+<!-- Engine & Latency Telemetry Badges -->
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-surface-container/80 backdrop-blur-xl shadow-md">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_10px_rgba(241,190,104,0.6)]"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Core Pipeline</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Gemini Live + ElevenLabs HD</span>
+</div>
+</div>
+<div class="flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-surface-container/80 backdrop-blur-xl shadow-md">
+<span class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(244,84,163,0.8)]"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Active Latency</span>
+<span class="font-label-md text-label-md text-primary font-semibold">24ms Ultra-Low (Online)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 1: Voice Models Grid -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Neural Persona Selection</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Urdu Female Neural Profiles</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-3 py-1.5 rounded-full">
+          4 High-Fidelity Presets
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4" id="voiceCardsContainer">
+<!-- Voice 1: Sovereign (Default / Selected) -->
+<div class="relative group p-5 rounded-2xl bg-surface-container-high/90 backdrop-blur-2xl shadow-[0_0_36px_rgba(244,84,163,0.25)] transition-all cursor-pointer flex flex-col justify-between" data-voice-card="sovereign">
+<div class="absolute -top-px -left-px -right-px -bottom-px rounded-2xl bg-gradient-to-br from-primary via-primary-container/40 to-secondary opacity-80 pointer-events-none -z-10"></div>
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary font-bold text-headline-sm shadow-md">
+                  ZS
+                </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Zara Sovereign</h3>
+<span class="font-urdu-body text-urdu-body text-primary leading-tight">حاکم انداز</span>
+</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Velvety, intimate, warm Urdu with natural micro-breathing and playful nuance tailored for late-night dialogues.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-[11px] font-label-sm text-secondary">Cultured Adab</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-[11px] font-label-sm text-primary">Intimate Proximity</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-[11px] font-label-sm text-tertiary">Default Core</span>
+</div>
+</div>
+<div class="pt-5 mt-4 space-y-3">
+<!-- Simulated Waveform Track -->
+<div class="h-8 flex items-center gap-1 px-2 rounded-xl bg-surface-container-lowest/60 overflow-hidden">
+<span class="w-1 h-3 bg-primary rounded-full animate-pulse"></span>
+<span class="w-1 h-6 bg-primary rounded-full animate-pulse" style="animation-delay: 80ms"></span>
+<span class="w-1 h-4 bg-primary-container rounded-full"></span>
+<span class="w-1 h-7 bg-primary rounded-full animate-pulse" style="animation-delay: 140ms"></span>
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-primary rounded-full animate-pulse" style="animation-delay: 40ms"></span>
+<span class="w-1 h-7 bg-primary rounded-full"></span>
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<span class="w-1 h-4 bg-primary rounded-full"></span>
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-primary rounded-full"></span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md hover:opacity-95 shadow-[0_4px_16px_rgba(244,84,163,0.35)] transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Sample Audio (سنیں)</span>
+</button>
+</div>
+</div>
+<!-- Voice 2: Noor -->
+<div class="relative group p-5 rounded-2xl bg-surface-container/60 hover:bg-surface-container-high/80 backdrop-blur-xl transition-all cursor-pointer flex flex-col justify-between shadow-md" data-voice-card="noor">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-headline-sm">
+                  ZN
+                </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Zara Noor</h3>
+<span class="font-urdu-body text-urdu-body text-secondary leading-tight">نور کی چمک</span>
+</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant group-hover:text-primary">
+<span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Bright, energetic, cheerful morning companion cadence designed for motivation, routines, and task execution.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[11px] font-label-sm text-secondary">Upbeat Tempo</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[11px] font-label-sm text-on-surface-variant">Crisp Consonants</span>
+</div>
+</div>
+<div class="pt-5 mt-4 space-y-3">
+<div class="h-8 flex items-center gap-1 px-2 rounded-xl bg-surface-container-lowest/60 overflow-hidden opacity-60">
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+<span class="w-1 h-4 bg-secondary rounded-full"></span>
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-secondary rounded-full"></span>
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-secondary rounded-full"></span>
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+<span class="w-1 h-4 bg-secondary rounded-full"></span>
+<span class="w-1 h-1 bg-secondary rounded-full"></span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-full bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Sample Audio</span>
+</button>
+</div>
+</div>
+<!-- Voice 3: Mehru -->
+<div class="relative group p-5 rounded-2xl bg-surface-container/60 hover:bg-surface-container-high/80 backdrop-blur-xl transition-all cursor-pointer flex flex-col justify-between shadow-md" data-voice-card="mehru">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-bold text-headline-sm">
+                  ZM
+                </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Zara Mehru</h3>
+<span class="font-urdu-body text-urdu-body text-tertiary leading-tight">مہرو - شاعرانہ</span>
+</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant group-hover:text-primary">
+<span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Deep, lyrical, classical Urdu poetic resonance with prolonged vowel elongation and traditional inflection.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[11px] font-label-sm text-tertiary">Poetic Ghazal</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[11px] font-label-sm text-on-surface-variant">Deep Resonator</span>
+</div>
+</div>
+<div class="pt-5 mt-4 space-y-3">
+<div class="h-8 flex items-center gap-1 px-2 rounded-xl bg-surface-container-lowest/60 overflow-hidden opacity-60">
+<span class="w-1 h-5 bg-tertiary rounded-full"></span>
+<span class="w-1 h-3 bg-tertiary rounded-full"></span>
+<span class="w-1 h-6 bg-tertiary rounded-full"></span>
+<span class="w-1 h-2 bg-tertiary rounded-full"></span>
+<span class="w-1 h-7 bg-tertiary rounded-full"></span>
+<span class="w-1 h-4 bg-tertiary rounded-full"></span>
+<span class="w-1 h-3 bg-tertiary rounded-full"></span>
+<span class="w-1 h-5 bg-tertiary rounded-full"></span>
+<span class="w-1 h-2 bg-tertiary rounded-full"></span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-full bg-surface-container-high text-on-surface hover:text-tertiary transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Sample Audio</span>
+</button>
+</div>
+</div>
+<!-- Voice 4: Simran -->
+<div class="relative group p-5 rounded-2xl bg-surface-container/60 hover:bg-surface-container-high/80 backdrop-blur-xl transition-all cursor-pointer flex flex-col justify-between shadow-md" data-voice-card="simran">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-variant flex items-center justify-center text-primary font-bold text-headline-sm">
+                  ZS
+                </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Zara Simran</h3>
+<span class="font-urdu-body text-urdu-body text-on-surface-variant leading-tight">روشن دور</span>
+</div>
+</div>
+<span class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant group-hover:text-primary">
+<span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Modern bilingual Urdu-English conversational companion. Rapid switching between slang, tech lexicon, and Urdu idioms.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[11px] font-label-sm text-primary">Urban Code-Switch</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-[11px] font-label-sm text-secondary">Tech Lexicon</span>
+</div>
+</div>
+<div class="pt-5 mt-4 space-y-3">
+<div class="h-8 flex items-center gap-1 px-2 rounded-xl bg-surface-container-lowest/60 overflow-hidden opacity-60">
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+<span class="w-1 h-5 bg-secondary rounded-full"></span>
+<span class="w-1 h-3 bg-secondary rounded-full"></span>
+<span class="w-1 h-6 bg-secondary rounded-full"></span>
+<span class="w-1 h-4 bg-secondary rounded-full"></span>
+<span class="w-1 h-2 bg-secondary rounded-full"></span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-full bg-surface-container-high text-on-surface hover:text-secondary transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Sample Audio</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2 & 3: Two-Column Bento Grid (Modulation Sliders + Dialect & Wake Word) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Column: 5 Acoustic Modulation Sliders (7 Cols) -->
+<div class="lg:col-span-7 p-6 rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-xl space-y-6">
+<div class="flex items-center justify-between pb-2">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Acoustic Prosody &amp; Modulation</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calibrate real-time latency, breathing realism, and emotional spectrum.</p>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1" id="resetSlidersBtn" type="button">
+<span class="material-symbols-outlined text-[14px]">restart_alt</span>
+<span>Defaults</span>
+</button>
+</div>
+<div class="space-y-5">
+<!-- Slider 1: Speed / Tempo -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">speed</span>
+<label class="font-label-md text-label-md text-on-surface" for="speedRange">Speed / Tempo</label>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary px-2 py-0.5 rounded-lg bg-surface-container" id="speedVal">1.05x</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="speedRange" max="1.50" min="0.75" step="0.05" type="range" value="1.05"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>0.75x (Reflective)</span>
+<span>1.05x (Natural Conversational)</span>
+<span>1.50x (Brisk)</span>
+</div>
+</div>
+<!-- Slider 2: Pitch -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">straighten</span>
+<label class="font-label-md text-label-md text-on-surface" for="pitchRange">Pitch Tuning</label>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary px-2 py-0.5 rounded-lg bg-surface-container" id="pitchVal">-2 st</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" id="pitchRange" max="6" min="-6" step="1" type="range" value="-2"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>-6 st (Deep Melodic)</span>
+<span>-2 semitones (Warm &amp; Soothing)</span>
+<span>+6 st (Juvenile)</span>
+</div>
+</div>
+<!-- Slider 3: Warmth & Breathiness -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">air</span>
+<label class="font-label-md text-label-md text-on-surface" for="warmthRange">Warmth &amp; Breathiness</label>
+</div>
+<span class="font-label-md text-label-md font-bold text-tertiary px-2 py-0.5 rounded-lg bg-surface-container" id="warmthVal">88%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-tertiary" id="warmthRange" max="100" min="20" step="1" type="range" value="88"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Dry Studio Mic</span>
+<span>88% (Intimate Proximity Effect)</span>
+<span>Air Max</span>
+</div>
+</div>
+<!-- Slider 4: Expressiveness & Dynamic Range -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">theater_comedy</span>
+<label class="font-label-md text-label-md text-on-surface" for="expressRange">Expressiveness &amp; Dynamic Range</label>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary px-2 py-0.5 rounded-lg bg-surface-container" id="expressVal">92%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="expressRange" max="100" min="40" step="1" type="range" value="92"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Predictable</span>
+<span>92% (Rich Urdu Prosody &amp; Inflection)</span>
+<span>Theatrical</span>
+</div>
+</div>
+<!-- Slider 5: Pause & Breath Cadence -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/70 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">hourglass_empty</span>
+<label class="font-label-md text-label-md text-on-surface" for="pauseRange">Pause &amp; Micro-Breath Cadence</label>
+</div>
+<span class="font-label-md text-label-md font-bold text-secondary px-2 py-0.5 rounded-lg bg-surface-container" id="pauseVal">0.40s</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" id="pauseRange" max="1.0" min="0.1" step="0.05" type="range" value="0.40"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>0.10s (Rapid)</span>
+<span>0.40s Inter-clause (Lyrical Urdu Rhythmic Rest)</span>
+<span>1.00s (Dramatic)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Accent Tuning + Wake Word Calibration (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Accent & Dialect Tuning Card -->
+<div class="p-6 rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-xl space-y-4">
+<div class="flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">language</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Accent &amp; Dialect Mode</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Phoneme articulation and cultural speech patterns.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="dialectTiles">
+<!-- Option 1: Cultured Urdu (Active) -->
+<label class="dialect-option relative flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-high/90 shadow-md cursor-pointer transition-all hover:bg-surface-bright">
+<input checked="" class="sr-only" name="dialect" type="radio" value="cultured"/>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Standard Cultured</span>
+<span class="dialect-check material-symbols-outlined text-[18px] text-primary">check_circle</span>
+</div>
+<div class="mt-2 text-right">
+<span class="font-urdu-body text-urdu-body text-primary font-medium">فصیح اردو</span>
+</div>
+<span class="text-[11px] font-body-sm text-on-surface-variant mt-1">Poetic, formal honorifics &amp; adab</span>
+</label>
+<!-- Option 2: Contemporary Urban -->
+<label class="dialect-option relative flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-low/70 cursor-pointer transition-all hover:bg-surface-container-high">
+<input class="sr-only" name="dialect" type="radio" value="urban"/>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Urban Hybrid</span>
+<span class="dialect-check material-symbols-outlined text-[18px] text-surface-variant">radio_button_unchecked</span>
+</div>
+<div class="mt-2 text-right">
+<span class="font-urdu-body text-urdu-body text-on-surface-variant font-medium">اردو + انگلش مکس</span>
+</div>
+<span class="text-[11px] font-body-sm text-on-surface-variant mt-1">Casual, tech words, code-switching</span>
+</label>
+<!-- Option 3: Lahori Cadence -->
+<label class="dialect-option relative flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-low/70 cursor-pointer transition-all hover:bg-surface-container-high">
+<input class="sr-only" name="dialect" type="radio" value="lahori"/>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Lahori Cadence</span>
+<span class="dialect-check material-symbols-outlined text-[18px] text-surface-variant">radio_button_unchecked</span>
+</div>
+<div class="mt-2 text-right">
+<span class="font-urdu-body text-urdu-body text-on-surface-variant font-medium">لاہوری انداز</span>
+</div>
+<span class="text-[11px] font-body-sm text-on-surface-variant mt-1">Warm melodic vowel pulls</span>
+</label>
+<!-- Option 4: Karachite Tone -->
+<label class="dialect-option relative flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-low/70 cursor-pointer transition-all hover:bg-surface-container-high">
+<input class="sr-only" name="dialect" type="radio" value="karachi"/>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Karachite Tone</span>
+<span class="dialect-check material-symbols-outlined text-[18px] text-surface-variant">radio_button_unchecked</span>
+</div>
+<div class="mt-2 text-right">
+<span class="font-urdu-body text-urdu-body text-on-surface-variant font-medium">کراچی لب و لہجہ</span>
+</div>
+<span class="text-[11px] font-body-sm text-on-surface-variant mt-1">Snappy, urban, brisk consonants</span>
+</label>
+</div>
+</div>
+<!-- Wake Word & Mic Calibration Card -->
+<div class="p-6 rounded-2xl bg-surface-container/70 backdrop-blur-2xl shadow-xl space-y-5">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">sensors</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Wake Word Calibration</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Local on-device acoustic recognition buffer.</p>
+</div>
+<!-- Wake Word Trigger Badges -->
+<div class="flex flex-wrap gap-2">
+<div class="flex-1 flex items-center justify-between p-3 rounded-xl bg-surface-container-low/80">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Latin Wake Phrase</span>
+<span class="font-title-md text-title-md font-bold text-primary">"Hey Zara"</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">mic</span>
+</div>
+<div class="flex-1 flex items-center justify-between p-3 rounded-xl bg-surface-container-low/80">
+<div class="text-right w-full">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">اردو ووک ورڈ</span>
+<span class="font-urdu-headline text-urdu-headline text-secondary font-bold">"سنو زہرا"</span>
+</div>
+</div>
+</div>
+<!-- Sensitivity Slider -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface" for="wakeSensitivity">Trigger Sensitivity</label>
+<span class="font-label-md text-label-md font-bold text-primary" id="wakeSensVal">82%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="wakeSensitivity" max="98" min="30" type="range" value="82"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Strict (No false triggers)</span>
+<span>Whisper Sensitivity (82%)</span>
+</div>
+</div>
+<!-- Toggle: False-Positive Prevention -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/60">
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md text-on-surface block">False-Positive Prevention</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px] block">Suppresses triggers from TV, YouTube, or podcasts</span>
+</div>
+<button class="w-12 h-6 flex items-center rounded-full p-1 bg-primary transition-all" id="preventToggle" type="button">
+<div class="bg-surface-container-lowest w-4 h-4 rounded-full shadow-md transform translate-x-6 transition-all" id="toggleCircle"></div>
+</button>
+</div>
+<!-- Live Mic Trigger Test Button -->
+<button class="w-full py-2.5 px-4 rounded-full bg-surface-container-high text-on-surface hover:text-primary transition-all flex items-center justify-center gap-2 font-label-md text-label-md shadow-sm" id="testMicBtn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary" id="testMicIcon">mic</span>
+<span id="testMicText">Test Mic Trigger (بول کر آزمائیں)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section 4: Big Interactive Voice Playground -->
+<div class="relative p-6 sm:p-8 rounded-3xl bg-surface-container-high/60 backdrop-blur-3xl shadow-2xl overflow-hidden space-y-6">
+<!-- Ambient Visualizer Background Orbs -->
+<div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary-container/20 blur-[100px] pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-secondary-container/25 blur-[110px] pointer-events-none"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Interactive Synthesis Sandbox</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Voice Playground &amp; Acoustic Visualizer</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Output Device:</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">headphones</span>
+            Studio Monitor (Stereo)
+          </span>
+</div>
+</div>
+<!-- Playground Input Box & Script Presets -->
+<div class="space-y-4 relative z-10">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Text to Synthesize (Urdu Script)</span>
+<span class="font-label-sm text-label-sm text-primary cursor-pointer hover:underline" id="loadRandomQuote">Load poetic dialogue sample</span>
+</div>
+<div class="relative">
+<textarea class="w-full p-4 rounded-2xl bg-surface-container-lowest/80 text-on-surface font-urdu-headline text-urdu-headline focus:outline-none focus:ring-2 focus:ring-secondary/50 placeholder:text-outline-variant shadow-inner transition-all leading-loose" dir="rtl" id="playgroundInput" rows="3">جی باس! میں بالکل تیار ہوں۔ بتائیں آج رات ہم کیا نیا کمال کرنے والے ہیں؟</textarea>
+</div>
+</div>
+<!-- Bilingual Preview Strip -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 rounded-xl bg-surface-container-low/70">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">translate</span>
+              Roman Urdu Preview
+            </span>
+<p class="font-body-md text-body-md text-on-surface font-medium" id="romanPreview">
+              "Jee Boss! Main bilkul tayyar hoon. Batayein aaj raat hum kya naya kamaal karne walay hain?"
+            </p>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">subtitles</span>
+              English Sense Meaning
+            </span>
+<p class="font-body-md text-body-md text-on-surface-variant italic" id="englishPreview">
+              "Yes Boss! I'm completely ready. Tell me what incredible breakthrough we're creating tonight?"
+            </p>
+</div>
+</div>
+</div>
+<!-- Action Bar & Bioluminescent Visualizer Wave -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pt-2 relative z-10">
+<!-- Live Audio Waveform Simulation Bar -->
+<div class="flex-1 flex items-center justify-center lg:justify-start gap-1.5 h-16 px-6 rounded-2xl bg-surface-container-lowest/80 shadow-inner overflow-hidden" id="visualizerContainer">
+<div class="flex items-center gap-1.5 w-full justify-between px-2">
+<span class="wave-bar w-1.5 bg-secondary rounded-full h-3 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary rounded-full h-8 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary-container rounded-full h-12 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary rounded-full h-6 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-secondary rounded-full h-10 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-tertiary rounded-full h-4 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary rounded-full h-14 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary rounded-full h-8 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-secondary rounded-full h-16 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary-container rounded-full h-10 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-secondary rounded-full h-5 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary rounded-full h-12 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-tertiary rounded-full h-6 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-primary rounded-full h-9 transition-all duration-150"></span>
+<span class="wave-bar w-1.5 bg-secondary rounded-full h-4 transition-all duration-150"></span>
+</div>
+</div>
+<!-- Synthesis Play CTA Button -->
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<button class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-primary-container via-primary to-secondary text-on-primary-container font-headline-sm text-headline-sm flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_4px_30px_rgba(244,84,163,0.45)]" id="synthesizeBtn" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+<span>Synthesize &amp; Play Voice</span>
+<span class="font-urdu-body text-[18px] pr-1 font-bold">آواز سنیں</span>
+</button>
+<button class="w-full sm:w-auto px-5 py-4 rounded-full bg-surface-container text-on-surface hover:text-primary transition-all flex items-center justify-center gap-2 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Export WAV</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Supplementary Architectural Spec Footer -->
+<div class="p-6 rounded-2xl bg-surface-container/50 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+<span>Acoustic Neural Model: <strong>Zara-Voicelab-v4.2-UrduBilingual</strong> trained on 1,400+ hours of intimate dialogue corpus.</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary"></span> 48kHz HD</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span> Lossless Opus Stream</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary"></span> Neural Formant Lock</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initVoiceStudio() {
+    // 1. Sliders Interactive Display Updates
+    const sliders = [
+      { id: 'speedRange', valId: 'speedVal', suffix: 'x' },
+      { id: 'pitchRange', valId: 'pitchVal', suffix: ' st' },
+      { id: 'warmthRange', valId: 'warmthVal', suffix: '%' },
+      { id: 'expressRange', valId: 'expressVal', suffix: '%' },
+      { id: 'pauseRange', valId: 'pauseVal', suffix: 's' },
+      { id: 'wakeSensitivity', valId: 'wakeSensVal', suffix: '%' }
+    ];
+
+    sliders.forEach(s => {
+      const el = document.getElementById(s.id);
+      const valEl = document.getElementById(s.valId);
+      if (el && valEl) {
+        el.addEventListener('input', (e) => {
+          valEl.textContent = e.target.value + s.suffix;
+        });
+      }
+    });
+
+    // Reset Defaults
+    const resetBtn = document.getElementById('resetSlidersBtn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        document.getElementById('speedRange').value = 1.05;
+        document.getElementById('speedVal').textContent = '1.05x';
+
+        document.getElementById('pitchRange').value = -2;
+        document.getElementById('pitchVal').textContent = '-2 st';
+
+        document.getElementById('warmthRange').value = 88;
+        document.getElementById('warmthVal').textContent = '88%';
+
+        document.getElementById('expressRange').value = 92;
+        document.getElementById('expressVal').textContent = '92%';
+
+        document.getElementById('pauseRange').value = 0.40;
+        document.getElementById('pauseVal').textContent = '0.40s';
+      });
+    }
+
+    // 2. Voice Card Selection
+    const cards = document.querySelectorAll('[data-voice-card]');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => {
+          c.classList.remove('shadow-[0_0_36px_rgba(244,84,163,0.25)]', 'bg-surface-container-high/90');
+          c.classList.add('bg-surface-container/60');
+          const borderGradient = c.querySelector('.bg-gradient-to-br');
+          if (borderGradient) borderGradient.remove();
+          const checkIcon = c.querySelector('.material-symbols-outlined');
+          if (checkIcon && checkIcon.textContent === 'check') {
+            checkIcon.textContent = 'radio_button_unchecked';
+            checkIcon.parentElement.classList.remove('bg-primary', 'text-on-primary');
+            checkIcon.parentElement.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+          }
+        });
+
+        // Set active on clicked
+        card.classList.add('shadow-[0_0_36px_rgba(244,84,163,0.25)]', 'bg-surface-container-high/90');
+        card.classList.remove('bg-surface-container/60');
+        
+        const grad = document.createElement('div');
+        grad.className = 'absolute -top-px -left-px -right-px -bottom-px rounded-2xl bg-gradient-to-br from-primary via-primary-container/40 to-secondary opacity-80 pointer-events-none -z-10';
+        card.prepend(grad);
+
+        const badge = card.querySelector('.w-6.h-6');
+        if (badge) {
+          badge.className = 'w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary';
+          badge.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span>';
+        }
+      });
+    });
+
+    // 3. Dialect Mode Radio Tiles
+    const dialectTiles = document.querySelectorAll('.dialect-option');
+    dialectTiles.forEach(tile => {
+      tile.addEventListener('click', () => {
+        dialectTiles.forEach(t => {
+          t.classList.remove('bg-surface-container-high/90', 'shadow-md');
+          t.classList.add('bg-surface-container-low/70');
+          const chk = t.querySelector('.dialect-check');
+          if (chk) {
+            chk.textContent = 'radio_button_unchecked';
+            chk.className = 'dialect-check material-symbols-outlined text-[18px] text-surface-variant';
+          }
+        });
+        tile.classList.add('bg-surface-container-high/90', 'shadow-md');
+        tile.classList.remove('bg-surface-container-low/70');
+        const activeChk = tile.querySelector('.dialect-check');
+        if (activeChk) {
+          activeChk.textContent = 'check_circle';
+          activeChk.className = 'dialect-check material-symbols-outlined text-[18px] text-primary';
+        }
+      });
+    });
+
+    // 4. Prevention Toggle
+    const toggleBtn = document.getElementById('preventToggle');
+    const toggleCircle = document.getElementById('toggleCircle');
+    let toggleActive = true;
+    if (toggleBtn && toggleCircle) {
+      toggleBtn.addEventListener('click', () => {
+        toggleActive = !toggleActive;
+        if (toggleActive) {
+          toggleBtn.classList.remove('bg-surface-container-highest');
+          toggleBtn.classList.add('bg-primary');
+          toggleCircle.classList.remove('translate-x-0');
+          toggleCircle.classList.add('translate-x-6');
+        } else {
+          toggleBtn.classList.remove('bg-primary');
+          toggleBtn.classList.add('bg-surface-container-highest');
+          toggleCircle.classList.remove('translate-x-6');
+          toggleCircle.classList.add('translate-x-0');
+        }
+      });
+    }
+
+    // 5. Test Mic Button
+    const testMicBtn = document.getElementById('testMicBtn');
+    const testMicIcon = document.getElementById('testMicIcon');
+    const testMicText = document.getElementById('testMicText');
+    let isListening = false;
+    if (testMicBtn) {
+      testMicBtn.addEventListener('click', () => {
+        isListening = !isListening;
+        if (isListening) {
+          testMicIcon.classList.add('animate-ping', 'text-error');
+          testMicText.textContent = 'Listening... Say "سنو زہرا" or "Hey Zara"';
+          setTimeout(() => {
+            if (isListening) {
+              testMicIcon.classList.remove('animate-ping', 'text-error');
+              testMicText.textContent = 'Trigger Recognized! (Confidence: 97%)';
+              setTimeout(() => {
+                testMicText.textContent = 'Test Mic Trigger (بول کر آزمائیں)';
+                isListening = false;
+              }, 2000);
+            }
+          }, 3000);
+        } else {
+          testMicIcon.classList.remove('animate-ping', 'text-error');
+          testMicText.textContent = 'Test Mic Trigger (بول کر آزمائیں)';
+        }
+      });
+    }
+
+    // 6. Voice Wave Visualizer Simulation during Synthesis
+    const synthBtn = document.getElementById('synthesizeBtn');
+    const waveBars = document.querySelectorAll('.wave-bar');
+    let isPlaying = false;
+    let waveInterval;
+
+    if (synthBtn) {
+      synthBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+          synthBtn.querySelector('span:nth-child(2)').textContent = 'Streaming Audio...';
+          waveInterval = setInterval(() => {
+            waveBars.forEach(bar => {
+              const randH = Math.floor(Math.random() * 40) + 8;
+              bar.style.height = randH + 'px';
+            });
+          }, 120);
+
+          setTimeout(() => {
+            clearInterval(waveInterval);
+            isPlaying = false;
+            synthBtn.querySelector('span:nth-child(2)').textContent = 'Synthesize & Play Voice';
+            waveBars.forEach((bar, index) => {
+              bar.style.height = (index % 3 === 0 ? '24px' : '12px');
+            });
+          }, 5000);
+        } else {
+          clearInterval(waveInterval);
+          synthBtn.querySelector('span:nth-child(2)').textContent = 'Synthesize & Play Voice';
+        }
+      });
+    }
+
+    // 7. Load Sample Quotes
+    const samples = [
+      {
+        urdu: "جی باس! میں بالکل تیار ہوں۔ بتائیں آج رات ہم کیا نیا کمال کرنے والے ہیں؟",
+        roman: "Jee Boss! Main bilkul tayyar hoon. Batayein aaj raat hum kya naya kamaal karne walay hain?",
+        en: "Yes Boss! I'm completely ready. Tell me what incredible breakthrough we're creating tonight?"
+      },
+      {
+        urdu: "آپ کی چائے ٹھنڈی ہو رہی ہے باس، اور کوڈ کا اگلا مرحلہ آپ کا انتظار کر رہا ہے۔",
+        roman: "Aap ki chai thandi ho rahi hai boss, aur code ka agla marhala aap ka intezaar kar raha hai.",
+        en: "Your tea is getting cold Boss, and the next code milestone is eagerly awaiting you."
+      },
+      {
+        urdu: "ستاروں سے آگے جہاں اور بھی ہیں، ابھی عشق کے امتحان اور بھی ہیں۔ نیند پوری کر لیں باس!",
+        roman: "Sitaron se aagay jahan aur bhi hain... Neend poori kar lein Boss!",
+        en: "Beyond the stars there are yet worlds to conquer. Get adequate rest tonight Boss!"
+      }
+    ];
+
+    let sampleIdx = 0;
+    const sampleLink = document.getElementById('loadRandomQuote');
+    const inputArea = document.getElementById('playgroundInput');
+    const romanText = document.getElementById('romanPreview');
+    const enText = document.getElementById('englishPreview');
+
+    if (sampleLink) {
+      sampleLink.addEventListener('click', () => {
+        sampleIdx = (sampleIdx + 1) % samples.length;
+        inputArea.value = samples[sampleIdx].urdu;
+        romanText.textContent = `"${samples[sampleIdx].roman}"`;
+        enText.textContent = `"${samples[sampleIdx].en}"`;
+      });
+    }
+  })();
+</script></main></div></body></html>

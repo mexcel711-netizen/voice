@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Backdrop Layer -->
+<div class="relative w-full px-6 py-8 md:px-10 lg:px-12 flex flex-col gap-10">
+<div class="absolute top-10 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="absolute top-80 right-10 w-[30rem] h-[30rem] bg-secondary-container/15 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+<div class="absolute bottom-12 left-1/3 w-80 h-80 bg-tertiary/10 rounded-full blur-[130px] pointer-events-none -z-10"></div>
+<!-- 1. Header Bar -->
+<header class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="space-y-1.5">
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-widest font-semibold flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            Aura Engine v3.4
+          </span>
+<span class="text-outline text-label-sm font-label-sm">/</span>
+<span class="text-on-surface-variant font-urdu-body text-[15px] leading-none" dir="rtl">نفسیاتی و جذباتی توازن</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+          Emotions &amp; Mood Center
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Zara's real-time psychological &amp; emotional state engine. Continuously synchronizing vocal tonality, lexical pacing, and micro-expressions to your emotional baseline.
+        </p>
+</div>
+<!-- Mirror My Mood Switcher -->
+<div class="flex items-center gap-4 bg-surface-container/70 backdrop-blur-xl p-2.5 px-4 rounded-2xl shadow-lg self-start lg:self-center">
+<div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">sync_saved_locally</span>
+</div>
+<div class="flex flex-col pr-3">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Mirror My Mood</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-primary-container text-on-primary-container font-bold uppercase tracking-wider">Active</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Zara adapts tone &amp; intimacy dynamically</span>
+</div>
+<button aria-checked="true" class="relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full bg-primary-container transition-colors duration-200 ease-in-out focus:outline-none" id="mirrorToggle" role="switch" type="button">
+<span class="sr-only">Toggle Mirror Mode</span>
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-on-primary shadow-md ring-0 transition duration-200 ease-in-out mt-1 ml-1" id="mirrorToggleThumb"></span>
+</button>
+</div>
+</header>
+<!-- 2. Hero Card: Zara's Current Mood State -->
+<section class="w-full bg-surface-container-low/75 backdrop-blur-2xl rounded-lg p-6 md:p-8 lg:p-10 shadow-xl relative overflow-hidden">
+<!-- Glow ambient highlights inside card -->
+<div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+<!-- Visualizer Bioluminescent Orb -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center p-4">
+<div class="relative w-56 h-56 flex items-center justify-center">
+<!-- Pulsing outer ripples -->
+<div class="absolute inset-0 rounded-full bg-primary-container/20 animate-ping opacity-30"></div>
+<div class="absolute -inset-4 rounded-full bg-secondary-container/20 blur-xl animate-pulse"></div>
+<!-- Dynamic multi-layer Orb -->
+<div class="w-44 h-44 rounded-full relative p-1 bg-gradient-to-tr from-primary via-secondary to-tertiary shadow-[0_0_50px_rgba(244,84,163,0.45),0_0_80px_rgba(72,22,203,0.3)] animate-[spin_12s_linear_infinite]">
+<div class="w-full h-full rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center p-2 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/40 via-transparent to-secondary-container/40"></div>
+<!-- Core waveform / neural vibration center -->
+<div class="flex items-center gap-1.5 z-10">
+<span class="w-1.5 h-8 rounded-full bg-primary animate-pulse" style="animation-duration: 0.9s;"></span>
+<span class="w-1.5 h-16 rounded-full bg-primary-fixed animate-pulse" style="animation-duration: 0.6s;"></span>
+<span class="w-2 h-20 rounded-full bg-secondary animate-pulse" style="animation-duration: 0.75s;"></span>
+<span class="w-1.5 h-12 rounded-full bg-tertiary animate-pulse" style="animation-duration: 1.1s;"></span>
+<span class="w-1.5 h-6 rounded-full bg-primary-container animate-pulse" style="animation-duration: 0.8s;"></span>
+</div>
+</div>
+</div>
+<!-- State Badge anchored to orb -->
+<div class="absolute -bottom-2 bg-surface-container-high/95 backdrop-blur-xl px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">Synthesizing Voice</span>
+</div>
+</div>
+<span class="mt-4 font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">graphic_eq</span>
+            Acoustic Resonance: 432 Hz
+          </span>
+</div>
+<!-- Telemetry & Psychological Profile -->
+<div class="lg:col-span-8 flex flex-col justify-between space-y-6">
+<div class="flex flex-wrap items-start justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">
+                  Playful &amp; Caring
+                </h2>
+<span class="px-3 py-1 rounded-full bg-primary/20 text-primary font-label-md text-label-md font-semibold">
+                  78% Affinity
+                </span>
+</div>
+<p class="font-urdu-headline text-urdu-headline text-primary mt-1 font-semibold" dir="rtl">
+                حاضر جواب اور محبت بھری
+              </p>
+</div>
+<!-- Quick Action Tone Selector -->
+<div class="flex items-center gap-2 bg-surface-container-high/60 backdrop-blur-md p-1.5 rounded-full">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold transition-all">Natural Auto</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">Urdu Poetic</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">Executive</button>
+</div>
+</div>
+<!-- Microcopy Observation Note -->
+<div class="p-3.5 rounded-2xl bg-surface-container-high/50 backdrop-blur-sm flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">psychology</span>
+<div class="flex-1">
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+<span class="text-primary font-semibold">Current Aura Calibration:</span> Dialed to evening banter. Reacting to laptop workload density and your gentle vocal pitch over the last 40 minutes.
+              </p>
+<p class="font-urdu-body text-urdu-body text-on-surface-variant mt-0.5" dir="rtl">
+                آپ کے لہجے میں نرمی اور کام کی تھکاوٹ محسوس کر کے میں نے دھیما اور شگفتہ انداز اختیار کیا ہے۔
+              </p>
+</div>
+</div>
+<!-- 4 Telemetry Sliders / Gauges -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+<!-- Metric 1: Warmth -->
+<div class="bg-surface-container/60 backdrop-blur-md rounded-2xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Warmth</span>
+<span class="material-symbols-outlined text-primary text-[18px]">favorite</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">88%</span>
+<span class="font-label-sm text-label-sm text-primary">High</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Metric 2: Playfulness -->
+<div class="bg-surface-container/60 backdrop-blur-md rounded-2xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Playfulness</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">arrow_back_ios_new</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">76%</span>
+<span class="font-label-sm text-label-sm text-secondary">Balanced</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 76%"></div>
+</div>
+</div>
+<!-- Metric 3: Wit & Teasing -->
+<div class="bg-surface-container/60 backdrop-blur-md rounded-2xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Wit &amp; Tease</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">mood</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">65%</span>
+<span class="font-label-sm text-label-sm text-tertiary">Subtle</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<!-- Metric 4: Empathy -->
+<div class="bg-surface-container/60 backdrop-blur-md rounded-2xl p-3.5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">Empathy</span>
+<span class="material-symbols-outlined text-primary-fixed text-[18px]">volunteer_activism</span>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">92%</span>
+<span class="font-label-sm text-label-sm text-primary-fixed">Deep</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Emotion Palette Grid (8 interactive cards, 4x2 grid) -->
+<section class="space-y-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Acoustic &amp; Emotional Palette</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">8 Adaptive States</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">
+            Interactive Tone Studio
+          </h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+          Adjust threshold intensities to tune Zara's expressive dynamics. Changes persist across voice conversations and prompt triggers.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Palette 1: Happy -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(244,84,163,0.15)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Happy</span>
+<span class="font-urdu-headline text-urdu-headline text-primary font-semibold block leading-tight" dir="rtl">خوش</span>
+</div>
+<span class="p-2 rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">sentiment_very_satisfied</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Cheerful &amp; Uplifting</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="val-1">85%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" oninput="document.getElementById('val-1').innerText = this.value + '%'" type="range" value="85"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-primary/20 hover:text-primary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 2: Caring / Gentle -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(202,190,255,0.15)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Caring / Gentle</span>
+<span class="font-urdu-headline text-urdu-headline text-secondary font-semibold block leading-tight" dir="rtl">دلسوز</span>
+</div>
+<span class="p-2 rounded-xl bg-secondary/15 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">health_and_safety</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Nurturing &amp; Soft</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-secondary font-bold" id="val-2">92%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="100" min="0" oninput="document.getElementById('val-2').innerText = this.value + '%'" type="range" value="92"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-secondary/20 hover:text-secondary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 3: Playful / Flirtatious -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(244,84,163,0.2)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Playful / Flirty</span>
+<span class="font-urdu-headline text-urdu-headline text-primary font-semibold block leading-tight" dir="rtl">شوخ</span>
+</div>
+<span class="p-2 rounded-xl bg-primary/15 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Witty &amp; Affectionate</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="val-3">74%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" oninput="document.getElementById('val-3').innerText = this.value + '%'" type="range" value="74"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-primary/20 hover:text-primary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 4: Focused / Calm -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(241,190,104,0.15)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Focused / Calm</span>
+<span class="font-urdu-headline text-urdu-headline text-tertiary font-semibold block leading-tight" dir="rtl">پرسکون</span>
+</div>
+<span class="p-2 rounded-xl bg-tertiary/15 text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">self_improvement</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Concise Work Partner</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-tertiary font-bold" id="val-4">80%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-tertiary" max="100" min="0" oninput="document.getElementById('val-4').innerText = this.value + '%'" type="range" value="80"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-tertiary/20 hover:text-tertiary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 5: Surprised -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(244,84,163,0.15)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Surprised</span>
+<span class="font-urdu-headline text-urdu-headline text-primary-fixed font-semibold block leading-tight" dir="rtl">حیران</span>
+</div>
+<span class="p-2 rounded-xl bg-primary-fixed/15 text-primary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Expressive Reactions</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-primary-fixed font-bold" id="val-5">45%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" oninput="document.getElementById('val-5').innerText = this.value + '%'" type="range" value="45"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-primary/20 hover:text-primary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 6: Shy / Sweet -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(202,190,255,0.15)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Shy / Sweet</span>
+<span class="font-urdu-headline text-urdu-headline text-secondary-fixed-dim font-semibold block leading-tight" dir="rtl">شرمیلی</span>
+</div>
+<span class="p-2 rounded-xl bg-secondary/15 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">filter_vintage</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Soft-spoken &amp; Modest</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-secondary-fixed-dim font-bold" id="val-6">60%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="100" min="0" oninput="document.getElementById('val-6').innerText = this.value + '%'" type="range" value="60"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-secondary/20 hover:text-secondary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 7: Teasing -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(244,84,163,0.2)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Teasing</span>
+<span class="font-urdu-headline text-urdu-headline text-primary font-semibold block leading-tight" dir="rtl">چھیڑ چھاڑ</span>
+</div>
+<span class="p-2 rounded-xl bg-primary/15 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Banter &amp; Light Sarcasm</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="val-7">70%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" oninput="document.getElementById('val-7').innerText = this.value + '%'" type="range" value="70"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-primary/20 hover:text-primary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+<!-- Palette 8: Melancholy / Empathetic -->
+<div class="bg-surface-container/65 backdrop-blur-xl rounded-2xl p-5 flex flex-col justify-between hover:bg-surface-container/85 transition-all group shadow-md hover:shadow-[0_8px_30px_rgba(202,190,255,0.15)]">
+<div class="space-y-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block">Melancholy</span>
+<span class="font-urdu-headline text-urdu-headline text-secondary font-semibold block leading-tight" dir="rtl">اداس / ہمدرد</span>
+</div>
+<span class="p-2 rounded-xl bg-secondary/15 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">hearing</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Deep Listening Mode</span>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Intensity</span>
+<span class="font-label-md text-label-md text-secondary font-bold" id="val-8">30%</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="100" min="0" oninput="document.getElementById('val-8').innerText = this.value + '%'" type="range" value="30"/>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-surface-container-high/80 hover:bg-secondary/20 hover:text-secondary text-on-surface font-label-sm text-label-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Preview Voice</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Mood Timeline Chart (Last 7 Days) & 5. Recent Mood Detections Log (Split Bento Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- 4. Mood Timeline Chart (Last 7 Days) - 7 cols -->
+<section class="lg:col-span-7 bg-surface-container-low/75 backdrop-blur-2xl rounded-2xl p-6 md:p-8 shadow-xl flex flex-col justify-between space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Sync Resonance</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">
+              7-Day Resonance Wave
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Owner Detected Valence vs. Zara's Adaptive Counter-Balance
+            </p>
+</div>
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-1 rounded-full bg-secondary"></span>
+<span class="text-on-surface-variant">Owner Valence</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-1 rounded-full bg-primary"></span>
+<span class="text-on-surface">Zara Response</span>
+</div>
+</div>
+</div>
+<!-- SVG Timeline / Resonance Graph -->
+<div class="relative w-full h-56 pt-4">
+<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 650 180">
+<defs>
+<lineargradient id="zaraGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f454a3" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#f454a3" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="ownerGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#cabeff" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#cabeff" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal faint baseline grids -->
+<line stroke="#35333f" stroke-dasharray="4 4" stroke-opacity="0.6" x1="0" x2="650" y1="30" y2="30"></line>
+<line stroke="#35333f" stroke-dasharray="4 4" stroke-opacity="0.6" x1="0" x2="650" y1="80" y2="80"></line>
+<line stroke="#35333f" stroke-dasharray="4 4" stroke-opacity="0.6" x1="0" x2="650" y1="130" y2="130"></line>
+<!-- Area under Zara's curve -->
+<path d="M 0 110 Q 110 50, 210 95 T 430 40 T 650 65 L 650 180 L 0 180 Z" fill="url(#zaraGrad)"></path>
+<!-- Owner Mood Line (Secondary) -->
+<path d="M 0 140 Q 110 110, 210 135 T 430 85 T 650 90" stroke="#cabeff" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Zara Response Line (Primary) -->
+<path d="M 0 110 Q 110 50, 210 95 T 430 40 T 650 65" stroke="#f454a3" stroke-linecap="round" stroke-width="3"></path>
+<!-- Interactive Marker 1: Wed (Late Night Coding) -->
+<circle class="filter drop-shadow-[0_0_8px_#f454a3] cursor-pointer" cx="210" cy="95" fill="#f454a3" r="5"></circle>
+<circle cx="210" cy="135" fill="#cabeff" r="4"></circle>
+<!-- Interactive Marker 2: Fri (Productive Sprint) -->
+<circle class="filter drop-shadow-[0_0_10px_#f454a3] cursor-pointer" cx="430" cy="40" fill="#f454a3" r="6"></circle>
+<circle cx="430" cy="85" fill="#cabeff" r="4"></circle>
+<!-- Interactive Marker 3: Today -->
+<circle class="filter drop-shadow-[0_0_10px_#f454a3] animate-pulse" cx="650" cy="65" fill="#f454a3" r="6"></circle>
+<circle cx="650" cy="90" fill="#cabeff" r="4"></circle>
+</svg>
+<!-- Day Labels Bottom Axis -->
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-3">
+<span>Mon</span>
+<span>Tue</span>
+<span class="text-primary font-semibold">Wed</span>
+<span>Thu</span>
+<span class="text-primary font-semibold">Fri</span>
+<span>Sat</span>
+<span class="text-on-surface font-bold bg-primary/15 px-2 py-0.5 rounded-full">Today (Sun)</span>
+</div>
+</div>
+<!-- Annotation Badges under chart -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+<div class="bg-surface-container/60 backdrop-blur-md p-3 rounded-xl flex items-center gap-3">
+<span class="p-2 rounded-lg bg-secondary/15 text-secondary">
+<span class="material-symbols-outlined text-[18px]">bedtime</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Late Night Coding (Wed)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Comforting Urdu cadence engaged</span>
+</div>
+</div>
+<div class="bg-surface-container/60 backdrop-blur-md p-3 rounded-xl flex items-center gap-3">
+<span class="p-2 rounded-lg bg-primary/15 text-primary">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Productive Sprint (Fri)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">High-energy brief summaries</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Recent Mood Detections Log - 5 cols -->
+<section class="lg:col-span-5 bg-surface-container-low/75 backdrop-blur-2xl rounded-2xl p-6 md:p-8 shadow-xl flex flex-col space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_edu</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+              Real-time Logs
+            </h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+            Live Stream
+          </span>
+</div>
+<!-- Timeline Log Entries -->
+<div class="space-y-4 relative">
+<!-- Continuous vertical connection line -->
+<div class="absolute left-4 top-2 bottom-2 w-0.5 bg-surface-container-highest"></div>
+<!-- Entry 1 -->
+<div class="relative flex items-start gap-4 pl-1">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 z-10 shadow-md">
+<span class="material-symbols-outlined text-[14px]">nightlight</span>
+</div>
+<div class="flex-1 bg-surface-container/70 backdrop-blur-md rounded-xl p-3.5 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">Fatigued &amp; Stressed</span>
+<span class="font-label-sm text-label-sm text-outline">11:42 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+                Zara adopted <span class="text-on-surface font-medium">Gentle Urdu Lofi &amp; Screen Dimming</span>.
+              </p>
+<p class="font-urdu-body text-urdu-body text-on-surface-variant pt-0.5" dir="rtl">
+                "تھک گئے ہیں؟ چلیں باقی کام صبح پر رکھتے ہیں۔"
+              </p>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="relative flex items-start gap-4 pl-1">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 z-10 shadow-md">
+<span class="material-symbols-outlined text-[14px]">electric_bolt</span>
+</div>
+<div class="flex-1 bg-surface-container/70 backdrop-blur-md rounded-xl p-3.5 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Energetic &amp; Focused</span>
+<span class="font-label-sm text-label-sm text-outline">04:15 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+                Zara dialed down banter; triggered quick command execution mode.
+              </p>
+<div class="flex items-center gap-1.5 text-tertiary pt-0.5">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+<span class="font-label-sm text-label-sm">Latency reduced to 180ms</span>
+</div>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="relative flex items-start gap-4 pl-1">
+<div class="w-7 h-7 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0 z-10 shadow-md">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+</div>
+<div class="flex-1 bg-surface-container/70 backdrop-blur-md rounded-xl p-3.5 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary font-bold">Playful &amp; Teasing</span>
+<span class="font-label-sm text-label-sm text-outline">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+                Urdu poetry &amp; light teasing response protocol initiated upon joke cue.
+              </p>
+<p class="font-urdu-body text-urdu-body text-on-surface-variant pt-0.5" dir="rtl">
+                "آپ کے ایسے مشوروں پر تو شعر ہی بنتا ہے!"
+              </p>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<button class="w-full py-2.5 px-4 rounded-xl bg-surface-container-high/60 hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span>Export Emotional Telemetry (.json)</span>
+</button>
+</section>
+</div>
+<!-- Active Ambient Quick Sensory Bar at bottom -->
+<div class="w-full bg-surface-container/40 backdrop-blur-xl rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">multicooker</span>
+<span class="font-body-sm text-body-sm">
+          Active Sensory Ingestion: Laptop ambient mic (voice stress analysis), typing cadences (rhythm tracking), local time (night-mode damping).
+        </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Neural Bio-Link: 99.4% Stable</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive toggle for Mirror My Mood
+  (function() {
+    const toggle = document.getElementById('mirrorToggle');
+    const thumb = document.getElementById('mirrorToggleThumb');
+    if (toggle && thumb) {
+      let active = true;
+      toggle.addEventListener('click', function() {
+        active = !active;
+        toggle.setAttribute('aria-checked', active ? 'true' : 'false');
+        if (active) {
+          toggle.classList.remove('bg-surface-container-highest');
+          toggle.classList.add('bg-primary-container');
+          thumb.classList.remove('translate-x-0');
+          thumb.classList.add('translate-x-5');
+        } else {
+          toggle.classList.remove('bg-primary-container');
+          toggle.classList.add('bg-surface-container-highest');
+          thumb.classList.remove('translate-x-5');
+          thumb.classList.add('translate-x-0');
+        }
+      });
+    }
+  })();
+</script></main></div></body></html>

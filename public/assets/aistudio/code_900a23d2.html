@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed":"#ffd9e5","primary-container":"#f454a3","on-secondary-fixed":"#1c0062","surface-dim":"#13121c","inverse-primary":"#b2196e","inverse-on-surface":"#312f3a","secondary-container":"#4816cb","on-error":"#690005","secondary-fixed":"#e6deff","surface-container-highest":"#35333f","primary-fixed-dim":"#ffb0ce","on-secondary-container":"#b9aaff","surface-bright":"#393843","on-primary-fixed-variant":"#8c0054","secondary":"#cabeff","outline":"#a58993","on-primary-fixed":"#3e0022","surface-container-high":"#2a2934","background":"#13121c","tertiary":"#f1be68","secondary-fixed-dim":"#cabeff","on-error-container":"#ffdad6","on-surface":"#e5e0f0","tertiary-container":"#b68938","tertiary-fixed":"#ffdeab","error-container":"#93000a","on-tertiary-fixed":"#271900","primary":"#ffb0ce","surface-container-low":"#1c1a25","tertiary-fixed-dim":"#f1be68","surface-variant":"#35333f","on-tertiary":"#422c00","inverse-surface":"#e5e0f0","on-tertiary-fixed-variant":"#5f4100","on-background":"#e5e0f0","on-secondary":"#31009a","on-secondary-fixed-variant":"#4816cb","surface":"#13121c","on-tertiary-container":"#3a2600","surface-container":"#201e29","outline-variant":"#574149","surface-tint":"#ffb0ce","on-primary-container":"#570033","surface-container-lowest":"#0e0d17","on-primary":"#63003a","on-surface-variant":"#ddbfc8"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","space-xl":"2.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-md":["Plus Jakarta Sans"],"urdu-body":["Noto Nastaliq Urdu"],"title-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"urdu-headline":["Noto Nastaliq Urdu"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Inter"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"urdu-body":["16px",{"lineHeight":"36px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"500"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"urdu-headline":["26px",{"lineHeight":"54px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[12rem] -left-[12rem] w-[36rem] h-[36rem] rounded-full bg-primary-container/10 blur-[130px]"></div><div class="absolute top-1/3 -right-[14rem] w-[40rem] h-[40rem] rounded-full bg-secondary-container/15 blur-[150px]"></div><div class="absolute -bottom-[10rem] left-1/3 w-[34rem] h-[34rem] rounded-full bg-primary/5 blur-[140px]"></div></div><aside class="fixed left-0 top-0 bottom-0 w-72 bg-surface-container-low/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold drop-shadow-[0_0_12px_rgba(255,176,206,0.4)]">Zara</span><span class="font-label-sm text-label-sm text-on-surface-variant font-urdu-body">ذہین ساتھی</span></div></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 shadow-[0_0_10px_rgba(244,84,163,0.25)]"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">Ready</span></div></div><nav class="flex-1 px-3 space-y-1 overflow-y-auto overscroll-contain" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]"><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-headline-sm shadow-[0_0_20px_rgba(244,84,163,0.35)]" data-path="dashboard-home" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">dashboard</span><span class="font-label-md text-label-md flex-1">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="live-voice-conversation" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110 text-primary">graphic_eq</span><span class="font-label-md text-label-md flex-1">Talk (Live Voice)</span><span class="px-1.5 py-0.5 rounded-full text-[10px] bg-primary/20 text-primary font-bold uppercase tracking-wider">Live</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="conversation-history" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">forum</span><span class="font-label-md text-label-md flex-1">History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="laptop-control-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">laptop_mac</span><span class="font-label-md text-label-md flex-1">Control</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="file-and-app-finder" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">folder_special</span><span class="font-label-md text-label-md flex-1">Files</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="automations-and-routines" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">bolt</span><span class="font-label-md text-label-md flex-1">Automations</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="reminders-and-prayer-times" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">schedule</span><span class="font-label-md text-label-md flex-1">Reminders &amp; Prayer</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="memory-vault" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">neurology</span><span class="font-label-md text-label-md flex-1">Memory Vault</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="emotions-and-mood-center" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">mood</span><span class="font-label-md text-label-md flex-1">Emotions &amp; Mood</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="personality-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">smart_toy</span><span class="font-label-md text-label-md flex-1">Personality Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="voice-studio" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">record_voice_over</span><span class="font-label-md text-label-md flex-1">Voice Studio</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="safety-and-activity-log" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">verified_user</span><span class="font-label-md text-label-md flex-1">Safety &amp; Logs</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-transform group-hover:scale-110">settings</span><span class="font-label-md text-label-md flex-1">Settings</span></a></nav></div><div class="p-space-md bg-surface-container/60 backdrop-blur-md m-3 rounded-2xl flex items-center justify-between gap-2 shadow-[0_4px_16px_rgba(0,0,0,0.3)]"><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">lock</span><span class="font-label-sm text-label-sm">Lock Screen</span></button><button class="flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-all" type="button"><span class="material-symbols-outlined text-[18px]">mic_off</span><span class="font-label-sm text-label-sm">Mute Mic</span></button></div></aside><div class="pl-72 flex flex-col min-h-screen relative z-10"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_16px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Zara AI Orb Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCjRdWgngs9vt9pEcasTjXssVgQy4fuUcCF_cEMqNq6penFJbSElXAhprJwB8y2oo3zBeTJ5B6AB_tDmDJgGTDSE6maf2XbCp14Be_sMF7hexjjZMUl_Zg83z5EyjDyEPMytaEHt1dcka96MtMdyPxNA2ETGPn9uDlWd20Y5NFhLQx-0ZxcXxoF8JsV2Gl1I305u2m7dXI2zcj7dRLk2h9wX63UixsedjHv-8eFnXeZ"/><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Companion Space</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Active Session</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 shadow-[0_0_18px_rgba(244,84,163,0.2)]"><span class="material-symbols-outlined text-primary text-[18px] animate-pulse">mic</span><span class="font-label-sm text-label-sm text-on-surface">Mic Active <span class="text-on-surface-variant">(Urdu / English)</span></span></div><div class="flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-container-high/60"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-secondary text-[18px]">wifi</span><span class="font-label-sm text-label-sm text-on-surface-variant">5G</span></div><span class="w-1 h-1 rounded-full bg-outline"></span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary text-[18px]">battery_charging_80</span><span class="font-label-sm text-label-sm text-on-surface-variant">82%</span></div></div><div class="flex items-center gap-space-sm pl-2"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Boss</span><span class="font-label-sm text-label-sm text-primary leading-tight">(Owner)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<div class="p-space-lg lg:p-space-xl flex flex-col gap-y-space-xl max-w-[1400px] mx-auto w-full">
+<!-- Top Bar / Executive Banner -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">OS Daemon v4.1</span>
+<span class="text-outline text-label-sm font-label-sm">•</span>
+<span class="text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Zara Live Telemetry
+          </span>
+<span class="text-outline text-label-sm font-label-sm hidden sm:inline">•</span>
+<span class="text-on-surface-variant font-urdu-body text-body-sm hidden sm:inline" dir="rtl">براہِ راست سسٹم کنٹرول</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Laptop Control Center</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Direct OS daemon bridge &amp; hardware executive controls orchestrating MacBook architecture via Zara voice commands and real-time sockets.
+        </p>
+</div>
+<!-- Quick Session Controls -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all text-label-md font-label-md shadow-md active:scale-95" id="refreshDaemonBtn">
+<span class="material-symbols-outlined text-[18px] text-secondary">sync</span>
+<span>Sync State</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-surface font-label-md text-label-md shadow-[0_0_24px_rgba(244,84,163,0.35)] hover:shadow-[0_0_32px_rgba(244,84,163,0.55)] transition-all active:scale-95" id="voiceOverlayTrigger">
+<span class="material-symbols-outlined text-[20px] text-primary">graphic_eq</span>
+<span>Voice Override</span>
+</button>
+</div>
+</div>
+<!-- Device Telemetry Glass Strip -->
+<div class="relative overflow-hidden rounded-2xl bg-surface-container/70 backdrop-blur-2xl p-space-md lg:p-space-lg shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -bottom-20 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-primary text-[32px]">laptop_mac</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">MacBook Pro 16"</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-primary-fixed text-label-sm font-label-sm font-semibold">M3 Max</span>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-on-surface-variant text-label-sm font-label-sm">macOS Sonoma</span>
+</div>
+<div class="flex items-center gap-3 mt-1 flex-wrap font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5 font-mono text-[13px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+                PID: 4092
+              </span>
+<span>•</span>
+<span class="text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+                4ms ping
+              </span>
+<span>•</span>
+<span class="text-on-surface">Uptime: 4d 18h 22m</span>
+</div>
+</div>
+</div>
+<!-- Telemetry Indicators -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 lg:gap-6 pt-2 lg:pt-0">
+<div class="p-3 rounded-xl bg-surface-container-low/80 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">battery_charging_80</span>
+              Battery
+            </span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">82%</span>
+<span class="text-[11px] text-tertiary-fixed font-medium">MagSafe Fast Charging</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/80 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">wifi</span>
+              Wi-Fi 6E
+            </span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">1.2 Gbps</span>
+<span class="text-[11px] text-secondary-fixed font-medium">5GHz • Office-Pro</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/80 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">memory</span>
+              CPU Load
+            </span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">14.8%</span>
+<span class="text-[11px] text-on-surface-variant font-medium">16 Cores Active</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/80 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">thermostat</span>
+              Thermal Core
+            </span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">41°C</span>
+<span class="text-[11px] text-on-surface-variant font-medium">Fans Silenced (0 RPM)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Voice Command Quick Chips -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider flex items-center gap-1.5 font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">record_voice_over</span>
+          Suggested Zara Voice Control Directives (Bilingual)
+        </span>
+<span class="font-urdu-body text-body-sm text-on-surface-variant hidden md:inline" dir="rtl">صوتی احکامات</span>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="voice-chip px-3.5 py-2 rounded-full bg-surface-container/70 hover:bg-surface-container-high transition-all text-on-surface flex items-center gap-2 text-label-md font-label-md shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">mic</span>
+<span class="font-urdu-body text-[15px] text-primary" dir="rtl">"زارا، ٹرمینل میں گٹ پل چلا دو"</span>
+</button>
+<button class="voice-chip px-3.5 py-2 rounded-full bg-surface-container/70 hover:bg-surface-container-high transition-all text-on-surface flex items-center gap-2 text-label-md font-label-md shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">mic</span>
+<span>"Screen brightness 50% kardo"</span>
+</button>
+<button class="voice-chip px-3.5 py-2 rounded-full bg-surface-container/70 hover:bg-surface-container-high transition-all text-on-surface flex items-center gap-2 text-label-md font-label-md shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">mic</span>
+<span>"Chrome mein YouTube kholo"</span>
+</button>
+<button class="voice-chip px-3.5 py-2 rounded-full bg-surface-container/70 hover:bg-surface-container-high transition-all text-on-surface flex items-center gap-2 text-label-md font-label-md shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">mic</span>
+<span>"Take a screenshot of current window"</span>
+</button>
+<button class="voice-chip px-3.5 py-2 rounded-full bg-surface-container/70 hover:bg-surface-container-high transition-all text-on-surface flex items-center gap-2 text-label-md font-label-md shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">mic</span>
+<span class="font-urdu-body text-[15px] text-secondary" dir="rtl">"تمام ایپس بند کرو اور سو جاؤ"</span>
+</button>
+</div>
+</div>
+<!-- 4x2 Interactive Hardware Control Tiles -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Interactive Hardware Matrix</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">DAEMON_SOCKET: 127.0.0.1:9099 [CONNECTED]</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Tile 1: Master Audio Output -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Master Audio</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MacBook Pro Speakers</span>
+</div>
+</div>
+<button class="p-2 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-all" id="muteAudioBtn">
+<span class="material-symbols-outlined text-[20px]">volume_off</span>
+</button>
+</div>
+<div class="my-4 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Output Level</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="volumeValue">40%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-primary" id="volumeSlider" max="100" min="0" type="range" value="40"/>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">mic</span>
+              Say: "Volume 30 percent"
+            </span>
+<span class="text-tertiary text-label-sm font-label-sm font-medium">Dolby Atmos</span>
+</div>
+</div>
+<!-- Tile 2: Liquid Retina XDR Brightness -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">light_mode</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Display Lumens</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">XDR 1600 nits Peak</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded-full bg-tertiary/20 text-tertiary hover:bg-tertiary/30 transition-all font-label-sm text-label-sm flex items-center gap-1" id="nightShiftToggle">
+<span class="material-symbols-outlined text-[14px]">nightlight</span>
+<span>Night Shift ON</span>
+</button>
+</div>
+<div class="my-4 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Brightness</span>
+<span class="font-label-md text-label-md text-tertiary font-bold" id="brightnessValue">70%</span>
+</div>
+<input class="w-full h-2 rounded-lg bg-surface-container-highest appearance-none cursor-pointer accent-tertiary" id="brightnessSlider" max="100" min="0" type="range" value="70"/>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">mic</span>
+              Say: "Dim screen"
+            </span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">True Tone Active</span>
+</div>
+</div>
+<!-- Tile 3: Wi-Fi & Hotspot Bridge -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">rss_feed</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Wi-Fi &amp; Network</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Office-Pro-5Ghz</span>
+</div>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(124,92,255,0.8)]"></span>
+</div>
+<div class="my-3 flex flex-col gap-2">
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low">
+<span class="text-body-sm font-body-sm text-on-surface">Hotspot Daemon</span>
+<button class="w-11 h-6 rounded-full bg-surface-container-highest p-0.5 transition-all" id="hotspotToggle">
+<div class="w-5 h-5 rounded-full bg-on-surface-variant transform transition-transform"></div>
+</button>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant px-1">
+<span>IP: 192.168.1.144</span>
+<span class="text-secondary font-mono">DNS: Zara-Secure</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-low text-secondary font-label-sm text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+              WPA3 Enterprise
+            </span>
+<span class="text-primary text-label-sm font-label-sm cursor-pointer hover:underline">Speedtest</span>
+</div>
+</div>
+<!-- Tile 4: Bluetooth Mesh Peripheral Array -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[24px]">bluetooth_connected</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Bluetooth 5.3</span>
+<span class="font-label-sm text-label-sm text-secondary">3 Paired Devices</span>
+</div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface-variant transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="space-y-1.5 my-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">headphones</span>
+                AirPods Max (Boss)
+              </span>
+<span class="text-label-sm font-label-sm text-primary font-mono">92%</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">mouse</span>
+                MX Master 3S
+              </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">75%</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">keyboard</span>
+                Keychron Q1 Pro
+              </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">60%</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">AAC &amp; LDAC Enabled</span>
+<span class="text-secondary font-label-sm text-label-sm font-semibold cursor-pointer">Disconnect All</span>
+</div>
+</div>
+<!-- Tile 5: Display, Capture & Power State -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">desktop_windows</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Display &amp; Windows</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Instant OS Actions</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-[10px] font-bold">READY</span>
+</div>
+<div class="grid grid-cols-3 gap-2 my-3">
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all group" id="lockScreenBtn">
+<span class="material-symbols-outlined text-[20px] text-secondary group-hover:scale-110 transition-transform">lock</span>
+<span class="font-label-sm text-[11px] mt-1">Lock</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all group" id="sleepModeBtn">
+<span class="material-symbols-outlined text-[20px] text-tertiary group-hover:scale-110 transition-transform">bedtime</span>
+<span class="font-label-sm text-[11px] mt-1">Sleep</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all group" id="screenshotBtn">
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:scale-110 transition-transform">screenshot</span>
+<span class="font-label-sm text-[11px] mt-1">Capture</span>
+</button>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">keyboard_command_key</span>
+              Cmd + Shift + 4
+            </span>
+<span class="text-label-sm font-label-sm text-primary">Full Res PNG</span>
+</div>
+</div>
+<!-- Tile 6: Clipboard Vault & Deep Focus -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">content_paste_go</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Clipboard &amp; Focus</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Neural Workspace</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-[11px] font-semibold">Active</span>
+</div>
+<div class="my-3 space-y-2">
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">do_not_disturb_on</span>
+<span class="font-label-md text-label-md text-on-surface">Focus "Deep Work"</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<div class="flex items-center justify-between px-2 text-label-sm font-label-sm text-on-surface-variant">
+<span>Clipboard Stack</span>
+<span class="text-tertiary font-bold">12 items synced</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">history</span>
+              Encrypted Buffer
+            </span>
+<button class="text-label-sm font-label-sm text-on-surface hover:text-primary transition-all">Clear Stack</button>
+</div>
+</div>
+<!-- Tile 7: Hardware Mic Kill-Switch -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[24px]">mic_double</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Mic Kill-Switch</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hardware Kernel Layer</span>
+</div>
+</div>
+<span class="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_rgba(244,84,163,0.9)] animate-pulse"></span>
+</div>
+<div class="my-3 p-3 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">CoreAudio Sensor</span>
+<span class="text-primary font-label-sm text-label-sm font-bold">UNMUTED</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-snug">
+              Zara voice recognition is listening in background thread.
+            </p>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<button class="w-full py-2 px-3 rounded-xl bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(244,84,163,0.3)]" id="emergencyMuteToggle">
+<span class="material-symbols-outlined text-[16px]">mic_off</span>
+<span>Hardware Daemon Override</span>
+</button>
+</div>
+</div>
+<!-- Tile 8: Terminal Shell Bridge -->
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-xl flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.3)] min-h-[220px]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Zsh Subsystem</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bridge Enabled (sudo)</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">lock_open</span>
+</div>
+<div class="my-3 p-2.5 rounded-xl bg-surface-container-lowest font-mono text-[12px] text-on-surface-variant flex flex-col gap-1">
+<span class="text-secondary">$ zsh -c "zara-agent --status"</span>
+<span class="text-tertiary">daemon: ok (port 9099)</span>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container/20 text-secondary font-label-sm text-[11px] font-mono">pty0 /dev/ttys004</span>
+<button class="text-label-sm font-label-sm text-primary hover:underline font-semibold" id="openTerminalModalBtn">Spawn CLI</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Media Integration & Active Running Applications Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Media Player Integration (Spotify / Lo-Fi Beats) (5 Columns) -->
+<div class="xl:col-span-5 flex flex-col">
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-2xl flex flex-col justify-between h-full shadow-[0_8px_32px_rgba(0,0,0,0.35)] relative overflow-hidden">
+<div class="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">music_note</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Media Integration</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-[#1DB954] font-label-sm text-[11px] font-bold flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1DB954] animate-pulse"></span>
+                Spotify HiFi
+              </span>
+</div>
+<!-- Track Visual Card -->
+<div class="flex items-center gap-space-md p-3.5 rounded-2xl bg-surface-container-low/80 backdrop-blur-md">
+<img class="w-20 h-20 rounded-xl object-cover shadow-lg shadow-black/50 shrink-0" data-alt="Atmospheric lo-fi digital art featuring a warm mug of spiced chai steaming gently next to a sleek glowing purple laptop at twilight in Lahore Pakistan, neon violet ambient reflections, cozy anime aesthetic, highly detailed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMm5wTuSBImOMpJy9hctRPrlCM5ddsG8MXhCnbFPAUC9jdWM5Zf4_Pysx_T8Ml8ZwSZ_bzhscOtu5EUnjNMGbvoVVcoH9Wdvd4Ey7IRBOac27daLwDkjvNf-ndb_QiErm-sMicOlTZ1xiAwsa2l7EQad6LIVOICQTDvK4nD1BYci19EeqGAoECZWynzYsHRHRKiTn6suLoa1PS9CMUWYq9lXNuWtkHOJEBQ2zGar0"/>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-title-md text-title-md text-on-surface font-bold truncate">Midnight Chai &amp; Lo-Fi Beats</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Zara AI Chill Mix • Session #42</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-tertiary font-label-sm text-[11px] font-mono">FLAC 24-bit / 96kHz</span>
+<span class="text-outline text-[11px]">•</span>
+<span class="text-primary font-label-sm text-[11px]">Stereo Spatial</span>
+</div>
+</div>
+</div>
+<!-- Scrubber & Time -->
+<div class="mt-4 flex flex-col gap-1.5">
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden cursor-pointer relative group">
+<div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full w-[60%] transition-all" id="mediaProgressBar"></div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm font-mono text-on-surface-variant">
+<span id="mediaCurrentTime">02:14</span>
+<span>03:45</span>
+</div>
+</div>
+<!-- Controls -->
+<div class="mt-3 flex items-center justify-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-[24px]">shuffle</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high text-on-surface transition-all" id="mediaPrevBtn">
+<span class="material-symbols-outlined text-[26px]">skip_previous</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_20px_rgba(244,84,163,0.4)] hover:scale-105 active:scale-95 transition-all" id="mediaPlayBtn">
+<span class="material-symbols-outlined text-[28px]" id="mediaPlayIcon">pause</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high text-on-surface transition-all" id="mediaNextBtn">
+<span class="material-symbols-outlined text-[26px]">skip_next</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-[24px]">repeat</span>
+</button>
+</div>
+</div>
+<!-- Quick YouTube Media Input -->
+<div class="mt-5 pt-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2 block font-semibold">Quick Audio / YouTube Search</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full pl-10 pr-24 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary" id="quickMediaInput" placeholder="Play Coke Studio, Lofi, or YouTube URL..." type="text"/>
+<button class="absolute right-2 px-3 py-1 rounded-lg bg-surface-container-high hover:bg-primary-container text-on-surface text-label-sm font-label-sm font-semibold transition-all flex items-center gap-1">
+<span>Play</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Running Applications & Launcher (7 Columns) -->
+<div class="xl:col-span-7 flex flex-col">
+<div class="p-space-lg rounded-2xl bg-surface-container/70 backdrop-blur-2xl flex flex-col justify-between h-full shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">apps</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Active Running Applications</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">5 Active Daemons</span>
+</div>
+<!-- Running Apps List -->
+<div class="space-y-2.5">
+<!-- App 1: VS Code -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#007ACC]/20 text-[#007ACC] flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Visual Studio Code</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary text-[11px] font-mono">PID 8821</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Workspace: zara-voice-companion-core (Branch: main)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary font-label-sm text-[11px] font-mono hidden sm:inline">1.8 GB RAM</span>
+<button class="app-close-btn p-1.5 rounded-lg bg-surface-container-highest hover:bg-error-container text-on-surface-variant hover:text-error transition-all" title="Terminate process">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- App 2: Google Chrome -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Google Chrome</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-tertiary text-[11px] font-mono">PID 9014</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">14 tabs open • GitHub, OpenAI API Docs, YouTube</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary font-label-sm text-[11px] font-mono hidden sm:inline">3.1 GB RAM</span>
+<button class="app-close-btn p-1.5 rounded-lg bg-surface-container-highest hover:bg-error-container text-on-surface-variant hover:text-error transition-all" title="Terminate process">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- App 3: Spotify -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#1DB954]/20 text-[#1DB954] flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Spotify</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-[#1DB954] text-[11px] font-mono">PID 7632</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Background audio active • Lossless streaming</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary font-label-sm text-[11px] font-mono hidden sm:inline">420 MB RAM</span>
+<button class="app-close-btn p-1.5 rounded-lg bg-surface-container-highest hover:bg-error-container text-on-surface-variant hover:text-error transition-all" title="Terminate process">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- App 4: Terminal -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Warp Terminal</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-primary text-[11px] font-mono">PID 4110</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Running: docker-compose up (2 containers)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary font-label-sm text-[11px] font-mono hidden sm:inline">210 MB RAM</span>
+<button class="app-close-btn p-1.5 rounded-lg bg-surface-container-highest hover:bg-error-container text-on-surface-variant hover:text-error transition-all" title="Terminate process">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- App 5: Discord -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low/90 hover:bg-surface-container-high transition-all">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#5865F2]/20 text-[#5865F2] flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Discord</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary text-[11px] font-mono">PID 9205</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Connected to Zara Developers Guild (#general)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-tertiary font-label-sm text-[11px] font-mono hidden sm:inline">650 MB RAM</span>
+<button class="app-close-btn p-1.5 rounded-lg bg-surface-container-highest hover:bg-error-container text-on-surface-variant hover:text-error transition-all" title="Terminate process">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Launch App Input Box -->
+<div class="mt-4 pt-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block font-semibold">Launch New Binary or Application</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px]">rocket_launch</span>
+<input class="w-full pl-11 pr-24 py-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" id="launchAppInput" placeholder="Type app name (e.g. Figma, Obsidian) or voice query..." type="text"/>
+<div class="absolute right-2 flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-primary hover:bg-surface-container-highest transition-all" id="launchMicBtn" title="Speak app name">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button class="px-3 py-1 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold hover:brightness-110 transition-all" id="launchExecuteBtn">
+                  Launch
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Danger Zone: Restricted System Actions -->
+<div class="relative rounded-2xl bg-surface-container/60 backdrop-blur-2xl p-space-lg lg:p-space-xl overflow-hidden shadow-[0_8px_32px_rgba(255,92,108,0.15)]">
+<!-- Glow ambient backdrop for danger zone -->
+<div class="absolute -top-32 -left-32 w-80 h-80 bg-error/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[28px]">warning</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-error font-bold tracking-tight">Restricted System Actions</h3>
+<span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-sm text-[11px] font-bold uppercase tracking-wider">High Risk</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Voice biometric authorization or owner password is required prior to execution.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-right">
+<span class="font-urdu-body text-body-md text-error hidden md:inline" dir="rtl">خطرناک زون - تصدیق درکار ہے</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-mono text-[12px]">SAFE_MODE: ENFORCED</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-error-container/15 flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0">shield_lock</span>
+<p class="font-body-sm text-[13px] text-on-error-container leading-relaxed">
+<strong>Security Protocol:</strong> Zara validates your voiceprint token before running low-level Mach kernel directives. Accidental triggers will be aborted with a 5-second vocal cancellation window.
+          </p>
+</div>
+<!-- Danger Buttons Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md pt-2">
+<button class="danger-action-btn flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-error-container/40 hover:bg-error-container text-error hover:text-on-error-container transition-all font-label-md text-label-md font-bold shadow-md active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">bolt</span>
+<span>Emergency Kill Switch</span>
+</button>
+<button class="danger-action-btn flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-surface-container-high hover:bg-error-container/50 text-on-surface hover:text-error transition-all font-label-md text-label-md font-bold shadow-md active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] text-tertiary group-hover:scale-110 transition-transform">restart_alt</span>
+<span>Reboot Laptop</span>
+</button>
+<button class="danger-action-btn flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-surface-container-high hover:bg-error-container/50 text-on-surface hover:text-error transition-all font-label-md text-label-md font-bold shadow-md active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] text-secondary group-hover:scale-110 transition-transform">cleaning_services</span>
+<span>Deep System Cleanup</span>
+</button>
+<button class="danger-action-btn flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-surface-container-high hover:bg-error-container text-on-surface hover:text-on-error-container transition-all font-label-md text-label-md font-bold shadow-md active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] text-error group-hover:scale-110 transition-transform">power_settings_new</span>
+<span>Full Shutdown</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Float (Hidden by default, triggered on actions) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 p-4 rounded-2xl bg-surface-container-high/95 backdrop-blur-2xl text-on-surface shadow-[0_12px_40px_rgba(0,0,0,0.6)]" id="systemToast">
+<div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-on-primary" id="toastIconContainer">
+<span class="material-symbols-outlined text-[18px]" id="toastIcon">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold" id="toastTitle">Daemon Signal Dispatched</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="toastMessage">Command processed successfully.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initLaptopControlCenter() {
+    // Toast Helper
+    const toast = document.getElementById('systemToast');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+    const toastIcon = document.getElementById('toastIcon');
+    let toastTimeout;
+
+    function showToast(title, msg, icon = 'check') {
+      if (!toast) return;
+      clearTimeout(toastTimeout);
+      toastTitle.textContent = title;
+      toastMessage.textContent = msg;
+      toastIcon.textContent = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    // Volume Slider & Value
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeValue = document.getElementById('volumeValue');
+    if (volumeSlider && volumeValue) {
+      volumeSlider.addEventListener('input', (e) => {
+        volumeValue.textContent = e.target.value + '%';
+      });
+      volumeSlider.addEventListener('change', (e) => {
+        showToast('Volume Updated', `CoreAudio master output set to ${e.target.value}%`, 'volume_up');
+      });
+    }
+
+    // Brightness Slider & Value
+    const brightnessSlider = document.getElementById('brightnessSlider');
+    const brightnessValue = document.getElementById('brightnessValue');
+    if (brightnessSlider && brightnessValue) {
+      brightnessSlider.addEventListener('input', (e) => {
+        brightnessValue.textContent = e.target.value + '%';
+      });
+      brightnessSlider.addEventListener('change', (e) => {
+        showToast('Display Lumens Adjusted', `XDR Panel calibrated to ${e.target.value}%`, 'light_mode');
+      });
+    }
+
+    // Night Shift Toggle
+    const nightShiftBtn = document.getElementById('nightShiftToggle');
+    let nightShiftOn = true;
+    if (nightShiftBtn) {
+      nightShiftBtn.addEventListener('click', () => {
+        nightShiftOn = !nightShiftOn;
+        if (nightShiftOn) {
+          nightShiftBtn.innerHTML = '<span class="material-symbols-outlined text-[14px]">nightlight</span><span>Night Shift ON</span>';
+          nightShiftBtn.className = 'px-2.5 py-1 rounded-full bg-tertiary/20 text-tertiary hover:bg-tertiary/30 transition-all font-label-sm text-label-sm flex items-center gap-1';
+          showToast('Night Shift Enabled', 'Color temperature shifted to 3200K warm profile.', 'nightlight');
+        } else {
+          nightShiftBtn.innerHTML = '<span class="material-symbols-outlined text-[14px]">wb_sunny</span><span>Night Shift OFF</span>';
+          nightShiftBtn.className = 'px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all font-label-sm text-label-sm flex items-center gap-1';
+          showToast('Night Shift Disabled', 'Standard 6500K D65 white point restored.', 'wb_sunny');
+        }
+      });
+    }
+
+    // Hotspot Switch
+    const hotspotToggle = document.getElementById('hotspotToggle');
+    let hotspotOn = false;
+    if (hotspotToggle) {
+      hotspotToggle.addEventListener('click', () => {
+        hotspotOn = !hotspotOn;
+        const knob = hotspotToggle.querySelector('div');
+        if (hotspotOn) {
+          hotspotToggle.classList.remove('bg-surface-container-highest');
+          hotspotToggle.classList.add('bg-secondary-container');
+          knob.classList.add('translate-x-5', 'bg-on-secondary');
+          knob.classList.remove('bg-on-surface-variant');
+          showToast('Hotspot Active', 'Broadcasting Zara-Boss-Hotspot on 5GHz band.', 'wifi_tethering');
+        } else {
+          hotspotToggle.classList.add('bg-surface-container-highest');
+          hotspotToggle.classList.remove('bg-secondary-container');
+          knob.classList.remove('translate-x-5', 'bg-on-secondary');
+          knob.classList.add('bg-on-surface-variant');
+          showToast('Hotspot Deactivated', 'Hardware adapter returned to client mode.', 'wifi');
+        }
+      });
+    }
+
+    // Hardware Actions (Lock, Sleep, Screenshot)
+    const lockBtn = document.getElementById('lockScreenBtn');
+    if (lockBtn) {
+      lockBtn.addEventListener('click', () => {
+        showToast('Screen Locked', 'Triggering CGSession -suspend to lock display.', 'lock');
+      });
+    }
+
+    const sleepBtn = document.getElementById('sleepModeBtn');
+    if (sleepBtn) {
+      sleepBtn.addEventListener('click', () => {
+        showToast('Sleep Mode', 'Sending pmset sleepnow command to Darwin kernel.', 'bedtime');
+      });
+    }
+
+    const screenshotBtn = document.getElementById('screenshotBtn');
+    if (screenshotBtn) {
+      screenshotBtn.addEventListener('click', () => {
+        showToast('Screenshot Captured', 'Saved 3456x2234 screen image to ~/Desktop', 'screenshot');
+      });
+    }
+
+    // Mic Kill-Switch Override
+    const micOverrideBtn = document.getElementById('emergencyMuteToggle');
+    let micMuted = false;
+    if (micOverrideBtn) {
+      micOverrideBtn.addEventListener('click', () => {
+        micMuted = !micMuted;
+        if (micMuted) {
+          micOverrideBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">mic</span><span>Unmute Microphone</span>';
+          micOverrideBtn.className = 'w-full py-2 px-3 rounded-xl bg-error text-on-error font-label-sm text-label-sm font-semibold hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(255,92,108,0.5)]';
+          showToast('Microphone Severed', 'Hardware input muted via daemon kill-switch.', 'mic_off');
+        } else {
+          micOverrideBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">mic_off</span><span>Hardware Daemon Override</span>';
+          micOverrideBtn.className = 'w-full py-2 px-3 rounded-xl bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(244,84,163,0.3)]';
+          showToast('Microphone Re-enabled', 'Zara voice listening loop restored.', 'mic');
+        }
+      });
+    }
+
+    // Spotify / Media Playback Toggle
+    const mediaPlayBtn = document.getElementById('mediaPlayBtn');
+    const mediaPlayIcon = document.getElementById('mediaPlayIcon');
+    let isPlaying = true;
+    if (mediaPlayBtn && mediaPlayIcon) {
+      mediaPlayBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+          mediaPlayIcon.textContent = 'pause';
+          showToast('Media Resumed', 'Spotify playing "Midnight Chai & Lo-Fi Beats"', 'play_arrow');
+        } else {
+          mediaPlayIcon.textContent = 'play_arrow';
+          showToast('Media Paused', 'Audio pipe paused via AppleScript bridge.', 'pause');
+        }
+      });
+    }
+
+    // App Termination Close Buttons
+    const appCloseBtns = document.querySelectorAll('.app-close-btn');
+    appCloseBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const card = this.closest('div.flex.items-center.justify-between');
+        const appName = card.querySelector('.font-label-md').textContent;
+        card.style.opacity = '0.3';
+        card.style.transform = 'scale(0.97)';
+        showToast('Process Terminated', `Sent SIGTERM to ${appName}.`, 'cancel');
+        setTimeout(() => {
+          card.remove();
+        }, 300);
+      });
+    });
+
+    // Launch Application Input
+    const launchInput = document.getElementById('launchAppInput');
+    const launchExecuteBtn = document.getElementById('launchExecuteBtn');
+    const launchMicBtn = document.getElementById('launchMicBtn');
+
+    function executeLaunch() {
+      if (!launchInput) return;
+      const val = launchInput.value.trim();
+      if (!val) {
+        showToast('Launch Error', 'Please type or speak an application name.', 'error');
+        return;
+      }
+      showToast('Launching Application', `Executing "open -a ${val}" via system daemon...`, 'rocket_launch');
+      launchInput.value = '';
+    }
+
+    if (launchExecuteBtn) {
+      launchExecuteBtn.addEventListener('click', executeLaunch);
+    }
+    if (launchInput) {
+      launchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') executeLaunch();
+      });
+    }
+    if (launchMicBtn) {
+      launchMicBtn.addEventListener('click', () => {
+        showToast('Voice Command Listening', 'Zara is waiting for application directive...', 'graphic_eq');
+      });
+    }
+
+    // Voice Suggestion Chips Click
+    const voiceChips = document.querySelectorAll('.voice-chip');
+    voiceChips.forEach(chip => {
+      chip.addEventListener('click', function() {
+        const text = this.innerText.trim();
+        showToast('Voice Directive Queued', `Zara executing: ${text}`, 'record_voice_over');
+      });
+    });
+
+    // Danger Zone Buttons Warning
+    const dangerBtns = document.querySelectorAll('.danger-action-btn');
+    dangerBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const action = this.querySelector('span:last-child').textContent;
+        showToast('Confirmation Required', `Zara prompt: "Confirm ${action} with voicePIN?"`, 'warning');
+      });
+    });
+
+    // Sync Daemon State
+    const refreshBtn = document.getElementById('refreshDaemonBtn');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        showToast('Daemon Synchronized', 'All hardware states (CoreAudio, DisplayServices, WiFi) refreshed.', 'sync');
+      });
+    }
+
+    // Voice Overlay Trigger
+    const voiceOverlayTrigger = document.getElementById('voiceOverlayTrigger');
+    if (voiceOverlayTrigger) {
+      voiceOverlayTrigger.addEventListener('click', () => {
+        showToast('Zara Voice Active', 'Voice Executive ready. Speak command in Urdu or English.', 'graphic_eq');
+      });
+    }
+  })();
+</script></main></div></body></html>
