@@ -24,12 +24,17 @@ export default function EmotionsMoodCenter() {
     settings,
     emotionSettings,
     emotionLogs,
+    voices,
     updateSettings,
     updateEmotionIntensity,
     logEmotion,
   } = useZara();
   const { showToast } = useToast();
 
+  const selectedVoice = useMemo(
+    () => voices.find((voice) => voice.is_selected) ?? voices[0],
+    [voices]
+  );
   const latest = emotionLogs[0];
 
   const weeklyWave = useMemo(() => {
@@ -54,7 +59,14 @@ export default function EmotionsMoodCenter() {
   const previewEmotionVoice = async (emotion: EmotionName) => {
     const meta = EMOTION_META[emotion];
     try {
-      const res = await apiService.synthesizeSpeech({ text: meta.sample, provider: 'gemini' });
+      const res = await apiService.synthesizeSpeech({
+        text: meta.sample,
+        provider: selectedVoice?.provider ?? 'elevenlabs',
+        voiceId: selectedVoice?.provider_voice_id || undefined,
+        warmth: selectedVoice?.warmth,
+        expressiveness: selectedVoice?.expressiveness,
+        emotion,
+      });
       if (res.ok && res.audioBase64 && res.mimeType) {
         const audio = new Audio(`data:${res.mimeType};base64,${res.audioBase64}`);
         await audio.play();
