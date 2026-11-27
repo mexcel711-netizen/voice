@@ -97,15 +97,19 @@ export default function LiveVoiceConversation() {
       });
     });
 
-    const unsubTools = adapter.onToolCall((call) => {
+    const unsubTools = adapter.onToolCall(async (call) => {
       if (call.name === 'laptop_command') {
         const cmdType = call.args.command_type as CommandType;
         const params = (call.args.params as Record<string, unknown>) || {};
-        void dispatchCommand(cmdType, params, 'voice', activeSessionId);
+        const command = await dispatchCommand(cmdType, params, 'voice', activeSessionId);
+        if (!command) return { ok: false, message: 'The laptop command could not be queued.' };
+        if (command.status === 'done') return { ok: true, message: 'Laptop command completed.' };
+        if (command.status === 'awaiting_confirmation') return { ok: false, message: 'The laptop command is waiting for your confirmation.' };
+        return { ok: false, message: command.blocked_reason || `Laptop command status: ${command.status}.` };
       } else if (call.name === 'report_emotion') {
         const zEm = (call.args.zara_emotion as EmotionName) || 'caring';
         setCurrentEmotion(zEm);
-        void logEmotion({
+        await logEmotion({
           session_id: activeSessionId,
           detected_user_mood: (call.args.user_mood as EmotionName) ?? 'neutral',
           zara_emotion: zEm,
@@ -113,7 +117,7 @@ export default function LiveVoiceConversation() {
           note: null,
         });
       } else if (call.name === 'save_memory' && settings.auto_learn_enabled) {
-        void addMemory({
+        await addMemory({
           content: String(call.args.content || ''),
           category: (call.args.category as MemoryCategory) || 'personal',
           memory_type: (call.args.memory_type as MemoryType) || 'semantic',
@@ -122,18 +126,20 @@ export default function LiveVoiceConversation() {
           source_session_id: activeSessionId,
         });
       } else if (call.name === 'browser_command') {
-        void chromeBrowserService.execute(call.args as unknown as ChromeBrowserCommand)
-          .then((result) => {
-            setChromeConnected(true);
-            const detail = result.message || 'Chrome action completed.';
-            showToast(detail, 'success');
-          })
-          .catch((error: unknown) => {
-            setChromeConnected(false);
-            showToast(error instanceof Error ? error.message : 'Chrome extension is not connected.', 'warning');
-          });
+        try {
+          const result = await chromeBrowserService.execute(call.args as unknown as ChromeBrowserCommand);
+          setChromeConnected(true);
+          const detail = result.message || 'Chrome action completed.';
+          showToast(detail, 'success');
+          return { ok: true, message: detail };
+        } catch (error) {
+          setChromeConnected(false);
+          const message = error instanceof Error ? error.message : 'Chrome extension is not connected.';
+          showToast(message, 'warning');
+          return { ok: false, message };
+        }
       } else if (call.name === 'create_reminder') {
-        void createReminder({
+        await createReminder({
           kind: (call.args.kind as 'reminder' | 'timer' | 'alarm') || 'reminder',
           title: String(call.args.title || 'Voice Reminder'),
           notes: '',
@@ -145,7 +151,9 @@ export default function LiveVoiceConversation() {
           notify_mode: 'both',
           voice_created: true,
         });
+        return { ok: true, message: 'Reminder saved.' };
       }
+      return;
     });
 
     return () => {
