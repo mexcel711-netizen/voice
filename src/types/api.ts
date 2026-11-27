@@ -23,6 +23,7 @@ export interface LiveChatRequest {
   systemInstruction?: string;
   language?: LanguageMode;
   sandboxPersona?: boolean;
+  toolResults?: Array<{ name: string; ok: boolean; message: string; data?: unknown }>;
 }
 
 export interface LiveChatResponse {
