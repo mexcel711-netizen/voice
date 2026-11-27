@@ -85,7 +85,7 @@ export async function runLiveChat(
       body.systemInstruction ||
         'You are Zara, Boss’s warm, caring bilingual Urdu + English personal voice companion.',
       `Language mode preference: ${body.language || 'urdu_english'}.`,
-      'Return JSON with replyText (primary natural response in requested language script), replyRoman (Roman Urdu transliteration), replyEn (concise English meaning), emotion (one of happy,sad,angry,surprised,shy,laughing,caring,teasing), intensity (0-100 integer), and optional toolCalls array. Tool-call names are laptop_command, browser_command, report_emotion, save_memory, create_reminder, get_schedule. Each item must be {name,argsJson}, where argsJson is a JSON-encoded object. Use browser_command for Chrome tabs, searching, navigating, reading the current page, and scrolling. Never claim a browser action succeeded before the tool result is returned. For browser actions use only the allowlisted action names: list_tabs, open_tab, search, read_page, switch_tab, close_tab, scroll_page.',
+      'Return JSON with replyText (primary natural response in requested language script), replyRoman (Roman Urdu transliteration), replyEn (concise English meaning), emotion (one of happy,sad,angry,surprised,shy,laughing,caring,teasing), intensity (0-100 integer), and optional toolCalls array. Tool-call names are laptop_command, browser_command, youtube_search, report_emotion, save_memory, create_reminder, get_schedule. Each item must be {name,argsJson}, where argsJson is a JSON-encoded object. Use youtube_search with {query,maxResults} for video, tutorial, song, and channel searches. Use browser_command for Chrome tabs, navigating, reading permitted pages, and scrolling. If a YouTube search tool result reports the API key is missing, the client will open YouTube results in Chrome instead. Never claim a browser or YouTube action succeeded before its tool result is returned. For browser actions use only the allowlisted action names: list_tabs, open_tab, search, read_page, switch_tab, close_tab, scroll_page.',
     ];
     if (body.toolResults?.length) {
       sys.push('The client has already executed the requested tools. Do not call any more tools. Use these actual tool results to answer truthfully; never claim an action succeeded if ok=false. Tool results:\n' + JSON.stringify(body.toolResults).slice(0, 10000));
@@ -239,6 +239,20 @@ function mapVoiceForGeminiTts(voiceId?: string): 'Puck' | 'Charon' | 'Kore' | 'F
   return 'Kore';
 }
 
+function elevenLabsEmotionTag(emotion?: Emotion): string {
+  const tags: Record<Emotion, string> = {
+    happy: '[excited]',
+    sad: '[crying]',
+    angry: '[firmly]',
+    surprised: '[curious]',
+    shy: '[whispers]',
+    laughing: '[laughs]',
+    caring: '[warmly]',
+    teasing: '[mischievously]',
+  };
+  return emotion ? tags[emotion] || '' : '';
+}
+
 function toBase64(bytes: Uint8Array): string {
   let binary = '';
   const chunkSize = 0x8000;
@@ -250,7 +264,7 @@ function toBase64(bytes: Uint8Array): string {
 
 async function synthesizeWithElevenLabs(
   env: GatewayEnv,
-  body: { text: string; voiceId?: string; warmth?: number; expressiveness?: number; speed?: number; qualityPreset?: 'realtime' | 'studio' }
+  body: { text: string; voiceId?: string; warmth?: number; expressiveness?: number; speed?: number; emotion?: Emotion; qualityPreset?: 'realtime' | 'studio' }
 ) {
   if (!env.ELEVENLABS_API_KEY) throw new Error('ELEVENLABS_API_KEY is not configured on the server.');
   const voiceId = body.voiceId || env.ELEVENLABS_DEFAULT_VOICE_ID || 'o85TqPN3F4P7dWae2paA';
@@ -262,6 +276,8 @@ async function synthesizeWithElevenLabs(
     ? env.ELEVENLABS_QUALITY_MODEL_ID || 'eleven_v4'
     : env.ELEVENLABS_TTS_MODEL_ID || 'eleven_v4';
   const expressiveness = Math.max(0, Math.min(100, body.expressiveness ?? 84)) / 100;
+  const emotionTag = elevenLabsEmotionTag(body.emotion);
+  const spokenText = emotionTag ? `${emotionTag} ${body.text}` : body.text;
 
   const response = await fetch(
     `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`,
@@ -272,7 +288,7 @@ async function synthesizeWithElevenLabs(
         'xi-api-key': env.ELEVENLABS_API_KEY,
       },
       body: JSON.stringify({
-        text: body.text,
+        text: spokenText,
         model_id: modelId,
         language_code: 'ur',
         voice_settings: {
@@ -301,14 +317,25 @@ async function synthesizeWithElevenLabs(
 
 async function synthesizeWithGemini(
   env: GatewayEnv,
-  body: { text: string; voiceId?: string; warmth?: number }
+  body: { text: string; voiceId?: string; warmth?: number; emotion?: Emotion }
 ) {
   if (!env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY is not configured on the server.');
   const ai = createGeminiClient(env.GEMINI_API_KEY);
   const voiceName = mapVoiceForGeminiTts(body.voiceId);
-  const style = (body.warmth ?? 80) >= 85
-    ? 'Warm, gentle, affectionate bilingual Pakistani Urdu and English companion tone. Speak naturally, with human pacing and subtle emotion.'
+  const moodStyle: Record<Emotion, string> = {
+    happy: 'bright, upbeat and genuinely pleased',
+    sad: 'soft, gentle and compassionate',
+    angry: 'calm, firm and protective without shouting',
+    surprised: 'curious and pleasantly surprised',
+    shy: 'soft-spoken, modest and a little bashful',
+    laughing: 'light-hearted with a natural amused smile',
+    caring: 'warm, reassuring and patient',
+    teasing: 'playfully mischievous, affectionate and respectful',
+  };
+  const warmthStyle = (body.warmth ?? 80) >= 85
+    ? 'Warm, gentle, affectionate bilingual Pakistani Urdu and English companion tone.'
     : 'Clear, expressive, natural conversational Pakistani Urdu and English companion tone.';
+  const style = `${warmthStyle} Delivery: ${moodStyle[body.emotion ?? 'caring']}. Speak naturally with human pacing. Keep romance sweet, consensual and non-explicit.`;
   const response = await ai.models.generateContent({
     model: env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-lite-tts',
     contents: [{ role: 'user', parts: [{ text: body.text, speechMetadata: { style } }] }],
@@ -330,6 +357,7 @@ export async function runTts(
     provider?: 'gemini' | 'elevenlabs';
     warmth?: number;
     expressiveness?: number;
+    emotion?: Emotion;
     speed?: number;
     qualityPreset?: 'realtime' | 'studio';
   }
@@ -360,6 +388,7 @@ export async function runTts(
           expressiveness: body.expressiveness,
           speed: body.speed,
           qualityPreset: body.qualityPreset || 'realtime',
+          emotion: body.emotion,
         });
         return { status: 200, body: audio };
       }
@@ -372,6 +401,7 @@ export async function runTts(
         text,
         voiceId: body.voiceId,
         warmth: body.warmth,
+        emotion: body.emotion,
       });
       return {
         status: 200,

@@ -38,6 +38,18 @@ export const ZARA_FUNCTION_DECLARATIONS = [
     },
   },
   {
+    name: 'youtube_search',
+    description: 'Search YouTube for videos and tutorials. Use this when Boss asks to find a video, tutorial, song, or channel. This tool searches using the configured YouTube Data API and falls back to opening YouTube results in Chrome when the API key is not configured.',
+    parameters: {
+      type: 'OBJECT',
+      properties: {
+        query: { type: 'STRING', description: 'Short YouTube search query' },
+        maxResults: { type: 'INTEGER', description: 'Number of video results, from 1 to 10' },
+      },
+      required: ['query'],
+    },
+  },
+  {
     name: 'report_emotion',
     description:
       'Report the detected mood of the user and Zara current emotional expression so UI mood chip & wave update in realtime.',

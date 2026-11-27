@@ -17,6 +17,7 @@ Copy `.env.example` and configure as needed (never commit secrets):
 
 - `GEMINI_API_KEY`: Server-side Gemini API key (`@google/genai`)
 - `ELEVENLABS_API_KEY`: Optional server-side ElevenLabs TTS key
+- `YOUTUBE_API_KEY`: Optional server-side YouTube Data API v3 key for video search
 - `VITE_SUPABASE_URL` & `VITE_SUPABASE_ANON_KEY`: Optional Supabase project URL & anon key
 - `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `OWNER_EMAIL`: Server-side JWT & owner verification for `/api/*`
 
@@ -26,13 +27,17 @@ Production requests fail closed when Supabase server authentication variables ar
 
 - **Build command:** `npm run build`
 - **Build output directory:** `dist`
-- **Functions directory:** `functions/api/` (`/api/live-session`, `/api/live-chat`, `/api/tts`, `/api/provider-test`)
+- **Functions directory:** `functions/api/` (`/api/live-session`, `/api/live-chat`, `/api/tts`, `/api/provider-test`, `/api/youtube-search`)
 
 ## Premium Urdu voice
 
 The app defaults to the connected ElevenLabs Reva Urdu companion voice (voice ID `o85TqPN3F4P7dWae2paA`) using `eleven_v4` for high-fidelity Urdu conversation. Voice Studio can select another stored voice profile. Set `ELEVENLABS_API_KEY` as a Cloudflare Pages secret; the browser never receives the provider key. If ElevenLabs is unavailable, the server attempts Gemini TTS when `GEMINI_API_KEY` is configured.
 
-`eleven_v4` is used by the HTTP Text-to-Speech endpoint. `eleven_v4_turbo` requires ElevenLabs' separate Text-to-Dialogue WebSocket transport, so it is intentionally not configured as an HTTP TTS model. The `qualityPreset` option currently keeps both conversational and studio speech on the Urdu-capable v4 model.
+`eleven_v4` is used by the HTTP Text-to-Speech endpoint. `eleven_v4_turbo` requires ElevenLabs' separate Text-to-Dialogue WebSocket transport, so it is intentionally not configured as an HTTP TTS model. The `qualityPreset` option currently keeps both conversational and studio speech on the Urdu-capable v4 model. Live replies and the Emotion Studio now pass an emotion cue to the TTS backend. Eleven v4 uses inline audio tags (for example, `[laughs]`, `[whispers]`, and `[mischievously]`) while Gemini TTS receives an emotion-specific delivery description. These cues guide performance; they do not guarantee identical expression on every voice or language.
+
+## YouTube search
+
+Set `YOUTUBE_API_KEY` as an encrypted Cloudflare Pages secret to enable authenticated YouTube Data API v3 video search through `/api/youtube-search`. The key stays on the server. The app also has a no-key fallback: with the Zara Chrome extension installed, a voice YouTube request opens a YouTube results page in Chrome. YouTube's default quota and search limits apply; check the Google Cloud Console quota page before using it heavily.
 
 ## Chrome browser control
 
@@ -44,6 +49,7 @@ Cloudflare Pages builds with `npm run build` into `dist`. The connected Pages pr
 
 - `GEMINI_API_KEY` — optional when Workers AI is available; Gemini fallback and Gemini TTS.
 - `ELEVENLABS_API_KEY` — required to use the selected ElevenLabs voice.
+- `YOUTUBE_API_KEY` — optional; enables actual YouTube search results.
 - `SUPABASE_URL` and `SUPABASE_ANON_KEY` — server-side owner JWT verification.
 - `OWNER_EMAIL` — optional extra owner email restriction.
 

@@ -30,6 +30,24 @@ async function postJson<TReq, TRes>(url: string, body: TReq): Promise<TRes> {
   return data;
 }
 
+export interface YouTubeVideoResult {
+  videoId: string;
+  title: string;
+  description: string;
+  channelTitle: string;
+  publishedAt: string | null;
+  thumbnailUrl: string | null;
+  url: string;
+}
+
+export interface YouTubeSearchResponse {
+  ok: boolean;
+  query?: string;
+  videos?: YouTubeVideoResult[];
+  code?: string;
+  error?: string;
+}
+
 export const apiService = {
   createLiveSession(payload: LiveSessionRequest): Promise<LiveSessionResponse> {
     return postJson<LiveSessionRequest, LiveSessionResponse>('/api/live-session', payload);
@@ -39,6 +57,9 @@ export const apiService = {
   },
   synthesizeSpeech(payload: TtsRequest): Promise<TtsResponse> {
     return postJson<TtsRequest, TtsResponse>('/api/tts', payload);
+  },
+  searchYoutube(payload: { query: string; maxResults?: number }): Promise<YouTubeSearchResponse> {
+    return postJson<typeof payload, YouTubeSearchResponse>('/api/youtube-search', payload);
   },
   testProvider(payload: ProviderTestRequest): Promise<ProviderTestResponse> {
     return postJson<ProviderTestRequest, ProviderTestResponse>('/api/provider-test', payload);

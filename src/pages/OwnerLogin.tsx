@@ -253,7 +253,7 @@ export default function OwnerLogin() {
                       htmlFor="owner-email"
                       className="block text-label-sm text-on-surface-variant mb-1.5"
                     >
-                      Owner Email
+                      Owner Email (Gmail address is okay)
                     </label>
                     <input
                       id="owner-email"
@@ -261,7 +261,7 @@ export default function OwnerLogin() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="owner@domain.com"
+                      placeholder="your-email@gmail.com"
                       className="zara-input w-full px-4 py-3 text-body-sm"
                     />
                   </div>
@@ -270,7 +270,7 @@ export default function OwnerLogin() {
                       htmlFor="owner-password"
                       className="block text-label-sm text-on-surface-variant mb-1.5"
                     >
-                      Master Password
+                      Zara Account Password (not your Gmail password)
                     </label>
                     <input
                       id="owner-password"
@@ -278,7 +278,7 @@ export default function OwnerLogin() {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder="Enter master password"
+                      placeholder="Enter your Zara account password"
                       className="zara-input w-full px-4 py-3 text-body-sm"
                     />
                   </div>

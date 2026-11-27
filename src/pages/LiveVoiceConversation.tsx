@@ -9,6 +9,7 @@ import { containsUrduScript } from '../lib/rtl';
 import { useToast } from '../context/ToastContext';
 import type { CommandType, EmotionName, MemoryCategory, MemoryType } from '../types/db';
 import { chromeBrowserService, type ChromeBrowserCommand } from '../services/chrome.service';
+import { apiService } from '../services/api.service';
 
 export default function LiveVoiceConversation() {
   const {
@@ -125,6 +126,38 @@ export default function LiveVoiceConversation() {
           source: 'conversation',
           source_session_id: activeSessionId,
         });
+      } else if (call.name === 'youtube_search') {
+        const query = String(call.args.query || '').trim().slice(0, 180);
+        if (!query) return { ok: false, message: 'Please provide a YouTube search query.' };
+        try {
+          const result = await apiService.searchYoutube({
+            query,
+            maxResults: Number(call.args.maxResults ?? 5),
+          });
+          if (result.ok && result.videos) {
+            return {
+              ok: true,
+              message: result.videos.length
+                ? `Found ${result.videos.length} YouTube videos for "${query}".`
+                : `No YouTube videos found for "${query}".`,
+              data: result.videos,
+            };
+          }
+          if (result.code === 'YOUTUBE_API_KEY_MISSING') {
+            const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+            const opened = await chromeBrowserService.execute({ action: 'open_tab', url });
+            setChromeConnected(true);
+            return {
+              ok: true,
+              message: 'YouTube Data API key is not configured yet, so I opened the YouTube search in Chrome instead.',
+              data: { url, browserResult: opened.data },
+            };
+          }
+          return { ok: false, message: result.error || 'YouTube search could not be completed.' };
+        } catch (error) {
+          const message = error instanceof Error ? error.message : 'YouTube search failed.';
+          return { ok: false, message };
+        }
       } else if (call.name === 'browser_command') {
         try {
           const result = await chromeBrowserService.execute(call.args as unknown as ChromeBrowserCommand);

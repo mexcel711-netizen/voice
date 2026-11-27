@@ -305,7 +305,7 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
           : this.language === 'english'
             ? (finalReply.replyEn || finalReplyText)
             : (finalReply.replyRoman || finalReplyText);
-      await this.playAssistantVoice(spokenText);
+      await this.playAssistantVoice(spokenText, finalReply.emotion);
 
       this.setState(this.muted ? 'muted' : 'listening');
     } catch (err) {
@@ -316,7 +316,7 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
     }
   }
 
-  private async playAssistantVoice(text: string) {
+  private async playAssistantVoice(text: string, emotion?: EmotionName) {
     try {
       const tts = await apiService.synthesizeSpeech({
         text: text.slice(0, 2000),
@@ -325,6 +325,7 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
         speed: this.voiceProfile.speed,
         warmth: this.voiceProfile.warmth,
         expressiveness: this.voiceProfile.expressiveness,
+        emotion,
       });
       if (tts.ok && tts.audioBase64 && tts.mimeType) {
         await new Promise<void>((resolve) => {
