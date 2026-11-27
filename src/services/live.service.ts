@@ -27,6 +27,7 @@ export interface LiveToolCallEvent {
 export interface LiveToolResultEvent {
   ok: boolean;
   message: string;
+  data?: unknown;
 }
 
 export interface LiveVoiceAdapter {
@@ -261,20 +262,39 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
           return results.filter((result): result is LiveToolResultEvent => Boolean(result));
         })
       );
-      const failedToolResults = toolResults.flat().filter((result) => !result.ok);
-      const finalReplyText = failedToolResults.length
-        ? `${reply.replyText}\n\nI could not complete that action: ${failedToolResults.map((result) => result.message).join('; ')}`
-        : reply.replyText;
+      const flatToolResults = toolResults.flat();
+      let finalReply = reply;
+      if (flatToolResults.length > 0) {
+        try {
+          const followUp = await apiService.sendLiveChat({
+            message: 'Give the user a concise final answer based only on the tool results below. Do not request or execute any more tools.',
+            history: [
+              ...history,
+              { role: 'user', text: trimmed },
+              { role: 'assistant', text: reply.replyText },
+            ],
+            sessionId: this.sessionId,
+            systemInstruction: this.systemInstruction,
+            language: this.language,
+            toolResults: flatToolResults,
+          });
+          if (followUp.ok) finalReply = followUp;
+        } catch {
+          // Keep the original model response, but never claim tool success without a result.
+        }
+      }
+      const failedToolResults = flatToolResults.filter((result) => !result.ok);
+      const finalReplyText = finalReply.replyText;
 
       this.setState('speaking');
       this.transcriptListeners.forEach((cb) =>
         cb({
           role: 'assistant',
           text: finalReplyText,
-          roman: reply.replyRoman,
-          english: reply.replyEn,
-          emotion: reply.emotion,
-          intensity: reply.intensity,
+          roman: finalReply.replyRoman,
+          english: finalReply.replyEn,
+          emotion: finalReply.emotion,
+          intensity: finalReply.intensity,
         })
       );
 
@@ -284,8 +304,8 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
         : this.language === 'urdu'
           ? finalReplyText
           : this.language === 'english'
-            ? (reply.replyEn || finalReplyText)
-            : (reply.replyRoman || finalReplyText);
+            ? (finalReply.replyEn || finalReplyText)
+            : (finalReply.replyRoman || finalReplyText);
       await this.playAssistantVoice(spokenText);
 
       this.setState(this.muted ? 'muted' : 'listening');
