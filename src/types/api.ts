@@ -47,6 +47,7 @@ export interface TtsRequest {
   pitchSemitones?: number;
   warmth?: number;
   expressiveness?: number;
+  qualityPreset?: 'realtime' | 'studio';
 }
 
 export interface TtsResponse {
@@ -57,6 +58,9 @@ export interface TtsResponse {
   romanPreview?: string;
   englishSense?: string;
   error?: string;
+  warning?: string;
+  modelUsed?: string;
+  voiceId?: string;
 }
 
 export interface ProviderTestRequest {
