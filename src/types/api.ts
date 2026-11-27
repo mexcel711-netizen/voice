@@ -48,6 +48,7 @@ export interface TtsRequest {
   pitchSemitones?: number;
   warmth?: number;
   expressiveness?: number;
+  emotion?: EmotionName;
   qualityPreset?: 'realtime' | 'studio';
 }
 
