@@ -29,6 +29,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     provider?: 'gemini' | 'elevenlabs';
     warmth?: number;
     expressiveness?: number;
+    emotion?: 'happy' | 'sad' | 'angry' | 'surprised' | 'shy' | 'laughing' | 'caring' | 'teasing';
     speed?: number;
     qualityPreset?: 'realtime' | 'studio';
   };
