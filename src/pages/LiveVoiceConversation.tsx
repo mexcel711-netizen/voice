@@ -103,9 +103,9 @@ export default function LiveVoiceConversation() {
         const params = (call.args.params as Record<string, unknown>) || {};
         const command = await dispatchCommand(cmdType, params, 'voice', activeSessionId);
         if (!command) return { ok: false, message: 'The laptop command could not be queued.' };
-        if (command.status === 'done') return { ok: true, message: 'Laptop command completed.' };
-        if (command.status === 'awaiting_confirmation') return { ok: false, message: 'The laptop command is waiting for your confirmation.' };
-        return { ok: false, message: command.blocked_reason || `Laptop command status: ${command.status}.` };
+        if (command.status === 'done') return { ok: true, message: 'Laptop command completed.', data: command };
+        if (command.status === 'awaiting_confirmation') return { ok: false, message: 'The laptop command is waiting for your confirmation.', data: command };
+        return { ok: false, message: command.blocked_reason || `Laptop command status: ${command.status}.`, data: command };
       } else if (call.name === 'report_emotion') {
         const zEm = (call.args.zara_emotion as EmotionName) || 'caring';
         setCurrentEmotion(zEm);
@@ -131,7 +131,7 @@ export default function LiveVoiceConversation() {
           setChromeConnected(true);
           const detail = result.message || 'Chrome action completed.';
           showToast(detail, 'success');
-          return { ok: true, message: detail };
+          return { ok: true, message: detail, data: result.data };
         } catch (error) {
           setChromeConnected(false);
           const message = error instanceof Error ? error.message : 'Chrome extension is not connected.';
