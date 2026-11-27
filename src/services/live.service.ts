@@ -283,7 +283,6 @@ export class ZaraLiveAdapter implements LiveVoiceAdapter {
           // Keep the original model response, but never claim tool success without a result.
         }
       }
-      const failedToolResults = flatToolResults.filter((result) => !result.ok);
       const finalReplyText = finalReply.replyText;
 
       this.setState('speaking');
